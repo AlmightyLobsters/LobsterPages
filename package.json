@@ -1,0 +1,26 @@
+{
+  "name": "lobsterpages",
+  "version": "1.0.0",
+  "description": "Blog style web page for the team Almighty Lobsters",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlmightyLobsters/LobsterPages.git"
+  },
+  "keywords": [
+    "web",
+    "blog",
+    "cansat",
+    "react",
+    "lobsters"
+  ],
+  "author": "James Bohacek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlmightyLobsters/LobsterPages/issues"
+  },
+  "homepage": "https://github.com/AlmightyLobsters/LobsterPages#readme"
+}
