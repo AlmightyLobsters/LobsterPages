@@ -9,5 +9,6 @@ This being the front-end part of the project (as of *now*).
 * [Babel] (https://github.com/babel/babel)
 
 ### TODOs
- - [ ] establish file structure
+ - [x] establish the file structure (*more or less*)
  - [ ] design the whole thing
+ - [ ] implementation of the back-end features
