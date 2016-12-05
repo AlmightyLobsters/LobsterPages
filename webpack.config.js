@@ -1,7 +1,5 @@
 var webpack = require('webpack');
 var resolve = require('path').resolve;
-var join = require('path').join;
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     context: resolve(__dirname, 'src'),
@@ -46,7 +44,8 @@ if (process.env.NODE_ENV !== 'production') {
     )
 } else {
     module.exports.plugins.unshift(
-        new ExtractTextPlugin('main.css')
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin()
     );
-    module.exports.module.loaders[1].loader = ExtractTextPlugin.extract('css!sass');
 }
