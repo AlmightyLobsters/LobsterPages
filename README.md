@@ -10,6 +10,7 @@ This being the front-end part of the project (as of *now*).
 * [Webpack](https://webpack.github.io/)
 * [Babel](https://github.com/babel/babel)
 * [Sass](http://sass-lang.com/)
+* [ESLint](http://eslint.org/)
 
 ## How to run
 
