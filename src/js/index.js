@@ -3,23 +3,14 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { LobsterRoutes } from './routes';
 
-if (process.env.NODE_ENV !== 'production') {
-	require('../scss/main.scss');
-} else {
-	var style = document.createElement('link');
-	style.rel="stylesheet";
-	style.href="main.css";
-	document.head.appendChild(style);
-}
-
-
+require('../scss/main.scss');
 
 const renderPage = () =>
 	render(
 		<AppContainer>
 			<LobsterRoutes />
 		</AppContainer>,
-		document.getElementById('app')
+		document.getElementById('app'),
 );
 
 renderPage();
