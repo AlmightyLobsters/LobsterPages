@@ -25,7 +25,7 @@ This being the front-end part of the project (as of *now*).
 * [ ] design the whole thing
 * [ ] implementation of the back-end features
 
-## Licence
+## License
 
 Copyright &copy; 2016, The Almighty Lobsters
 
