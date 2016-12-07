@@ -1,4 +1,4 @@
 /node_modules
-/build/**/*.js
-/build/**/*.css
+/build
+!/build/index.html
 /.vscode
