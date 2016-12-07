@@ -21,6 +21,10 @@ module.exports = {
 				loader: 'style!css!sass',
 				exclude: /node_modules/,
 			},
+			{
+				test: /\.jpg$|\.png$|\.svg$/,
+				loader: 'file-loader?name=[name].[ext]',
+			},
 		],
 	},
 	plugins: [
