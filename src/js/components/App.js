@@ -4,7 +4,10 @@ import { NavBar } from "./NavBar";
 export const App = ({ children }) => (
 	<div className="appRoot">
 		<NavBar />
-		<h1>Application!</h1>
+		<header>
+			<h1>Almighty Lobsters</h1>
+			<h2>CanSat Competition</h2>
+		</header>
 		{children}
 	</div>
 )
