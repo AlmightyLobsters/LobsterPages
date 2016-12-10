@@ -18,8 +18,8 @@
     "react",
     "lobsters"
   ],
-  "author": "Bohacek, Stepancik",
-  "license": "ISC",
+  "author": "Bohacek <jamesbohacek@outlook.com>, Stepancik <vojtechstepancik@outlook.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/AlmightyLobsters/LobsterPages/issues"
   },
