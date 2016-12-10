@@ -1,0 +1,6 @@
+{
+  "name": "Lobsterpages",
+  "tagline": "Webpage covering the exploits and andvances of the team The Almighty Lobsters through the CanSat competition.",
+  "body": "# LobsterPages\r\n\r\n[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE.md)\r\n\r\n<a href=\"https://github.com/AlmightyLobsters\"><img src=\"https://github.com/AlmightyLobsters/LobsterPages/tree/master/src/assets/imgs/logoRed.png\" alt=\"Almighty Lobsters Logo\" width=\"80\" height=\"80\" align=\"right\"></a>\r\n\r\nProject of a webpage covering the exploits and advances of the team the **Almighty Lobsters** through the [CanSat competition](http://www.esero.scientica.cz/cansat).\r\nThis being the front-end part of the project (as of *now*).\r\n\r\n## Technologies used\r\n\r\n* [React.js](https://facebook.github.io/react/)\r\n* [React-router](https://github.com/ReactTraining/react-router)\r\n* [Webpack](https://webpack.github.io/)\r\n* [Babel](https://github.com/babel/babel)\r\n* [Sass](http://sass-lang.com/)\r\n* [ESLint](http://eslint.org/)\r\n\r\n## How to run\r\n\r\n`yarn` to install packages <br>\r\n`yarn start` to spin up the hot-reloading webpack-dev-server <br>\r\n`yarn run build` to build the project and get a static web page",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
