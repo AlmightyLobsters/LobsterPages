@@ -1,0 +1,49 @@
+$navHeight: 75px;
+$navTextSize: 1.2em;
+
+nav {
+	display: block;
+	background: #333;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: $navHeight;
+
+	img {
+		width: $navHeight - 10px;
+		height: auto;
+		margin: 5px;
+	}
+
+	ul {
+		list-style: none;
+		float: right;
+		font-size: $navTextSize;
+		margin-top: calc((75px - 1.2em) / 2);
+		margin-bottom: calc((75px - 1.2em) / 2);
+		padding-right: 5vw;
+
+
+		li {
+			display: inline-block;
+			padding-left: 1.25vw;
+			padding-right: 1.25vw;
+			padding-bottom: 0.3em;
+			color: white;
+			text-align: center;
+
+			&:hover {
+				border-bottom: 4px solid red;
+			}
+
+			a {
+				text-decoration: none;
+				
+				&:visited {
+					color: white;
+				}
+			}
+		}
+	}
+}

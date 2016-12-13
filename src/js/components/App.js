@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavBar } from "./NavBar";
-const logo = require('../../assets/imgs/logoRed.png');
+
+import logo from '../../assets/imgs/logoRed.png';
+require('../../scss/App.scss');
 
 export const App = ({ children }) => (
 	<div className="appRoot">
