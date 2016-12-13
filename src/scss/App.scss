@@ -22,9 +22,15 @@ header {
 }
 
 img#logo {
-	width: 5vw;
+	max-width: 100%;
 	height: auto;
 	float: left;
 	margin: 5px;
 	margin-right: 15px;
+}
+
+main {
+	max-width: 62.5rem;
+	border: thin #777 solid;
+	padding: 2em;
 }
