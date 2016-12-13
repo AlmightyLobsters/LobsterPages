@@ -5,7 +5,8 @@
   "main": "script.js",
   "scripts": {
     "start": "webpack-dev-server --hot --progress --colors --content-base ./build",
-    "build": "cross-env NODE_ENV=production webpack --progress --colors"
+    "build-local": "cross-env NODE_ENV=production webpack --progress --colors",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",

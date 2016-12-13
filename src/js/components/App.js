@@ -5,7 +5,7 @@ import logo from '../../assets/imgs/logoRed.png';
 require('../../scss/App.scss');
 
 export const App = ({ children }) => (
-	<div className="appRoot">
+	<div className="app">
 		<NavBar />
 		<header>
 			<h1>Almighty Lobsters</h1>

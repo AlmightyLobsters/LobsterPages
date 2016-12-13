@@ -1,7 +1,7 @@
 $navHeight: 75px;
 $navTextSize: 1.2em;
 
-nav {
+nav.navbar {
 	display: block;
 	background: #333;
 	position: absolute;
@@ -12,7 +12,7 @@ nav {
 
 	img {
 		width: $navHeight - 10px;
-		height: auto;
+		height: $navHeight - 10px;
 		margin: 5px;
 	}
 
