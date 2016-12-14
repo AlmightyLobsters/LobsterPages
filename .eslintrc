@@ -1,81 +1,179 @@
 {
-    "parser": "babel-eslint",
-    "env": {
-        "browser": true,
-        "node": true
-    },
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
-    "settings": {
-        "react": {
-            "pragma": "React",
-            "version": "15.0"
-        }
-    },
-    "plugins": [
-        "import",
-        "react"
-    ],
-    "rules": {
-        "indent": [
-            "error",
-            "tab",
-            {
-                "SwitchCase": 1,
-                "MemberExpression": 1,
-                "outerIIFEBody": 1
-            }
-        ],
-        "jsx-a11y/anchor-has-content" : 0,
-        "arrow-parens": 0,
-        "linebreak-style": [
-            "warn",
-            "windows"
-        ],
-        "no-unused-vars": [
-            "error",
-            {
-                "args": "none"
-            }
-        ],
-        "no-tabs": "off",
-        "no-mixed-spaces-and-tabs": "error",
-        "no-continue": 0,
-        "no-console": 0,
-        "no-plusplus": 0,
-        "consistent-return": 1,
-        "max-len": [
-            "warn",
-            120,
-            {
-                "ignorePattern": ""
-            }
-        ],
-        "import/no-extraneous-dependencies": [
-            "error",
-            {
-                "devDependencies": true
-            }
-        ],
-        "react/prefer-stateless-function": "warn",
-        "react/jsx-uses-react": 1,
-        "react/jsx-uses-vars": 1,
-        "react/jsx-filename-extension": [
-            "error",
-            {
-                "extensions": [
-                    ".js",
-                    ".jsx"
-                ]
-            }
-        ],
-        "react/jsx-indent": [
-            "error",
-            "tab"
-        ],
-        "react/react-in-jsx-scope": "error"
-    }
+	"parser": "babel-eslint",
+	"env": {
+		"browser": true,
+		"node": true
+	},
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"settings": {
+		"react": {
+			"pragma": "React",
+			"version": "15.0"
+		}
+	},
+	"plugins": [
+		"import",
+		"react"
+	],
+	"rules": {
+		// Errors
+		"no-await-in-loop": "warn",
+		"no-cond-assign": "error",
+		"no-console": "warn",
+		"no-constant-condition": "warn",
+		"no-dupe-args": "error",
+		"no-dupe-class-members": "error",
+		"no-dupe-keys": "error",
+		"no-duplicate-case": "error",
+		"no-empty-character-class": "warn",
+		"no-empty": "off",
+		"no-ex-assign": "error",
+		"no-extra-boolean-cast": "warn",
+		"no-extra-parens": "off",
+		"no-extra-semi": "warn",
+		"no-func-assign": "error",
+		"no-inner-declarations": "warn",
+		"no-invalid-regexp": "error",
+		"no-irregular-whitespace": "error",
+		"no-obj-calls": "error",
+		"no-regex-spaces": "warn",
+		"no-sparse-arrays": "warn",
+		"no-template-curly-in-string": "warn",
+		"no-unexpected-multiline": "warn",
+		"no-unreachable": "error",
+		"no-unsafe-finally": "off",
+		"no-unsafe-negation": "warn",
+		// Best Practices
+		"accessor-pairs": [
+			"error",
+			{
+				"getWithoutSet": true
+			}
+		],
+		"array-callback-return": "warn",
+		"block-scoped-var": "error",
+		"class-methods-use-this": "warn",
+		"complexity": "off",
+		"consistent-return": "warn",
+		"curly": [
+			"warn",
+			"multi"
+		],
+		"default-case": "off",
+		"dot-location": [
+			"error",
+			"property"
+		],
+		"dot-notation": "error",
+		"eqeqeq": "warn",
+		"guard-for-in": "error",
+		"no-alert": "warn",
+		"no-caller": "error",
+		"no-case-declarations": "off",
+		"no-div-regex": "off",
+		"no-else-return": "warn",
+		"no-empty-function": "warn",
+		"no-empty-pattern": "error",
+		"no-eq-null": "error",
+		"no-eval": "error",
+		"no-extend-native": "error",
+		"no-extra-bind": "error",
+		"no-extra-label": "warn",
+		"no-fallthrough": "error",
+		"no-floating-decimal": "error",
+		"no-global-assign": "error",
+		"no-implicit-coercion": [
+			"warn",
+			{
+				"boolean": false
+			}
+		],
+		"no-implicit-globals": "off",
+		"no-implied-eval": "error",
+		"no-invalid-this": "error",
+		"no-iterator": "error",
+		"no-labels": [
+			"warn",
+			{
+				"allowLoop": true
+			}
+		],
+		"no-lone-blocks": "error",
+		"no-loop-func": "error",
+		// Variables
+		// Stylistic
+		// ES6
+		// React
+		// JSX
+		// Import
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1,
+				"MemberExpression": 1,
+				"outerIIFEBody": 1
+			}
+		],
+		"brace-style": [
+			"error",
+			"stroustrup",
+			{
+				"allowSingleLine": true
+			}
+		],
+		"block-spacing": [
+			"error",
+			"always"
+		],
+		"arrow-parens": 0,
+		"linebreak-style": [
+			"warn",
+			"windows"
+		],
+		"no-unused-vars": [
+			"error",
+			{
+				"args": "none"
+			}
+		],
+		"no-tabs": "off",
+		"no-mixed-spaces-and-tabs": "error",
+		"no-continue": 0,
+		"no-plusplus": 0,
+		"max-len": [
+			"warn",
+			120,
+			{
+				"ignorePattern": ""
+			}
+		],
+		"import/no-extraneous-dependencies": [
+			"error",
+			{
+				"devDependencies": true
+			}
+		],
+		"react/prefer-stateless-function": "warn",
+		"react/jsx-uses-react": 1,
+		"react/jsx-uses-vars": 1,
+		"react/jsx-filename-extension": [
+			"error",
+			{
+				"extensions": [
+					".js",
+					".jsx"
+				]
+			}
+		],
+		"react/jsx-indent": [
+			"error",
+			"tab"
+		],
+		"react/react-in-jsx-scope": "error"
+	}
 }

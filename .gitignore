@@ -2,3 +2,4 @@
 /build
 !/build/index.html
 /.vscode
+**/*.log
