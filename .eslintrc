@@ -17,8 +17,14 @@
 	},
 	"plugins": [
 		"import",
-		"react"
+		"react",
+		"html"
 	],
+	// "eslint.validate": [
+	// 	"javascript",
+	// 	"javascriptreact",
+	// 	"html"
+	// ],
 	"rules": {
 		// Errors
 		"no-await-in-loop": "warn",
