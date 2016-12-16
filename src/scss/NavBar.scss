@@ -1,5 +1,5 @@
-$navHeight: 75px;
-$navTextSize: 1.2em;
+$navHeight: 50px;
+$navTextSize: 1em;
 
 nav.navbar {
 	display: block;
@@ -11,17 +11,17 @@ nav.navbar {
 	height: $navHeight;
 
 	img {
-		width: $navHeight - 10px;
+		width: $navHeight - 20px;
 		height: auto;
-		margin: 5px;
+		margin: 10px;
 	}
 
 	ul {
 		list-style: none;
 		float: right;
 		font-size: $navTextSize;
-		margin-top: calc((75px - 1.2em) / 2);
-		margin-bottom: calc((75px - 1.2em) / 2);
+		margin-top: calc(($navHeight - 1.2em) / 2);
+		margin-bottom: calc(($navHeight - 1.2em) / 2);
 		padding-right: 5vw;
 
 

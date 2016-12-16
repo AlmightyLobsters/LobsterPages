@@ -1,0 +1,50 @@
+$font_folder: '/src/assets/fonts/';
+
+@font-face {
+    font-family: 'Lato';
+    src: url($font_folder + 'latoweb-regular-webfont.woff2') format('woff2'),
+         url($font_folder + 'latoweb-regular-webfont.woff') format('woff'),
+         url($font_folder + 'origin/latoweb-regular.ttf') format('true-type');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'Novecento_sans_bold';
+    src: url($font_folder + 'novecentosanswide-bold-webfont.woff2') format('woff2'),
+         url($font_folder + 'novecentosanswide-bold-webfont.woff') format('woff'),
+         url($font_folder + 'origin/novecentosanswide-bold.otf') format('open-type');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'Novecento_sans_light';
+    src: url($font_folder + 'novecentosanswide-book-webfont.woff2') format('woff2'),
+         url($font_folder + 'novecentosanswide-book-webfont.woff') format('woff'),
+         url($font_folder + 'origin/novecentosanswide-book.otf') format('open-type');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'Novecento_slab_normal';
+    src: url($font_folder + 'novecentoslabwide-normal-webfont.woff2') format('woff2'),
+         url($font_folder + 'novecentoslabwide-normal-webfont.woff') format('woff'),
+         url($font_folder + 'origin/novecentoslabwide-normal.otf') format('open-type');
+    font-weight: normal;
+    font-style: normal;
+
+}
