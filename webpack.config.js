@@ -46,10 +46,15 @@ if (process.env.NODE_ENV !== 'production') {
 	module.exports.plugins.unshift(
 		new webpack.NamedModulesPlugin()
 	);
-} else {
+}
+else
 	module.exports.plugins.unshift(
 		new webpack.optimize.DedupePlugin(),
+		new webpack.DefinePlugin({
+			'process.env': {
+				NODE_ENV: JSON.stringify('production')
+			}
+		}),
 		new webpack.optimize.UglifyJsPlugin(),
 		new webpack.optimize.OccurrenceOrderPlugin()
 	);
-}
