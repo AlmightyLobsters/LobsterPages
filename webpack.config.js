@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const resolve = require('path').resolve;
 
 module.exports = {
@@ -57,6 +58,7 @@ else {
 			'react-router'
 		]
 	}
+	module.exports.module.loaders[1].loader = ExtractTextPlugin.extract('css!sass');
 	module.exports.plugins.unshift(
 		new webpack.optimize.DedupePlugin(),
 		new webpack.DefinePlugin({
@@ -66,6 +68,7 @@ else {
 		}),
 		new webpack.optimize.CommonsChunkPlugin('vendors', 'vendor.bundle.js'),
 		new webpack.optimize.UglifyJsPlugin(),
-		new webpack.optimize.OccurrenceOrderPlugin()
+		new webpack.optimize.OccurrenceOrderPlugin(),
+		new ExtractTextPlugin('style.css')
 	);
 }
