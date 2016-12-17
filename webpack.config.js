@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanPlugin = require('clean-webpack-plugin');
 const resolve = require('path').resolve;
 
 module.exports = {
@@ -82,15 +83,18 @@ else {
 				NODE_ENV: JSON.stringify('production')
 			}
 		}),
+		new CleanPlugin(['build'], {
+			exclude: ['index.html']
+		}),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'vendors',
 			filename: 'vendor.bundle.js'
 		}),
-		new webpack.optimize.UglifyJsPlugin(),
-		new webpack.optimize.OccurrenceOrderPlugin(),
 		new ExtractTextPlugin({
 			filename: 'style.css',
 			allChunks: true,
-		})
+		}),
+		new webpack.optimize.UglifyJsPlugin(),
+		new webpack.optimize.OccurrenceOrderPlugin()
 	);
 }
