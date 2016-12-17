@@ -4,6 +4,11 @@ require('../../scss/Articles.scss');
 
 export const Articles = _ => (
 	<div className="articles">
-		<h3>Articles</h3>
+		<section className="hero">
+			<header>
+				<h1>Articles</h1>
+				<h2>A <b>sassy</b> subtitle</h2>
+			</header>
+		</section>
 	</div>
 )
