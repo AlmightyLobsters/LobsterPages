@@ -47,7 +47,16 @@ if (process.env.NODE_ENV !== 'production') {
 		new webpack.NamedModulesPlugin()
 	);
 }
-else
+else {
+	module.exports.entry = {
+		app: module.exports.entry,
+		vendors: [
+			'react',
+			'react-dom',
+			'react-http-request',
+			'react-router'
+		]
+	}
 	module.exports.plugins.unshift(
 		new webpack.optimize.DedupePlugin(),
 		new webpack.DefinePlugin({
@@ -55,6 +64,8 @@ else
 				NODE_ENV: JSON.stringify('production')
 			}
 		}),
+		new webpack.optimize.CommonsChunkPlugin('vendors', 'vendor.bundle.js'),
 		new webpack.optimize.UglifyJsPlugin(),
 		new webpack.optimize.OccurrenceOrderPlugin()
 	);
+}
