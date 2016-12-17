@@ -11,18 +11,21 @@ html {
 }
 
 .hero {
-	width: 100vw;
+	width: 98.95vw;
 	height: 100vh;
 	border: thin #333 solid;
-	background: url('../assets/imgs/DSC_5142.jpg') center;
-	background-size: 100% 100%;
+	background: url('../assets/imgs/DSC_5142.jpg') center no-repeat;
+	background-size: cover;
+	text-align: center;
 
 	header {
+		margin-top: 50px;
 		color: white;
-		position: absolute;
-		left: 50vw;
-		top: 50vh;
-		border: thin #222 solid;
+		// border: thin #fff solid;
+
+		h2 {
+			margin-top: -5rem;
+		}
 	}
 }
 
@@ -42,7 +45,7 @@ h2 {
 	font-size: 50px;
 
 	b {
-		font-weight: bold;
+		text-decoration: underline;
 	}
 }
 

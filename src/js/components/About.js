@@ -10,5 +10,10 @@ export const About = _ => (
 				<h2>We are <b>lobsters</b></h2>
 			</header>
 		</section>
+		<section className="about">
+			<article>
+				<h3>Who we are</h3>
+			</article>
+		</section>
 	</div>
 );
