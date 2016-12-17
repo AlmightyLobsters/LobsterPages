@@ -3,10 +3,25 @@
 
 html {
 	box-sizing: border-box;
+	height: 100%;
 }
 
 *, *:before, *:after {
 	box-sizing: inherit;
+}
+
+.hero {
+	width: 100vw;
+	height: 100vh;
+	border: thin #333 solid;
+
+	header {
+		color: white;
+		position: absolute;
+		left: 50vw;
+		top: 50vh;
+		border: thin #222 solid;
+	}
 }
 
 body {
@@ -14,43 +29,22 @@ body {
 	font-family: Lato;
 }
 
-header {
-	padding: 10px;
-	margin: 10px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-
-	h2 {
-	margin-top: -20px;
-	}
-}
-
-img#logo {
-	max-width: 100%;
-	height: auto;
-	float: left;
-	margin: 5px;
-	margin-right: 15px;
-}
-
-main {
-	max-width: 62.5rem;
-	border: thin #777 solid;
-	padding: 2em;
-}
-
 h1 {
 	font-family: Novecento_sans_bold;
-	font-size: 3em;
+	font-size: 200px;
 }
 
 h2 {
 	font-family: Novecento_slab_normal;
 	font-style: italic;
+	font-size: 50px;
+
+	b {
+		font-weight: bold;
+	}
 }
 
 h3 {
 	font-family: Novecento_sans_light;
-	font-size: 2em;
+	font-size: 100px;
 }
