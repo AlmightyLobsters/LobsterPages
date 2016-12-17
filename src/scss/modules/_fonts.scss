@@ -1,22 +1,25 @@
-$font_folder: '../assets/fonts/';
+$font_folder: '~assets/fonts/';
+$lato_name: 'LatoWeb-Regular';
+$nove_name: 'Novecentoslabwide-Regular';
+$nove_light_name: 'Novecentosanswide-Book';
+$nove_bold_name: 'Novecentosanswide-Bold';
 
 @font-face {
     font-family: 'Lato';
-    src: url($font_folder + 'LatoWeb-Regular.ttf');
-
+	src: url($font_folder+'ttf/'+$lato_name+'.ttf') format('ttf'), url($font_folder+'woff/'+$lato_name+'.woff') format('woff'), url($font_folder+'woff2/'+$lato_name+'.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: 'Novecento_sans_bold';
-    src: url($font_folder + 'Novecentosanswide-Bold.otf');
+    font-family: 'Novecento';
+    src: url($font_folder+'otf/'+$nove_name+'.otf') format('otf'), url($font_folder+'woff/'+$nove_name+'.woff') format('woff'), url($font_folder+'woff2/'+$nove_name+'.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: 'Novecento_sans_light';
-    src: url($font_folder + 'Novecentosanswide-Book.otf');
+    font-family: 'Novecento Sans Light';
+    src: url($font_folder+'otf/'+$nove_light_name+'.otf') format('otf'), url($font_folder+'woff/'+$nove_light_name+'.woff') format('woff'), url($font_folder+'woff2/'+$nove_light_name+'.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: 'Novecento_slab_normal';
-    src: url($font_folder + 'Novecentoslabwide-Normal.otf');
+    font-family: 'Novecento Sans Bold';
+    src: url($font_folder+'otf/'+$nove_bold_name+'.otf') format('otf'), url($font_folder+'woff/'+$nove_bold_name+'.woff') format('woff'), url($font_folder+'woff2/'+$nove_bold_name+'.woff2') format('woff2');
 }

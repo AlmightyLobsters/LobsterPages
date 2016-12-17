@@ -22,15 +22,20 @@ module.exports = {
 				exclude: /node_modules/,
 			},
 			{
-				test: /\.jpg$|\.png$|\.svg$|\.otf$|\.ttf$|\.woff$/,
+				test: /\.(png|jpg|otf|ttf|woff(2)?)$/,
 				use: [{
 					loader: 'file-loader',
 					query: {
-						name: '[path][name].[ext]'
-					}
-				}]
+						name: '[path][name].[ext]',
+					},
+				}],
 			},
 		],
+	},
+	resolve: {
+		alias: {
+			assets: resolve(__dirname, 'src/assets')
+		},
 	},
 	plugins: [
 	],
@@ -65,7 +70,7 @@ else {
 			'react',
 			'react-dom',
 			'react-http-request',
-			'react-router'
+			'react-router',
 		]
 	};
 	module.exports.module.rules[1].loader = ExtractTextPlugin.extract({
@@ -85,7 +90,7 @@ else {
 		new webpack.optimize.OccurrenceOrderPlugin(),
 		new ExtractTextPlugin({
 			filename: 'style.css',
-			allChunks: true
+			allChunks: true,
 		})
 	);
 }
