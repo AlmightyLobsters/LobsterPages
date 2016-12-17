@@ -11,20 +11,24 @@ module.exports = {
 		publicPath: '',
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.jsx?$/,
-				loader: 'babel',
+				use: 'babel-loader',
 				exclude: /node_modules/,
 			},
 			{
 				test: /\.s[ac]ss$/,
-				loader: 'style!css!sass',
 				exclude: /node_modules/,
 			},
 			{
-				test: /\.jpg$|\.png$|\.svg$|\.otf$|\.ttf$/,
-				loader: 'file-loader?name=[path][name].[ext]',
+				test: /\.jpg$|\.png$|\.svg$|\.otf$|\.ttf$|\.woff$/,
+				use: [{
+					loader: 'file-loader',
+					query: {
+						name: '[path][name].[ext]'
+					}
+				}]
 			},
 		],
 	},
@@ -34,6 +38,11 @@ module.exports = {
 
 if (process.env.NODE_ENV !== 'production') {
 	module.exports.devtool = 'inline-source-maps';
+	module.exports.module.rules[1].use = [
+		'style-loader',
+		'css-loader',
+		'sass-loader',
+	];
 	module.exports.entry.unshift(
 		'react-hot-loader/patch',
 		'webpack-dev-server/client?http://localhost:8080',
@@ -41,10 +50,11 @@ if (process.env.NODE_ENV !== 'production') {
 	);
 	module.exports.devServer = {
 		hot: true,
-		contenBase: resolve(__dirname, 'build'),
+		contentBase: resolve(__dirname, 'dev'),
 		publicPath: '',
 	};
 	module.exports.plugins.unshift(
+		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NamedModulesPlugin()
 	);
 }
@@ -57,18 +67,25 @@ else {
 			'react-http-request',
 			'react-router'
 		]
-	}
-	module.exports.module.loaders[1].loader = ExtractTextPlugin.extract('css!sass');
+	};
+	module.exports.module.rules[1].loader = ExtractTextPlugin.extract({
+		loader: 'css-loader?minimize!sass-loader',
+	});
 	module.exports.plugins.unshift(
-		new webpack.optimize.DedupePlugin(),
 		new webpack.DefinePlugin({
 			'process.env': {
 				NODE_ENV: JSON.stringify('production')
 			}
 		}),
-		new webpack.optimize.CommonsChunkPlugin('vendors', 'vendor.bundle.js'),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: 'vendors',
+			filename: 'vendor.bundle.js'
+		}),
 		new webpack.optimize.UglifyJsPlugin(),
 		new webpack.optimize.OccurrenceOrderPlugin(),
-		new ExtractTextPlugin('style.css')
+		new ExtractTextPlugin({
+			filename: 'style.css',
+			allChunks: true
+		})
 	);
 }
