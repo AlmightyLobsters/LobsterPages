@@ -7,5 +7,8 @@ export const App = ({ children }) => (
 	<div className="app">
 		<NavBar />
 		{children}
+		<footer>
+			&copy; Almighty Lobsters
+		</footer>
 	</div>
 )
