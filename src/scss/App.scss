@@ -4,6 +4,7 @@
 html {
 	box-sizing: border-box;
 	height: 100%;
+	overflow: hidden;
 }
 
 *, *:before, *:after {
@@ -11,20 +12,17 @@ html {
 }
 
 .hero {
-	width: 98.95vw;
+	width: 100vw; //98.95
 	height: 100vh;
 	border: thin #333 solid;
-	background: url('../assets/imgs/DSC_5142.jpg') center no-repeat;
-	background-size: cover;
-	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	header {
-		margin-top: 50px;
-		color: white;
-		// border: thin #fff solid;
 
-		h2 {
-			margin-top: -5rem;
+		h1 {
+			margin: 0.05em;
 		}
 	}
 }
