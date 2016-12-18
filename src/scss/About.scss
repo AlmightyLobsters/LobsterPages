@@ -1,6 +1,9 @@
 .about {
-    text-align: center;
-
+    .hero {
+        background: url('../assets/imgs/about.jpg') center no-repeat fixed;
+        background-size: cover;
+        color: #111;
+    }
 	article {
         background: #ccc;
     }
