@@ -3,7 +3,7 @@ import React from 'react';
 require("../../scss/About.scss");
 
 export const About = _ => (
-	<div className="about">
+	<div id="about">
 		<section className="hero">
 			<header>
 				<h1>About</h1>

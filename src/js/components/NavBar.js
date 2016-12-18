@@ -7,7 +7,7 @@ require('../../scss/NavBar.scss');
 let activeInstance;
 
 export const NavBar = _ => (
-	<nav className="navbar">
+	<nav id="navbar">
 		<img src={logo} alt="Almighty Lobsters Logo"/>
 		<ul>
 			<li>

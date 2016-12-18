@@ -3,7 +3,7 @@ import React from 'react';
 require('../../scss/Code.scss');
 
 export const Code = _ => (
-	<div className="code">
+	<div id="code">
 		<section className="hero">
 			<header>
 				<h1>Code</h1>
