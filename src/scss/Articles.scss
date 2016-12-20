@@ -1,3 +1,4 @@
+$article_accent_colour: #2c18cc;
 
 #articles {
 	.hero {
@@ -5,4 +6,9 @@
         background-size: cover;
         color: white;
     }
+
+    b {
+        border-bottom: 6px #2c18cc solid;    
+    }
 }
+

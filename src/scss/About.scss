@@ -1,10 +1,13 @@
+$about_accent_colour: #cc2c18;
+
 #about {
     .hero {
         background: url('../assets/imgs/about.jpg') center no-repeat fixed;
         background-size: cover;
         color: #111;
     }
-	article {
-        background: #ccc;
+
+    b {
+        border-bottom: 6px $about_accent_colour solid;    
     }
 }

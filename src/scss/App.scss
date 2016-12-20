@@ -28,7 +28,7 @@ html {
 }
 
 body {
-	background: #f0f0f0;
+	background: #fff;
 	font-family: Lato;
 }
 
@@ -41,19 +41,28 @@ h2 {
 	font-family: Novecento;
 	font-style: italic;
 	font-size: 50px;
-
-	b {
-		text-decoration: underline;
-	}
 }
 
 h3 {
 	font-family: 'Novecento Sans Light';
-	font-size: 100px;
+	font-size: 3em;
 }
 
 footer {
 	background: #333;
 	color: #f0f0f0;
 	padding: 2rem;
+}
+
+.articles_wrapper {
+	max-width: 65rem;
+	margin:2em auto 2em auto;
+	padding: 2em;
+	border: thin blue solid;
+
+	article {
+		max-width: 50rem;
+		margin: 0 auto 0 auto;
+		text-align: justify;
+	}
 }

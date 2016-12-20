@@ -1,7 +1,13 @@
+$code_accent_colour: #2ccc18;
+
 #code {
 	.hero {
         background: url('../assets/imgs/code.jpg') center no-repeat fixed;
         background-size: cover;
         color: white;
+    }
+
+    b {
+        border-bottom: 6px $code_accent_colour solid;    
     }
 }
