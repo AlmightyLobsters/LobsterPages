@@ -8,7 +8,10 @@ let activeInstance;
 
 export const NavBar = _ => (
 	<nav id="navbar">
-		<img src={logo} alt="Almighty Lobsters Logo"/>
+		<div id="logo">
+			<img src={logo} alt="Almighty Lobsters Logo"/>
+			<span>Almighty Lobsters</span>
+		</div>
 		<ul>
 			<li>
 				<Link to="/">About</Link>

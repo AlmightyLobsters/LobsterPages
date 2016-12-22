@@ -1,5 +1,5 @@
 $navHeight: 50px;
-$navTextSize: 19.2px;
+$navTextSize: 17px;
 
 nav#navbar {
 	background: rgba(57, 57, 57, .9);
@@ -10,13 +10,8 @@ nav#navbar {
 	height: $navHeight;
 	-webkit-backdrop-filter: blur(10px);
 
-	img {
-		width: $navHeight - 20px;
-		height: auto;
-		margin: 10px;
-	}
-
 	ul {
+		display: inline-block;
 		list-style: none;
 		float: right;
 		font-size: $navTextSize;
@@ -45,5 +40,24 @@ nav#navbar {
 				}
 			}
 		}
+	}
+}
+
+#logo {
+	display: inline-flex;
+	align-items: center;
+	font-family: Novecento;
+	color: white;
+	font-size: 1.3em;
+	max-width: 300px;
+
+	img {
+		width: $navHeight - 20px;
+		height: auto;
+		margin: 10px;
+	}
+
+	span {
+		margin: 5px;
 	}
 }

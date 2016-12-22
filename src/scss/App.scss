@@ -20,6 +20,7 @@ html {
 	align-items: center;
 
 	header {
+		color: white;
 
 		h1 {
 			margin: 0.05em;
@@ -45,7 +46,13 @@ h2 {
 
 h3 {
 	font-family: 'Novecento Sans Light';
-	font-size: 3em;
+	font-size: 4em;
+}
+
+@media (max-width: 1000px) {
+	h1 { font-size: 20vw }
+	h2 { font-size: 5vw }
+	h3 { font-size: 6.4vw }
 }
 
 footer {
@@ -58,11 +65,14 @@ footer {
 	max-width: 65rem;
 	margin:2em auto 2em auto;
 	padding: 2em;
-	border: thin blue solid;
 
 	article {
 		max-width: 50rem;
 		margin: 0 auto 0 auto;
 		text-align: justify;
+
+		div {
+			margin-top: 10px;
+		}
 	}
 }
