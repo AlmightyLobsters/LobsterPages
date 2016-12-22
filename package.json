@@ -4,7 +4,7 @@
   "description": "Blog style web page for the team Almighty Lobsters",
   "main": "script.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors",
+    "start": "webpack-dev-server --progress --open --colors",
     "build": "cross-env NODE_ENV=production webpack --progress --colors"
   },
   "repository": {
