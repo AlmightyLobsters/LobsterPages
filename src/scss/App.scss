@@ -1,6 +1,7 @@
 @import '~normalize.css/normalize.css';
 @import 'modules/_fonts';
 
+/* normalize and getting rid of the bottom scroll bar */
 html {
 	box-sizing: border-box;
 	height: 100%;
@@ -28,11 +29,20 @@ html {
 		}
 	}
 }
+/* --------------------- */
 
+/* main page elements */
 body {
 	background: #fff;
 	font-family: Lato;
 }
+
+footer {
+	background: #333;
+	color: #f0f0f0;
+	padding: 2rem;
+}
+/* ---------------------- */
 
 /* general text settings */
 h1 {
@@ -63,12 +73,7 @@ p {
 
 /* ---------- */
 
-footer {
-	background: #333;
-	color: #f0f0f0;
-	padding: 2rem;
-}
-
+/* content elements */
 main {
 	max-width: 65rem;
 	margin:2em auto 2em auto;
@@ -95,3 +100,19 @@ main {
 		height: 100%;
 	}
 }
+
+.classicArticle {
+}
+
+.videoArticle {
+
+}
+
+.imageArticle {
+
+}
+
+.tweetArticle {
+
+}
+/* ------------------- */

@@ -11,7 +11,7 @@ export const About = _ => (
 			</header>
 		</section>
 		<main>
-			<article>
+			<article className="classicArticle">
 				<h3>Who we are</h3>
 				<div className="article_innerWrapper">
 					<div className="videoWrapper"><iframe width="560" height="349" src="https://www.youtube.com/embed/9YXB2fL1riA" frameBorder="0" allowFullScreen></iframe></div>
