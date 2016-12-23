@@ -10,6 +10,7 @@ nav#navbar {
 	min-width: 210px;
 	height: $navHeight;
 	-webkit-backdrop-filter: blur(10px);
+	z-index: 1;
 
 	ul {
 		display: inline-block;

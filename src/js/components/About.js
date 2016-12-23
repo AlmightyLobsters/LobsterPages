@@ -13,7 +13,7 @@ export const About = _ => (
 		<section className="articles_wrapper">
 			<h3>Who we are</h3>
 			<article>
-				<iframe src="https://www.youtube.com/embed/9YXB2fL1riA" frameBorder="0" allowFullScreen></iframe>
+				<div className="videoWrapper"><iframe width="560" height="349" src="https://www.youtube.com/embed/9YXB2fL1riA" frameBorder="0" allowFullScreen></iframe></div>
 				<div>
 					<p>We are Lobsters, enormous creatures armored by #lobster_red powerfull shells that protect us from bashing. We live in the darkest depths of the abyss that you call sea.</p>
 					<p>Praesent velit sem, accumsan non cursus vel, fermentum vitae nibh. Quisque a augue faucibus, ultricies est nec, facilisis odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus sem nisi, varius nec malesuada ac, sagittis at risus. Donec finibus nibh id metus auctor, nec finibus augue hendrerit. Mauris sollicitudin ut nisl eu ornare. Suspendisse ac sagittis elit, quis posuere erat. Maecenas quis fermentum elit. Fusce ac aliquam lorem. Curabitur sed libero at tortor sollicitudin commodo. Nullam tristique ultricies risus, ut aliquam ipsum tempor id. In hendrerit suscipit libero, et auctor turpis sodales non. Sed quis sem vestibulum, posuere elit quis, hendrerit odio.</p>
