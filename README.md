@@ -1,7 +1,7 @@
 <img src="https://vojtechstepancik.visualstudio.com/_apis/public/build/definitions/f446ed04-e9e4-46cb-b848-6053977495fc/8/badge">
-# LobsterPages
-
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE.md)
+
+# LobsterPages
 
 <a href="https://github.com/AlmightyLobsters"><img src="src/assets/imgs/logoRed.png" alt="Almighty Lobsters Logo" width="80" height="80" align="right"></a>
 
