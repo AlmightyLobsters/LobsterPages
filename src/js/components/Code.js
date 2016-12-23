@@ -10,5 +10,8 @@ export const Code = _ => (
 				<h2>GitHub but <b>snappier</b></h2>
 			</header>
 		</section>
+		<main>
+			
+		</main>
 	</div>
 )

@@ -69,18 +69,29 @@ footer {
 	padding: 2rem;
 }
 
-.articles_wrapper {
+main {
 	max-width: 65rem;
 	margin:2em auto 2em auto;
 	padding: 2em;
 
-	article {
+	.article_innerWrapper {
 		max-width: 50rem;
 		margin: 0 auto 0 auto;
 		text-align: justify;
+	}
+}
 
-		div {
-			margin-top: 10px;
-		}
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	z-index: 0;
+
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 	}
 }
