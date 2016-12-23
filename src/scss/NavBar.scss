@@ -2,11 +2,12 @@ $navHeight: 50px;
 $navTextSize: 17px;
 
 nav#navbar {
-	background: rgba(57, 57, 57, .9);
+	background: rgba(57, 57, 57, .8);
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100vw;
+	min-width: 210px;
 	height: $navHeight;
 	-webkit-backdrop-filter: blur(10px);
 
@@ -29,7 +30,9 @@ nav#navbar {
 			text-align: center;
 
 			&:hover {
-				border-bottom: 2px solid #cc2c18;
+				#red { border-bottom: 3px solid #cc2c18; }
+				#green { border-bottom: 3px solid #2ccc18; }
+				#blue { border-bottom: 3px solid #2c18cc; }
 			}
 
 			a {
