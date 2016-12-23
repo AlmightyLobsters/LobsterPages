@@ -13,7 +13,7 @@ export const Articles = _ => (
 		<section className="articles_wrapper">
 			<h3>We launched a site</h3>
 			<article>
-				After a month full of planning and development we finally managed to launch a site of our own. Happy New Year!
+				<p>After a month full of planning and development we finally managed to launch a site of our own. Happy New Year!</p>
 			</article>
 		</section>
 	</div>

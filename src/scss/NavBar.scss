@@ -61,3 +61,7 @@ nav#navbar {
 		margin: 5px;
 	}
 }
+
+@media (max-width: 505px) {
+	nav#navbar { height: 100px }
+}
