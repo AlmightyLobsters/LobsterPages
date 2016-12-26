@@ -6,7 +6,7 @@ export const About = _ => (
 	<div id="about">
 		<section className="hero">
 			<header>
-				<h1>About</h1>
+				<h1>O nás</h1>
 				<h2>We are <b>Lobsters</b></h2>
 			</header>
 		</section>

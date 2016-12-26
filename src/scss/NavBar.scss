@@ -27,7 +27,6 @@ nav#navbar {
 			padding-left: 1.25vw;
 			padding-right: 1.25vw;
 			padding-bottom: 0.3em;
-			color: white;
 			text-align: center;
 
 			&:hover {
@@ -38,10 +37,7 @@ nav#navbar {
 
 			a {
 				text-decoration: none;
-				
-				&:visited {
-					color: white;
-				}
+				color: white;
 			}
 		}
 	}
@@ -50,7 +46,8 @@ nav#navbar {
 #logo {
 	display: inline-flex;
 	align-items: center;
-	font-family: Novecento;
+	font-family: Novecento Sans Light;
+	font-weight: bold;
 	color: white;
 	font-size: 1.3em;
 	max-width: 300px;

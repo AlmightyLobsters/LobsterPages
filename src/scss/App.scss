@@ -38,6 +38,7 @@ body {
 }
 
 #app {
+	min-height: 100%;
 	position: relative;
 }
 /* ---------------------- */
@@ -55,7 +56,8 @@ h2 {
 }
 
 h3 {
-	font-family: 'Novecento Sans Light';
+	font-family: Lato;
+	font-weight: 300;
 	font-size: 4em;
 }
 
@@ -100,17 +102,24 @@ main {
 }
 
 .classicArticle {
+	background: #ff0000;
 }
 
 .videoArticle {
-
+	background: #00ff00;
 }
 
 .imageArticle {
+	background: #0000ff;
+
+	img {
+		width: 100%;
+		height: auto;
+	}
 }
 
 .tweetArticle {
-
+	background: #0f0f0f;
 }
 /* ---------------------- */
 

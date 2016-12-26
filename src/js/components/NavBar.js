@@ -14,13 +14,13 @@ export const NavBar = _ => (
 		</div>
 		<ul>
 			<li>
-				<Link to="/" id="red">About</Link>
+				<Link to="/" id="red">O nás</Link>
 			</li>
 			<li>
-				<Link to="/articles" id="blue">Articles</Link>
+				<Link to="/articles" id="blue">Blog</Link>
 			</li>
 			<li>
-				<Link to="/code" id="green">Code</Link>
+				<Link to="/code" id="green">Kód</Link>
 			</li>
 		</ul>
 	</nav>
