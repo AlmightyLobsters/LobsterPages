@@ -4,7 +4,6 @@
 /* normalize and getting rid of the bottom scroll bar */
 html {
 	box-sizing: border-box;
-	height: 100%;
 }
 
 *, *:before, *:after {
@@ -39,6 +38,7 @@ body {
 #app {
 	min-height: 100%;
 	position: relative;
+	margin-bottom: -6em;
 }
 /* ---------------------- */
 
@@ -77,6 +77,7 @@ main {
 	max-width: 65rem;
 	margin:2em auto 2em auto;
 	padding: 2em;
+	padding-bottom: 6em;
 
 	.article_innerWrapper {
 		max-width: 50rem;
