@@ -150,7 +150,7 @@
 			"warn",
 			120,
 			{
-				"ignorePattern": ""
+				"ignorePattern": "(^\\s*<.*?>)"
 			}
 		],
 		"import/no-extraneous-dependencies": [
