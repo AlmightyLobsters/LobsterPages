@@ -4,8 +4,6 @@
 /* normalize and getting rid of the bottom scroll bar */
 html {
 	box-sizing: border-box;
-	height: 100%;
-	overflow-x: hidden;
 }
 
 *, *:before, *:after {
@@ -13,7 +11,7 @@ html {
 }
 
 .hero {
-	width: 100vw; //98.95
+	width: 100%; //98.95
 	height: 100vh;
 	max-height: 1000px;
 	border: thin #333 solid;
@@ -40,6 +38,7 @@ body {
 	min-height: calc(100% - 60px);
 	padding-bottom: 60px;
 	position: relative;
+	margin-bottom: -6em;
 }
 
 /* general text settings */
@@ -76,6 +75,7 @@ main {
 	max-width: 65rem;
 	margin:2em auto;
 	padding: 2em;
+	padding-bottom: 6em;
 
 	.article_innerWrapper {
 		max-width: 50rem;
