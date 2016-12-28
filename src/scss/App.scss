@@ -29,7 +29,6 @@ html {
 		}
 	}
 }
-/* --------------------- */
 
 /* main page elements */
 body {
@@ -38,10 +37,10 @@ body {
 }
 
 #app {
-	min-height: 100%;
+	min-height: calc(100% - 60px);
+	padding-bottom: 60px;
 	position: relative;
 }
-/* ---------------------- */
 
 /* general text settings */
 h1 {
@@ -71,17 +70,16 @@ p {
 	text-indent: 2em;
 }
 
-/* ---------- */
 
 /* content elements */
 main {
 	max-width: 65rem;
-	margin:2em auto 2em auto;
+	margin:2em auto;
 	padding: 2em;
 
 	.article_innerWrapper {
 		max-width: 50rem;
-		margin: 0 auto 0 auto;
+		margin: 0 auto;
 		text-align: justify;
 	}
 }
@@ -102,15 +100,15 @@ main {
 }
 
 .classicArticle {
-	background: #ff0000;
+	background: #f00;
 }
 
 .videoArticle {
-	background: #00ff00;
+	background: #0f0;
 }
 
 .imageArticle {
-	background: #0000ff;
+	background: #00f;
 
 	img {
 		width: 100%;
@@ -121,13 +119,8 @@ main {
 .tweetArticle {
 	background: #0ff;
 }
-/* ---------------------- */
 
-/* Layout styles */
-.container {
-
-}
-
+/* grid */
 .row {
 
 }
@@ -149,5 +142,8 @@ main {
 	.col-2-3 {
 		width: 66.6666%;
 	}
+
+	.col-1-2 {
+		width: 50%;
+	}
 }
-/* ---------------------- */
