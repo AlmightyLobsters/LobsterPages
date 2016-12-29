@@ -3,6 +3,7 @@
 
 /* normalize and getting rid of the bottom scroll bar */
 html {
+	
 	box-sizing: border-box;
 }
 
@@ -30,6 +31,7 @@ html {
 
 /* main page elements */
 body {
+	min-height: 100%;
 	background: #fff;
 	font-family: Lato;
 }
@@ -122,11 +124,8 @@ main {
 
 /* grid */
 .row {
-	display: inline-flex;
-	flex-flow: row nowrap;
 	width: 100%;
 	border-top: thin #000 solid;
-	align-items: center;
 }
 
 [class*='col-'] {
@@ -135,8 +134,10 @@ main {
 }
 
 @media (min-width: 48em) {
-	[class*='col-'] {
-		// float: left;
+	.row {
+		display: inline-flex;
+		flex-flow: row nowrap;
+		align-items: center;
 	}
 
 	.col-1-3 {
