@@ -84,7 +84,7 @@ else {
 			}
 		}),
 		new CleanPlugin(['build'], {
-			exclude: ['index.html', 'web.config']
+			exclude: ['index.html', 'web.config', 'google40a19af37d45a542.html']
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'vendors',

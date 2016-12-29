@@ -2,5 +2,6 @@
 /build
 !/build/index.html
 !/build/web.config
+!/build/google40a19af37d45a542.html
 /.vscode
 **/*.log
