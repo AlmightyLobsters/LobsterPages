@@ -56,13 +56,13 @@ h2 {
 h3 {
 	font-family: 'Novecento Sans Light';
 	font-weight: 300;
-	font-size: 4em;
+	font-size: 3em;
 }
 
-@media (max-width: 1000px) {
-	h1 { font-size: 20vw }
-	h2 { font-size: 5vw }
-	h3 { font-size: 6.4vw }
+@media (max-width: 768px) {
+	h1 { font-size: 26vw }
+	h2 { font-size: 7vw }
+	// h3 { font-size: 6.4vw }
 }
 
 p {

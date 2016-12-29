@@ -9,7 +9,7 @@ export const LobsterRoutes = _ => (
 	<Router history={hashHistory}>
 		<Route path="/" component={App}>
 			<IndexRoute component={About} />
-			<Route path="/articles" component={Articles}></Route>
+			<Route path="/blog" component={Articles}></Route>
 			<Route path="/code" component={Code}></Route>
 		</Route>
 	</Router>

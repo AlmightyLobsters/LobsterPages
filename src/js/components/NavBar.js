@@ -17,7 +17,7 @@ export const NavBar = _ => (
 				<Link to="/" id="red">O nás</Link>
 			</li>
 			<li>
-				<Link to="/articles" id="blue">Blog</Link>
+				<Link to="/blog" id="blue">Blog</Link>
 			</li>
 			<li>
 				<Link to="/code" id="green">Kód</Link>

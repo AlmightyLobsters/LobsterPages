@@ -34,6 +34,11 @@ export const Articles = _ => (
 			<article className="imageArticle col-1-3">
 				<img src={testImg} alt="Grid testing image" />
 			</article>
+			<article className="tweetArticle">
+				<h3>Final test</h3>
+				<p>Hey, so this is a paragraph that is supposed to prevent the footer from being completely out of place.</p>
+				<p>Sure hope it works :)</p>
+			</article>
 		</main>
 	</div>
 )
