@@ -100,15 +100,15 @@ main {
 }
 
 .classicArticle {
-	background: #f00;
+	// background: #f00;
 }
 
 .videoArticle {
-	background: #0f0;
+	// background: #0f0;
 }
 
 .imageArticle {
-	background: #00f;
+	// background: #00f;
 
 	img {
 		width: 100%;
@@ -117,22 +117,26 @@ main {
 }
 
 .tweetArticle {
-	background: #0ff;
+	// background: #0ff;
 }
 
 /* grid */
 .row {
-
+	display: inline-flex;
+	flex-flow: row nowrap;
+	width: 100%;
+	border-top: thin #000 solid;
+	align-items: center;
 }
 
 [class*='col-'] {
 	width: 100%;
-	padding: 0 15px;
+	padding: 15px;
 }
 
 @media (min-width: 48em) {
 	[class*='col-'] {
-		float: left;
+		// float: left;
 	}
 
 	.col-1-3 {
