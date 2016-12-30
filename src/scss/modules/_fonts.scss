@@ -1,13 +1,7 @@
 $font_folder: '../assets/fonts/';
-$lato_name: 'LatoWeb-Regular';
 $nove_name: 'Novecentoslabwide-Regular';
 $nove_light_name: 'Novecentosanswide-Book';
 $nove_bold_name: 'Novecentosanswide-Bold';
-
-@font-face {
-    font-family: 'Lato';
-    src: url($font_folder+'woff2/'+$lato_name+'.woff2') format('woff2'), url($font_folder+'woff/'+$lato_name+'.woff') format('woff');
-}
 
 @font-face {
     font-family: 'Novecento';
