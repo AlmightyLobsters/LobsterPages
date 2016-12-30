@@ -1,6 +1,8 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
+const FaviconsPlugin = require('favicons-webpack-plugin');
 const resolve = require('path').resolve;
 
 module.exports = {
@@ -23,7 +25,7 @@ module.exports = {
 				exclude: /node_modules/,
 			},
 			{
-				test: /\.(png|jpg|otf|ttf|woff(2)?)$/,
+				test: /\.(html|config|png|jpg|otf|ttf|woff(2)?)$/,
 				use: [{
 					loader: 'file-loader',
 					query: {
@@ -35,10 +37,31 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-			assets: resolve(__dirname, 'src/assets')
+			assets: resolve(__dirname, 'src/assets'),
 		},
 	},
 	plugins: [
+		new FaviconsPlugin({
+			logo: 'assets/imgs/logoRed.png',
+			prefix: 'icons/',
+			emitStats: false,
+			persistentCache: true,
+			inject: true,
+			background: '#fff',
+			title: 'Lobster Pages',
+			icons: {
+				android: true,
+				appleIcon: true,
+				appleStartup: true,
+				coast: true,
+				favicons: true,
+				firefox: true,
+				opengraph: true,
+				twitter: true,
+				windows: true,
+				yandex: true,
+			},
+		}),
 	],
 };
 
@@ -61,7 +84,11 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 	module.exports.plugins.unshift(
 		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NamedModulesPlugin()
+		new webpack.NamedModulesPlugin(),
+		new HtmlPlugin({
+			template: 'index.ejs',
+			title: 'Dev Lobster Pages',
+		})
 	);
 }
 else {
@@ -80,15 +107,17 @@ else {
 	module.exports.plugins.unshift(
 		new webpack.DefinePlugin({
 			'process.env': {
-				NODE_ENV: JSON.stringify('production')
-			}
+				NODE_ENV: JSON.stringify('production'),
+			},
 		}),
-		new CleanPlugin(['build'], {
-			exclude: ['index.html', 'web.config', 'google40a19af37d45a542.html']
+		new HtmlPlugin({
+			template: 'index.ejs',
+			title: 'Lobster Pages',
 		}),
+		new CleanPlugin(['build']),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'vendors',
-			filename: 'vendor.bundle.js'
+			filename: 'vendor.bundle.js',
 		}),
 		new ExtractTextPlugin({
 			filename: 'style.css',

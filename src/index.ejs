@@ -5,13 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="A website covering the exploits and progress of the Almighty Lobsters team through the CanSat competition.">
 	<meta name="keywords" content="CanSat. Almighty Lobsters. CanSat competition.">
-	<title>Lobster Pages</title>
-	<link rel="icon" type="image/png" href="./assets/imgs/almighty.png">
-	<link rel="stylesheet" href="style.css">
+	<title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-	<div id="app"></div>
-	<script src="vendor.bundle.js"></script>
-	<script src="bundle.js"></script>
+	<div id="renderTarget"></div>
 </body>
 </html>
