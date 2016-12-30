@@ -2,7 +2,6 @@ import React from 'react';
 
 require('../../scss/Articles.scss');
 
-import testImg from '../../assets/imgs/about.old.jpg';
 import happyNewYear from '../../assets/imgs/happyNewYear.png'
 
 export const Articles = _ => (

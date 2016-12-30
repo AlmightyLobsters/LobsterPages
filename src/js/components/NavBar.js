@@ -4,8 +4,6 @@ import { Link } from 'react-router';
 import logo from '../../assets/imgs/logoWhite.png';
 require('../../scss/NavBar.scss');
 
-let activeInstance;
-
 export const NavBar = _ => (
 	<nav id="navbar">
 		<div id="logo">
