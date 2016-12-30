@@ -1,0 +1,12 @@
+#home {
+	.hero {
+		background: url('../assets/imgs/home.jpg') fixed center no-repeat;
+		background-size: cover;
+		height: 105vh;
+
+		h2 {
+			text-align: center;
+			margin-bottom: -1rem
+		}
+	}
+}
