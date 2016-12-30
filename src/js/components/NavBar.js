@@ -6,13 +6,13 @@ require('../../scss/NavBar.scss');
 
 export const NavBar = _ => (
 	<nav id="navbar">
-		<div id="logo">
+		<Link to="/" id="logo">
 			<img src={logo} alt="Almighty Lobsters Logo"/>
 			<span>Almighty Lobsters</span>
-		</div>
+		</Link>
 		<ul>
 			<li>
-				<Link to="/" id="red">O nás</Link>
+				<Link to="/about" id="red">O nás</Link>
 			</li>
 			<li>
 				<Link to="/blog" id="blue">Blog</Link>
