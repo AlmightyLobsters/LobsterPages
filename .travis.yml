@@ -3,10 +3,11 @@ node_js: '6'
 cache: yarn
 script: yarn build
 before_deploy:
-  - find . | grep -vE "^..?$|build" | xargs rm -rf
+  - find . | grep -vE "^..?$|build|.git" | xargs rm -rf
   - mv ./build/* ./
   - rmdir ./build
 deploy:
+  skip_cleanup: true
   provider: azure_web_apps
   username:
     secure: "DQBtSgvZmty9CXKM9Bk633sifVQSWDv7MbT0dipyR9LZ5BWDCeqU8bEhE/GdN3FJ5WQrrtz1asYTQIexhmP7p+XB9Cda4e71e1q3dqeEwMKYy4ZFg0PM9mzMgbpkZNuEe+Sh4CW2q6cEONAeQLpplGEHXHWvaSCRMyvyrippk3/ozPzLpg+e0N7a05arV3xxk9H1sQXEIV3k93jvUCduVOjqzlEFeCmco5CpGhAo+D2EIRcVNcTzoHCjozKhVMMlzGFsATvpTtyq1LFbCHmvBZcin9M64Xpo2rwOjU8Bv7fKw7H6d3yYQbi/1lPithn3PKw4uPYeMHaTa8H2GMuDq0KtaEyVMAxbcyXQfmR7RUn9K/ja5ZAotw3a0HUxxyTiHglPlj4qvnGlMh1N7+YpqlJLhNMCsDKEIZLZyJ1/YMK0R2FZHCmNVs0jBOjTfhY3ugheuFbaBiIBRqPl8SbaTuXpyrfNbAryJ6g/aFwm5U4v7JoYnGm26qTPx9oRw81JdO2H1UzG/hYNxorcoP4AmK1DhZfbkx7JaPRBzwu1fGy3SHcaYdGQMoO6+NOqrUIkSCW+BxAzzdsDrv6rgXgdFADYhirDolRYdOQgagoGkQxhf0HaChX09DrmM6raOEMkwKX7lpcBORNPtjXDPmXxEXOwZLxIY3d14nt7fGKUcW8="
