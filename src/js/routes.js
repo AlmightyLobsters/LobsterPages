@@ -1,16 +1,16 @@
 import React from 'react';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import { About } from './components/About';
+import { BrowserRouter, Match } from 'react-router';
 import { App } from './components/App';
+import { About } from './components/About';
 import { Articles } from './components/Articles';
 import { Code } from './components/Code';
 
 export const LobsterRoutes = _ => (
-	<Router history={hashHistory}>
-		<Route path="/" component={App}>
-			<IndexRoute component={About} />
-			<Route path="/blog" component={Articles}></Route>
-			<Route path="/code" component={Code}></Route>
-		</Route>
-	</Router>
+	<BrowserRouter>
+		<App>
+			<Match exactly pattern="/" component={About} />
+			<Match pattern="/blog" component={Articles} />
+			<Match pattern="/code" component={Code} />
+		</App>	
+	</BrowserRouter>
 );
