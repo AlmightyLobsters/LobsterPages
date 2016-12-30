@@ -2,7 +2,7 @@ import React from 'react';
 
 require('../../scss/Articles.scss');
 
-import happyNewYear from '../../assets/imgs/happyNewYear.png'
+import happyNewYear from '../../assets/imgs/happyNewYear.jpg'
 
 export const Articles = _ => (
 	<div id="articles">
