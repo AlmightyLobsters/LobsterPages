@@ -77,12 +77,10 @@ main {
 	max-width: 65rem;
 	margin:2em auto;
 	padding: 2em;
-	padding-bottom: 6em;
 
 	.article_innerWrapper {
 		max-width: 50rem;
 		margin: 0 auto;
-		text-align: justify;
 	}
 }
 
@@ -102,7 +100,7 @@ main {
 }
 
 .classicArticle {
-	// background: #f00;
+	text-align: justify;
 }
 
 .videoArticle {
