@@ -104,12 +104,10 @@ main {
 }
 
 .videoArticle {
-	// background: #0f0;
+	background: goldenrod;
 }
 
 .imageArticle {
-	// background: #00f;
-
 	img {
 		width: 100%;
 		height: auto;
@@ -117,7 +115,7 @@ main {
 }
 
 .tweetArticle {
-	// background: #0ff;
+	text-align: left;
 }
 
 /* grid */
