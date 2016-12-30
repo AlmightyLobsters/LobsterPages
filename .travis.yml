@@ -3,7 +3,7 @@ node_js: '6'
 cache: yarn
 script: yarn build
 before_deploy:
-  - find . | grep -v "./build" | xargs rm -rf
+  - find . | grep -vE "^..?$|build" | xargs rm -rf
   - mv ./build/* ./
   - rmdir ./build
 deploy:
