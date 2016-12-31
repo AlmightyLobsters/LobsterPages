@@ -2,7 +2,7 @@ language: node_js
 node_js: '6'
 cache: yarn
 script: yarn build
-before_deploy:
+after_success:
 - find . | grep -vE "^..?$|build" | xargs rm -rf
 - mv ./build/* ./
 - rmdir ./build
@@ -11,7 +11,6 @@ before_deploy:
 - git config user.email "vojtechstepancik@outlook.com"
 - git add .
 - git commit -m "Build Repo commit"
-after_success:
 - find . -type f -exec curl --ftp-create-dirs -T {} $FTP_URL/{} -u $FTP_USERNAME:$FTP_PASSWORD \;
 deploy:
   skip_cleanup: true
