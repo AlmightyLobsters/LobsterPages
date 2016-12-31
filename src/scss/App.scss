@@ -43,7 +43,7 @@ body {
 	margin-bottom: -6em;
 }
 
-/* general text settings */
+/* general style elements */
 h1 {
 	font-family: 'Novecento Sans Bold';
 	font-size: 200px;
@@ -61,6 +61,11 @@ h3 {
 	font-size: 3em;
 }
 
+h4 {
+	font-family: 'Novecento';
+	font-size: 1.5em;
+}
+
 @media (max-width: 768px) {
 	h1 { font-size: 26vw }
 	h2 { font-size: 7vw }
@@ -71,6 +76,13 @@ p {
 	text-indent: 2em;
 }
 
+em {
+	font-style: italic;
+}
+
+b {
+	font-weight: 700;
+}
 
 /* content elements */
 main {
