@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/AlmightyLobsters/LobsterPages.svg?branch=master)](https://travis-ci.org/AlmightyLobsters/LobsterPages)
+[![dependencies Status](https://david-dm.org/AlmightyLobsters/LobsterPages/status.svg)](https://david-dm.org/AlmightyLobsters/LobsterPages)
+[![devDependencies Status](https://david-dm.org/AlmightyLobsters/LobsterPages/dev-status.svg)](https://david-dm.org/AlmightyLobsters/LobsterPages?type=dev)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE.md)
 
 # LobsterPages
