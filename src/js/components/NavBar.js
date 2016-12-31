@@ -12,13 +12,13 @@ export const NavBar = _ => (
 		</Link>
 		<ul>
 			<li>
-				<Link to="/about" id="red">O nás</Link>
+				<Link to="/about"><span id="red">O nás</span></Link>
 			</li>
 			<li>
-				<Link to="/blog" id="blue">Blog</Link>
+				<Link to="/blog"><span id="blue">Blog</span></Link>
 			</li>
 			<li>
-				<Link to="/code" id="green">Kód</Link>
+				<Link to="/code"><span id="green">Kód</span></Link>
 			</li>
 		</ul>
 	</nav>
