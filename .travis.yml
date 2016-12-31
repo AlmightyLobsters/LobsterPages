@@ -3,7 +3,7 @@ node_js: '6'
 cache:
   directories:
   - node_modules
-script: npm build
+script: yarn build
 after_success:
 - find . | grep -vE "^..?$|build" | xargs rm -rf
 - mv ./build/* ./
