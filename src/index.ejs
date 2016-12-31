@@ -17,14 +17,49 @@
 	</script>
 	<script type="application/ld+json">
 	{
-		"@context" : "http://almighty.lobsters.tech",
+		"@context" : "https://schema.org",
 		"@type" : "Blog",
 		"name" : "Almighty Lobsters",
+		"alternateName" : "Všemocní Humři",
 		"url" : "http://almighty.lobsters.tech",
 		"sameAs" : [
 			"https://www.facebook.com/ALCanSat",
 			"https://twitter.com/almghtlobsters"
-		]
+		],
+		"image" : "./assets/imgs/logoRed.png",
+		"description" : "Stránka týmu Almighty Lobsters pro soutěž CanSat2017",
+		"sponsor" : [
+			{
+				"@context": "http://www.schema.org",
+				"@type": "Organization",
+				"name": "Silicon Hill",
+				"url": "http://siliconhill.cz",
+				"description": "Silicon Hill je největším klubem studentské unie ČVUT",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Koleje Strahov",
+					"addressLocality": "Prague",
+					"addressCountry": "Czech Republic"
+				}
+			},
+			{
+				"@context": "http://www.schema.org",
+				"@type": "Organization",
+				"name": "Microsoft",
+				"url": "https://microsoft.com",
+				"description": "Společnost Microsoft (nasdaq „MSFT“) byla založena v roce 1975 a je světovým lídrem v poskytování softwaru, služeb a řešení, které pomáhají lidem a firmám po celém světě plně realizovat jejich potenciál.",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "BB Centrum, Vyskočilova 1561/4a",
+					"addressLocality": "Prague",
+					"postalCode": "14000",
+					"addressCountry": "Czech Republic"
+				}
+				}
+			}
+		],
+		"keywords" : "CanSat, Satellite, Can, Competition, Almighty, Lobsters",
+		"isFamilyFriendly" : "True"
 	}
 	</script>
 </head>
