@@ -3,9 +3,14 @@ node_js: '6'
 cache: yarn
 script: yarn build
 before_deploy:
-  - find . | grep -vE "^..?$|build|.git" | xargs rm -rf
+  - find . | grep -vE "^..?$|build" | xargs rm -rf
   - mv ./build/* ./
   - rmdir ./build
+  - git init
+  - git config user.name "almightylobsters"
+  - git config user.email "vojtechstepancik@outlook.com"
+  - git add .
+  - git commit -m "Build Repo commit"
 deploy:
   skip_cleanup: true
   provider: azure_web_apps
