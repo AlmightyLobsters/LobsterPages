@@ -1,4 +1,4 @@
-<img src="https://vojtechstepancik.visualstudio.com/_apis/public/build/definitions/f446ed04-e9e4-46cb-b848-6053977495fc/8/badge">
+[![Build Status](https://travis-ci.org/AlmightyLobsters/LobsterPages.svg?branch=master)](https://travis-ci.org/AlmightyLobsters/LobsterPages)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE.md)
 
 # LobsterPages
