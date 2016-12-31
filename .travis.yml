@@ -11,7 +11,7 @@ after_success:
 - git config user.email "vojtechstepancik@outlook.com"
 - git add .
 - git commit -m "Build Repo commit"
-- find . -type f -exec curl --ftp-create-dirs -T {} $FTP_URL/{} -u $FTP_USERNAME:$FTP_PASSWORD \;
+- find . -type f -not -path "./.git/*" -exec curl --ftp-create-dirs -T {} $FTP_URL/{} -u $FTP_USERNAME:$FTP_PASSWORD \;
 deploy:
   skip_cleanup: true
   provider: azure_web_apps
