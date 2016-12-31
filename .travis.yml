@@ -11,7 +11,6 @@ after_success:
 - git config user.email "vojtechstepancik@outlook.com"
 - git add .
 - git commit -m "Build Repo commit"
-- find . -type f -not -path "./.git/*" -exec curl --ftp-create-dirs -T {} $FTP_URL/{} -u $FTP_USERNAME:$FTP_PASSWORD \;
 deploy:
   skip_cleanup: true
   provider: azure_web_apps
@@ -21,6 +20,9 @@ deploy:
     secure: lOzGUjFztGhITFSnoFQxXLxSeysygTGlXMfxJyH0kYWyzRvBE8gdrMRlC0aUr2xTsq7BtKL1+g7ZvsKBtmnkoV6XxPsh3NtFxI4JgvlEurd4f+MwvkukWnDkXp0w/yOZHwaY27tOpde1E9rLXWsOOL1ag8sC78umgcLnCABYcedtQ5L61n5QQ80YRTHC2MSVMrtcMcyH6IS3khQrfPjQ8ESVsU6sCtupCbJge2krsI1Qe0wxNA7zHCZ6cAlV0289G91emEwPp+YHNDDtp0VwRJfATj2gxhzQ1fJuAWfX1RBhCHQumm5wYMME8OkiR1SsIKLX//3Xxu36Md/pOVQ7p32yaSnyTT3P2vFX2ouiAEWMT3tPlgSQBuQ469YjuBZf+LudhkL/6Qn60a0s6KIgs7jEqDytWCNE/oE7hzD9VeBT49cW3T2clEE/vOP5enm/vCpNAe10RgCmvwHPzqq8QmOfMvzOdnJc4fFATwHbPqcmgsOA30ckngTtM3JA7C8/NNAedNFh7pxH79ICuyIpnL04AISmpAJlzW+lXVUkTsEB8J45Va4jdYS6TuL9+XUM/++S5q3ATmmzDLc7R5odqlH4O/INTqK9LIlan0qQ/yF7M0ij1hdnQtz455AicTnMG0ZBjPfZazvoHWtrD6k7/u72MvV0ubs5VZTTxqkGM/I=
   site: uncannylobsters
   verbose: true
+after_deploy:
+- find . -type f -not -path "./.git/*" -exec curl --ftp-create-dirs -T {} $FTP_URL/{} -u $FTP_USERNAME:$FTP_PASSWORD \;
+
 notifications:
   slack:
     secure: FgHj5ST7xLLybOhlSxmq4E5/RXYyliEBwn7sWilNQ4KREfYnOysPTPejbJHgiEEEdEw7t5gCBVrq9cIqC28cCm4uSrzgvefXT1DV+NAJQmJH6qd+K8+Up2/VDafmK3UpJ0gvhsQayLKEsDTOMLCQl7zSM/VNUVVXNxb+YCZJmGwa+nuhgVdvKAwx1BsykENyb+J6Am9tER2YM9xUYgu6gdVnxveejtOXYRB8e2owSsYQnRrTZufs3kRRySY1+A8p2Lp++RHv5Wqqrk9NrIVIfFrE/hro2GR8ZRvWUY0HQuTrzc+0fbIXZ+3bs7spuDHQ1gYk0oa7bj6NneVzKvLWKjQvuJxVnTMJjVQXZvT26EW/maZJYLwC2V7E5mPbtFMr1mrGQEoOhxWRPiRKVNQoYAJyTgZuBLQQ1VLRfpUA6f2AUZRrSZSkjZ3H8qO4q1r/nZyLu7jr8L2mjVIV68dZACHDkwgiaGpX/ROL80oqWNNCFXyHGKsYwql4pcu2boy8fCX+Sskh8rog44eBBP2292+/Fr8ztNu2RkG+HdQeisVetWG9IpOt1MOtofoYUwK5bBS4dWPKe0sYN2m/bCJfpJbEvRR8WrjLrjG2Obmvz7b1qqlwfK0xlkVzWnn/eN8/sosWmBw6Lp3y/LNbUH/wQP3ASlbQqtq3AyZRo7i0618=
