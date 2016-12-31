@@ -25,7 +25,7 @@ module.exports = {
 				exclude: /node_modules/,
 			},
 			{
-				test: /\.(html|config|png|jpg|otf|ttf|woff(2)?)$/,
+				test: /\.(html|config|txt|xml|png|jpg|otf|ttf|woff(2)?)$/,
 				use: [{
 					loader: 'file-loader',
 					query: {

@@ -6,6 +6,8 @@ import { LobsterRoutes } from './routes';
 // Additional files
 require('../web.config');
 require('../google40a19af37d45a542.html');
+require('../robots.txt');
+require('../sitemap.xml');
 
 const renderPage = () =>
 	render(
