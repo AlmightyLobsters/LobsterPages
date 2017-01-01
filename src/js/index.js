@@ -8,6 +8,7 @@ require('../web.config');
 require('../google40a19af37d45a542.html');
 require('../robots.txt');
 require('../sitemap.xml');
+require('../BingSiteAuth.xml');
 
 const renderPage = () =>
 	render(
