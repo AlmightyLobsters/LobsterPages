@@ -32,4 +32,4 @@ This being the front-end part of the project (as of *now*).
 * [x] stack implemented
 * [x] the whole thing designed
 * [ ] back-end done
-* [ ] site published
+* [x] site published

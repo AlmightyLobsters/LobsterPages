@@ -48,7 +48,7 @@ module.exports = {
 			persistentCache: true,
 			inject: true,
 			background: '#fff',
-			title: 'Lobster Pages',
+			title: 'Almighty Lobsters',
 			icons: {
 				android: true,
 				appleIcon: true,
@@ -87,7 +87,7 @@ if (process.env.NODE_ENV !== 'production') {
 		new webpack.NamedModulesPlugin(),
 		new HtmlPlugin({
 			template: 'index.ejs',
-			title: 'Dev Lobster Pages',
+			title: 'Dev Almihty Lobsters',
 		})
 	);
 }
@@ -112,7 +112,7 @@ else {
 		}),
 		new HtmlPlugin({
 			template: 'index.ejs',
-			title: 'Lobster Pages',
+			title: 'Almighty Lobsters',
 		}),
 		new CleanPlugin(['build']),
 		new webpack.optimize.CommonsChunkPlugin({
