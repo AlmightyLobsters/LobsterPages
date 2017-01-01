@@ -1,7 +1,5 @@
 import React from 'react';
 
-require("../../scss/About.scss");
-
 export const About = _ => (
 	<div id="about">
 		<section className="hero">

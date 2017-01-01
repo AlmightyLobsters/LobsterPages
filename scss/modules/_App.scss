@@ -1,9 +1,5 @@
-@import '~normalize.css/normalize.css';
-@import 'modules/_fonts';
-
 /* normalize and getting rid of the bottom scroll bar */
 html {
-	
 	box-sizing: border-box;
 }
 
@@ -46,19 +42,19 @@ body {
 /* general style elements */
 h1 {
 	font-family: 'Novecento Sans Bold';
-	font-size: 200px;
+	font-size: 200px !important;
 }
 
 h2 {
 	font-family: Novecento;
 	font-style: italic;
-	font-size: 50px;
+	font-size: 50px !important;
 }
 
 h3 {
 	font-family: 'Novecento Sans Light';
 	font-weight: 300;
-	font-size: 3em;
+	font-size: 3em !important;
 }
 
 h4 {

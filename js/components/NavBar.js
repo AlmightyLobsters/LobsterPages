@@ -1,13 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import logo from '../../assets/imgs/logoWhite.png';
-require('../../scss/NavBar.scss');
-
 export const NavBar = _ => (
 	<nav id="navbar">
 		<Link to="/" id="logo">
-			<img src={logo} alt="Almighty Lobsters Logo"/>
+			<img src="/imgs/logoWhite.png" alt="Almighty Lobsters Logo"/>
 			<span>Almighty Lobsters</span>
 		</Link>
 		<ul>

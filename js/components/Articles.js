@@ -1,9 +1,5 @@
 import React from 'react';
 
-require('../../scss/Articles.scss');
-
-import happyNewYear from '../../assets/imgs/happyNewYear.jpg'
-
 export const Articles = _ => (
 	<div id="articles">
 		<section className="hero">
@@ -23,7 +19,7 @@ export const Articles = _ => (
 					</div>
 				</article>
 				<article className="imageArticle col-2-3">
-					<img src={happyNewYear} alt="Happy New Year for the Almighty Lobsters team" />
+					<img src="/public/imgs/happyNewYear.jpg" alt="Happy New Year for the Almighty Lobsters team" />
 				</article>
 			</div>
 		</main>

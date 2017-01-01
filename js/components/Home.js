@@ -1,7 +1,5 @@
 import React from 'react';
 
-require('../../scss/Home.scss');
-
 export const Home = _ => (
 	<div id="home">
 		<section className="hero">
