@@ -19,7 +19,7 @@ export const Articles = _ => (
 					</div>
 				</article>
 				<article className="imageArticle col-2-3">
-					<img src="/public/imgs/happyNewYear.jpg" alt="Happy New Year for the Almighty Lobsters team" />
+					<img src="/imgs/happyNewYear.jpg" alt="Happy New Year for the Almighty Lobsters team" />
 				</article>
 			</div>
 		</main>
