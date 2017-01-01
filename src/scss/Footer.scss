@@ -1,10 +1,41 @@
 #footer {
-	background: white;
-	color: #333;
-    border-top: thin #000 solid;
-	padding: 2rem;
+    /* position */
     width: 100%;
     height: 6em;
     position: absolute;
     bottom: 0px;
+    /* style */
+	background: white;
+	color: #444;
+    border-top: thin #000 solid;
+    text-align: center;
+
+    h6 {
+        font-size: 1em;
+    }
+    
+    ul {
+        list-style: none;
+        padding: 0 10px;
+    }
+
+    li {
+        margin: 10px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #555;
+    }
+
+    @media (min-width: 48em) {
+        .row {
+            text-align: left;
+            max-width: 100vw;
+        }
+
+        .col-1-2 {
+            margin: 0 2rem;
+        }
+    }
 }

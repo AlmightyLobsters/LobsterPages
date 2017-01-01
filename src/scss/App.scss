@@ -130,11 +130,6 @@ main {
 }
 
 /* grid */
-.row {
-	width: 100%;
-	border-top: thin #000 solid;
-}
-
 [class*='col-'] {
 	width: 100%;
 	padding: 15px;
@@ -144,7 +139,6 @@ main {
 	.row {
 		display: inline-flex;
 		flex-flow: row nowrap;
-		align-items: center;
 	}
 
 	.col-1-3 {

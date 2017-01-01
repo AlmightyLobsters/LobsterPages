@@ -9,5 +9,14 @@ $article_accent_colour: #2c18cc;
     b {
         border-bottom: 6px #2c18cc solid;    
     }
+
+    .row {
+        width: 100%;
+        border-top: thin #000 solid;
+    }
+
+    @media (min-width: 48em) {
+        .row { align-items: center }
+    }
 }
 
