@@ -4,8 +4,8 @@
   "description": "Blog style web page for the team Almighty Lobsters",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "start:production": "cross-env NODE_ENV=production node server.js"
+    "start": "node -r babel-register server.js",
+    "start:dev": "nodemon -r babel-register server.js"
   },
   "repository": {
     "type": "git",
@@ -43,6 +43,7 @@
     "babel-register": "^6.18.0",
     "express": "^4.14.0",
     "node-sass": "^4.1.1",
+    "postcss-cli": "^2.6.0",
     "postcss-url": "^5.1.2",
     "react": "^15.4.1",
     "react-dom-stream": "^0.5.1",
