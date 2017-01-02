@@ -2,9 +2,9 @@
   "name": "lobsterpages",
   "version": "1.0.0",
   "description": "Blog style web page for the team Almighty Lobsters",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production nodemon -r babel-register server.js",
+    "start": "cross-env NODE_ENV=production node app.js",
     "build": "cross-env NODE_ENV=production webpack --progress --colors"
   },
   "repository": {
