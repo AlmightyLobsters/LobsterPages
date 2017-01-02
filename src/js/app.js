@@ -34,7 +34,7 @@ app.use('/styles', postcssMiddleware({
 	}
 }));
 
-app.use('/', express.static(join(__dirname, '..', '..', 'public')));
+app.use('/', express.static(publicPath));
 
 const port = process.env.PORT || 8808;
 
