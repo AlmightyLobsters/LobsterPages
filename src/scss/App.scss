@@ -33,7 +33,7 @@ html {
 body {
 	min-height: 100%;
 	background: #fff;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #app {
@@ -92,6 +92,7 @@ main {
 	.article_innerWrapper {
 		max-width: 50rem;
 		margin: 0 auto;
+		color: #333;
 	}
 }
 
