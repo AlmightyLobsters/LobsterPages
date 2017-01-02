@@ -1,22 +1,22 @@
 /* eslint no-console:0 */
 import React from 'react';
 import express from 'express';
-import { resolve } from 'path';
+import { join } from 'path';
 import { renderToString } from 'react-dom-stream/server';
 import { match, RouterContext } from 'react-router';
 import sassMiddleware from 'node-sass-middleware';
 
-import { LobsterRoutes } from './js/routes';
+import { LobsterRoutes } from './routes';
 
 const app = express();
 
 app.use('/styles', sassMiddleware({
-	src: resolve(__dirname, 'scss'),
-	dest: resolve(__dirname, 'public', 'styles'),
+	src: join(__dirname, '..', '..', 'scss'),
+	dest: join(__dirname, '..', '..', 'public', 'styles'),
 	outputStyle: 'minified'
 }));
 
-app.use('/', express.static(resolve(__dirname, 'public')));
+app.use('/', express.static(join(__dirname, '..', '..', 'public')));
 
 const port = process.env.PORT || 8808;
 
@@ -25,7 +25,7 @@ app.get('*', (req, res) => {
 		if (error) res.status(500).send(error.message);
 		else if (redirectLocation) res.redirect(302, redirectLocation.pathname + redirectLocation.search);
 		else if (renderProps)
-			require('fs').createReadStream(resolve(__dirname, 'index-start.html'))
+			require('fs').createReadStream(join(__dirname, '..', '..', 'index-start.html'))
 				.on('end', () => {
 					renderToString(<RouterContext {...renderProps} />)
 						.on('end', () => {
