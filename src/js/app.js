@@ -5,15 +5,33 @@ import { join } from 'path';
 import { renderToString } from 'react-dom-stream/server';
 import { match, RouterContext } from 'react-router';
 import sassMiddleware from 'node-sass-middleware';
+import postcssMiddleware from 'postcss-middleware';
+import autoprefixer from 'autoprefixer';
+import postcssUrl from 'postcss-url';
 
 import { LobsterRoutes } from './routes';
+
+const publicPath = join(__dirname, '..', '..', 'public');
 
 const app = express();
 
 app.use('/styles', sassMiddleware({
-	src: join(__dirname, '..', '..', 'scss'),
-	dest: join(__dirname, '..', '..', 'public', 'styles'),
-	outputStyle: 'minified'
+	src: join(__dirname, '..', 'scss'),
+	dest: join(publicPath, 'styles'),
+	outputStyle: 'compressed',
+	response: false,
+}));
+
+app.use('/styles', postcssMiddleware({
+	plugins: [
+		autoprefixer,
+		postcssUrl
+	],
+	src: req => join(publicPath, 'styles', req.url),
+	options: {
+		from: join(__dirname, '..', 'scss', 'main.scss'),
+		to: join(publicPath, 'styles', 'main.css')
+	}
 }));
 
 app.use('/', express.static(join(__dirname, '..', '..', 'public')));
