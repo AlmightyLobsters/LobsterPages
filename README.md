@@ -24,7 +24,6 @@ This being the front-end part of the project (as of *now*).
 `git clone https://github.com/AlmightyLobsters/LobsterPages.git` to clone repository <br>
 `yarn` / `npm install` to install packages <br>
 `yarn start` / `npm start` to spin up the hot-reloading webpack-dev-server <br>
-*(you'll find it then on* [`http://localhost:8080/`](http://localhost:8080) *in your browser)* <br>
 `yarn run build` / `npm run build` to build the project and get a static web page <br>
 
 ## TODOs
