@@ -107,6 +107,9 @@
 		"no-loop-func": "error",
 		// Variables
 		// Stylistic
+		"eol-last": "error",
+		"semi-spacing": "error",
+		"semi": "error",
 		// ES6
 		// React
 		// JSX
