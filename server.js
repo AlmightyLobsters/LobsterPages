@@ -9,8 +9,6 @@ import { LobsterRoutes } from './src/js/routes';
 
 const publicPath = join(__dirname, 'public');
 
-console.log(publicPath);
-
 const app = express();
 
 app.use('/', express.static(publicPath));
@@ -34,7 +32,4 @@ app.get('*', (req, res) => {
 	})
 });
 
-app.listen(port, 'localhost', err => {
-	if (err) console.log(err);
-	console.info(`Listening on http://localhost:${port}`);
-})
+app.listen(port);
