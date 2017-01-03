@@ -40,7 +40,7 @@ body {
 	min-height: calc(100% - 60px);
 	padding-bottom: 60px;
 	position: relative;
-	margin-bottom: -6em;
+	// margin-bottom: -6em;
 }
 
 /* general style elements */
@@ -58,7 +58,7 @@ h2 {
 h3 {
 	font-family: 'Novecento Sans Light';
 	font-weight: 300;
-	font-size: 3em;
+	font-size: 2.5em;
 }
 
 h4 {
@@ -66,9 +66,14 @@ h4 {
 	font-size: 1.5em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (min-height: 500px) {
 	h1 { font-size: 26vw }
 	h2 { font-size: 7vw }
+}
+
+@media (max-height: 500px) {
+	h1 { font-size: 20vw }
+	h2 { font-size: 8vh }
 }
 
 p {
