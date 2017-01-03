@@ -12,4 +12,4 @@ export const Code = _ => (
 			
 		</main>
 	</div>
-)
+);

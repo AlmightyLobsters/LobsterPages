@@ -8,4 +8,4 @@ export const App = ({ children }) => (
 		{children}
 		<Footer />
 	</div>
-)
+);

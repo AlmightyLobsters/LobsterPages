@@ -10,4 +10,4 @@ export const Home = _ => (
 			</header>
 		</section>
 	</div>
-)
+);
