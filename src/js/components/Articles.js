@@ -14,11 +14,8 @@ export const Articles = _ => (
 			</header>
 		</section>
 		<main>
-			<div className="row">
-				<article className="imageArticle col-1-2">
-					<img src={resolutions} alt="New Year's resolutions: publish frequently, communicate more, finish on time, win" />
-				</article>
-				<article className="classicArticle col-1-2">
+			<section className="container" style={{flexDirection: 'row-reverse'}}>
+				<article className="col-1-2">
 					<h3>Novoroční předsevzetí</h3>
 					<div className="article_innerWrapper">
 						<p>Ke konci roku nevyhnutelně patří jeho analýza, zhodnocení a vyvození důsledků. I my jsme se tak rozhodli vytáhnout pár ponaučení z loňského ročníku soutěže a podělit se s vámi o ně.</p>
@@ -29,20 +26,18 @@ export const Articles = _ => (
 						<p>A co vy? Napište nám na facebook, nebo twitter s hashtagem <em>#LobsterResolutions</em> jak jste na tom s předsevzetími vy a co si myslíte o těch našich.</p>
 					</div>
 				</article>
-			</div>
-			<div className="row">
-				<article className="tweetArticle col-1-3">
+				<a href={resolutions} className="col-1-2"><img src={resolutions} alt="New Year's resolutions: publish frequently, communicate more, finish on time, win" /></a>
+			</section>
+			<section className="container">
+				<article className="col-1-3">
 					<h3>Vlastní stránka</h3>
 					<div className="article_innerWrapper">
-						<p>Po měsíci plném plánování, příprav, testování a praktikování černé css magie, vám hrdě ohlašujeme spuštění naší vlastní web stránky.</p>
-						<p>Můžete se těšit na (více méně) pravidelné články o našem postupu, obrázky, představení kódu, atd.</p>
+						<p>Po měsíci plném plánování, příprav, testování a praktikování černé css magie, vám hrdě ohlašujeme spuštění naší vlastní web stránky. Můžete se těšit na (více méně) pravidelné články o našem postupu, obrázky, představení kódu, atd.</p>
 						<p>Šťastný nový rok, plný úspěchů a obsahu z <a href="http://almighty.lobsters.tech">almighty.lobsters.tech</a>!</p>
 					</div>
 				</article>
-				<article className="imageArticle col-2-3">
-					<img src={happyNewYear} alt="Happy New Year for the Almighty Lobsters team" />
-				</article>
-			</div>
+				<a href={happyNewYear} className="col-2-3"><img src={happyNewYear} alt="Happy New Year for the Almighty Lobsters team" /></a>
+			</section>
 		</main>
 	</div>
 )
