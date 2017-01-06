@@ -107,6 +107,7 @@
 		"no-loop-func": "error",
 		// Variables
 		// Stylistic
+		"comma-dangle": "warn",
 		"eol-last": "error",
 		"no-trailing-spaces": "error",
 		"semi-spacing": "error",
