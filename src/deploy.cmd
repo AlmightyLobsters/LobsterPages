@@ -105,7 +105,7 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   popd
 )
 
-:: 4. Run Gulp
+:: 4. Run Build
 IF EXISTS "%DEPLOYMENT_TARGET%\gulpfile.js" OR EXISTS "%DEPLOYMENT_TARGET\gulpfile.babel.js" (
   pushd "%DEPLOYMENT_TARGET%"
   call :ExecuteCmd !NPM_CMD! run build
