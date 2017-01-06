@@ -105,14 +105,12 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   popd
 )
 
-:: 4. compile SCSS
-IF EXIST "%DEPLOYMENT_TARGET%\src\compileSCSS.bat" (
-	echo "Compiling SCSS..."
-	pushd "%DEPLOYMENT_TARGET%"
-	call src\compileSCSS.bat
-	popd
-) ELSE (
-	echo "Compiling script not found"
+:: 4. Run Gulp
+IF EXISTS "%DEPLOYMENT_TARGET%\gulpfile.js" OR EXISTS "%DEPLOYMENT_TARGET\gulpfile.babel.js" (
+  pushd "%DEPLOYMENT_TARGET%"
+  call :ExecuteCmd !NPM_CMD! run build
+  if !ERRORLEVEL! NEQ 0 goto error
+  popd
 )
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
