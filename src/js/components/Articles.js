@@ -16,7 +16,7 @@ export const Articles = _ => (
 		<main>
 			<section className="container" style={{flexDirection: 'row-reverse'}}>
 				<article className="col-1-2">
-					<h3>Novoroční předsevzetí</h3>
+					<div className="title"><h3>Novoroční předsevzetí</h3></div>
 					<div className="article_innerWrapper">
 						<p>Ke konci roku nevyhnutelně patří jeho analýza, zhodnocení a vyvození důsledků. I my jsme se tak rozhodli vytáhnout pár ponaučení z loňského ročníku soutěže a podělit se s vámi o ně.</p>
 						<p>V prvé řadě bychom vám chtěli slíbit pravidelný přísun obsahu jak zde, tak na <a href="https://www.facebook.com/ALCanSat" target="_blank">facebooku</a> a <a href="https://twitter.com/almghtLobsters" target="_blank">twitteru</a>.
@@ -30,7 +30,7 @@ export const Articles = _ => (
 			</section>
 			<section className="container">
 				<article className="col-1-3">
-					<h3>Vlastní stránka</h3>
+					<div className="title"><h3>Vlastní stránka</h3></div>
 					<div className="article_innerWrapper">
 						<p>Po měsíci plném plánování, příprav, testování a praktikování černé css magie, vám hrdě ohlašujeme spuštění naší vlastní web stránky. Můžete se těšit na (více méně) pravidelné články o našem postupu, obrázky, představení kódu, atd.</p>
 						<p>Šťastný nový rok, plný úspěchů a obsahu z <a href="http://almighty.lobsters.tech">almighty.lobsters.tech</a>!</p>

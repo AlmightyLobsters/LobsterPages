@@ -2,7 +2,7 @@ $navHeight: 50px;
 $navTextSize: 17px;
 
 nav#navbar {
-	background: rgba(57, 57, 57, .8);
+	background: rgba(256, 256, 256, .85);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -34,8 +34,7 @@ nav#navbar {
 
 			a {
 				padding: 1em;
-				text-decoration: none;
-				color: white;
+				color: black;
 			}
 		}
 	}
@@ -46,10 +45,9 @@ nav#navbar {
 	align-items: center;
 	font-family: Novecento Sans Light;
 	font-weight: bold;
-	color: white;
+	color: black;
 	font-size: 1.3em;
 	max-width: 300px;
-	text-decoration: none;
 
 	img {
 		width: $navHeight - 20px;

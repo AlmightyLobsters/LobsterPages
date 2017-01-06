@@ -9,4 +9,8 @@ $about_accent_colour: #cc2c18;
             border-bottom: 6px $about_accent_colour solid;    
         }
     }
+
+    a {
+        color: $about_accent_colour;
+    }
 }

@@ -4,9 +4,9 @@
     height: 6em;
     position: absolute;
     bottom: 0px;
+    z-index: -1;
 
     /* style */
-	background: white;
 	color: #444;
     border-top: thin #000 solid;
     text-align: center;

@@ -9,4 +9,8 @@ $code_accent_colour: #2ccc18;
     b {
         border-bottom: 6px $code_accent_colour solid;    
     }
+
+    a {
+        color: $code_accent_colour;
+    }
 }
