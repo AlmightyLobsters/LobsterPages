@@ -1,6 +1,7 @@
 /node_modules
 /.vscode
 /public/styles
+/public/js
 /src/scss/main.css
 /private
 **/*.log
