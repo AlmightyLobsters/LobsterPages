@@ -106,7 +106,7 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 )
 
 :: 4. Run Build
-IF EXISTS "%DEPLOYMENT_TARGET%\gulpfile.js" OR EXISTS "%DEPLOYMENT_TARGET\gulpfile.babel.js" (
+IF EXISTS "%DEPLOYMENT_TARGET%\webpack.config.js" (
   pushd "%DEPLOYMENT_TARGET%"
   call :ExecuteCmd !NPM_CMD! run build
   if !ERRORLEVEL! NEQ 0 goto error
