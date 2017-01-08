@@ -1,0 +1,31 @@
+language: node_js
+node_js: '7'
+script: yarn build
+after_succes:
+# remove files not used in production
+- rm -rf .git
+- rm .babelrc
+- rm .eslintrc
+- rm .gitignore
+- rm .travis.yml
+- rm build.js
+- rm LICENSE.md
+- rm README.md
+- rm webpack.config.js
+- rm yarn.lock
+# initialize git repo
+- git init
+- git config user.name "travis"
+- git config user.email "vojtechstepancik@outlook.com"
+# git ignore node_modules
+- echo "node_modules" > .gitignore
+- git add .gitignore
+- git commit -m "Added gitignore"
+# Add files
+- git add .
+- git commit -m "$TRAVIS_COMMIT"
+deploy:
+  skip-cleanup: true
+  provider: azure_web_apps
+  site: uncannylobsters
+  slot: wip
