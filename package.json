@@ -45,6 +45,7 @@
     "nodemon": "^1.11.0",
     "postcss": "^5.2.8",
     "postcss-url": "^5.1.2",
+    "react-router-sitemap": "^1.0.8",
     "webpack": "^1.14.0"
   },
   "dependencies": {
