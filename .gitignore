@@ -2,6 +2,6 @@
 /.vscode
 /public/styles
 /public/js
-/src/scss/main.css
+/public/sitemap.xml
 /private
 **/*.log
