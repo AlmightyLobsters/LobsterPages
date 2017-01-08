@@ -1,7 +1,7 @@
 language: node_js
 node_js: '7'
 script: yarn build
-after_succes:
+before_deploy:
 - rm -rf .git
 - rm .babelrc
 - rm .eslintrc
