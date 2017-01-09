@@ -17,6 +17,7 @@ before_deploy:
 - git config user.email "vojtechstepancik@outlook.com"
 - echo node_modules > .gitignore
 - git add .
+- git status
 - git commit -m "$TRAVIS_COMMIT"
 deploy:
   skip_cleanup: true
