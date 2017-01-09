@@ -3,6 +3,7 @@ node_js: '7'
 script: yarn build
 before_deploy:
 - rm -rf .git
+- rm -rf node_modules
 - rm .babelrc
 - rm .eslintrc
 - rm .gitignore
@@ -15,9 +16,7 @@ before_deploy:
 - git init
 - git config user.name "travis"
 - git config user.email "vojtechstepancik@outlook.com"
-- echo node_modules > .gitignore
 - git add .
-- git status
 - git commit -m "$TRAVIS_COMMIT"
 deploy:
   skip_cleanup: true
