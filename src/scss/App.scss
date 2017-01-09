@@ -25,6 +25,10 @@ html {
 		h1 {
 			margin: 0.05em;
 		}
+
+		b {
+			font-weight: bold;
+		}
 	}
 }
 
@@ -39,7 +43,6 @@ body {
 	min-height: calc(100% - 60px);
 	padding-bottom: 60px;
 	position: relative;
-	// margin-bottom: -6em;
 }
 
 /* general style elements */
@@ -52,6 +55,7 @@ h2 {
 	font-family: Novecento;
 	font-style: italic;
 	font-size: 50px;
+	font-weight: normal;
 }
 
 h3 {
