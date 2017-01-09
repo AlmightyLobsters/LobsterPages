@@ -15,7 +15,7 @@ before_deploy:
 - git init
 - git config user.name "travis"
 - git config user.email "vojtechstepancik@outlook.com"
-- echo "node_modules" > .gitignore
+- echo node_modules > .gitignore
 - git add .gitignore
 - git commit -m "Added gitignore"
 - git add .
@@ -24,9 +24,5 @@ deploy:
   skip-cleanup: true
   provider: azure_web_apps
   on: express
-  username:
-    secure: KWBPiKLpWkCtJ1wTpCMjEZaP+laBEPybDsw9bX8OzHRTrrUJ8OeCEi7DIej5ARCCUGuHZt9rbKVKnA/XsQZ0vj0gu2syos9BfCfFn2z/pV35TXTeRYbWTU4PPcJ+QpKw58mKpRs3NWxqO3NLD2zRUZWcC5B3y5ogdyF5gM0ulK4bFIxtzIUtcpQNyR90omyI5Dvlunor9kRZA/3ZDX+4Ne9ERWCt49rAfqAS2KisytpHecwIZsq+N1WFSh2i9vuCKp17B9gSKjgXZUM4vcNdxQoWCztVfhSzIfQfOljnBnaRDkjVCX5EvfvDyPDFmgCXQGU/LzC81+iLvwkPkKxTQf3Kcr4IUAuq45j7fqnlVcMIrhxbgYkt9kuR8J0ou/7tYxRcDwqtyiETs7hgXu+zOJVrjZSXP19THsHDgpsnmHiGl+mfevm58zvTd1Hly7rwZXL4jnrBJIuYu0ETPnhkaxdOb6ljduv//sKLR7CeMB7QEd6IwZctS3sCBcFoBNexCc26zWdpiKc5QjIYje4YUnDXi3jJ5EKr8fv5DWD5xYX9DZ9wzXQCB0U6yzKAsZysRPST7ZjCY4kTTWkn/bIzH23uJa7hp6mmpmtPLvX1fUGwSq1WJ/xpl6sx/vfi7ImCRS0KN1v0j0Q+SmaUTRm75oJIpxYDvn8Gcj/SFlHxA+A=
-  password:
-    secure: iSHZ3wjgxej1vtli7xUuy/uVmlCM6flb5WR9JT6DzmhSI0cTNRhmdLzdK1yfCiCqbWpbuKxqDd5An+KRMdAUvlmWLaxnhZTR0Tw5cFa9hJlsNInu1zdtPNfcmb0a3z/RxVA1gnwKwutAiFfCsqPceyc1VruRYMP/TUgH8Pfm6r7KeFd5mRjfF+4sjSQywyXmtu8U6yUqtwR7jTYIUBVItF5FD63tc1CHDDk211pIZBT0UMAa+NNgJELwKg9OtNw08sjdW3ZIy2MGPfmLXLBSuT7mzcwzai23a42YqDbIAL48ua9u4B6zfBu6e1decR/IY91x5SHnRZSvT4/J4rT6P2CxTwqCE3OjQjUmVgLNAgOs5PQmYnecq+hUoeYzYZ5UIlomv8MmcWJ0O/vAbWbwogx99uWLzl3z2M/0t6x2pcJn5LNcksFo9FdM6Y6Sunva8mBtmY+VCZgAzFGgM6/5/md27abYfeMTzyLc0Mzy9HTTbXtxJOM67C+MDceNjRxHqpC9cf5PrnqDyvGnDzX2Vc+WM2lMW4pT5Ul2WbM3UzCklYQ2OBMCfL4fXcWJVsQCX1MCoHqDbHM5Qh28NWFUtMo9iiFYDabYLnHGZ//GWBJG/4sUxawf/H9rie+E3WOF1288saQMQTmmnCyzkWz+T4SXFIns/ID2h6XNwu2b9Ew=
   site: uncannylobsters
   slot: wip
