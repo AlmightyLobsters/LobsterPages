@@ -19,7 +19,7 @@ before_deploy:
 - git add .
 - git commit -m "$TRAVIS_COMMIT"
 deploy:
-  skip-cleanup: true
+  skip_cleanup: true
   provider: azure_web_apps
   on: express
   site: uncannylobsters
