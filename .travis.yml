@@ -18,3 +18,4 @@ deploy:
   on: express
   site: uncannylobsters
   slot: wip
+  verbose: true
