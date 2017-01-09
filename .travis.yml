@@ -2,7 +2,6 @@ language: node_js
 node_js: '7'
 script: yarn build
 before_deploy:
-- rm -rf .git
 - rm -rf node_modules
 - rm .babelrc
 - rm .eslintrc
@@ -13,9 +12,6 @@ before_deploy:
 - rm README.md
 - rm webpack.config.js
 - rm yarn.lock
-- git init
-- git config user.name "almightylobsters"
-- git config user.email "vojtechstepancik@outlook.com"
 deploy:
   skip_cleanup: true
   provider: azure_web_apps
