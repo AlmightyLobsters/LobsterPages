@@ -42,7 +42,7 @@ module.exports = {
 	},
 	plugins: [
 		new FaviconsPlugin({
-			logo: 'assets/imgs/logoRed.png',
+			logo: 'assets/imgs/logoRed.svg',
 			prefix: 'icons/',
 			emitStats: false,
 			persistentCache: true,
