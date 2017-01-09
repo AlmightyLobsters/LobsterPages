@@ -26,9 +26,9 @@ const dbName = isDev ? "LobsterPagesDev" : "LobsterPages";
 
 // Assets Setup
 
-if (isDev) {
+if (isDev)
     require('../build');
-}
+
 
 // Database Setup
 
@@ -48,7 +48,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET || config.COOKIE_SECRET));
 app.use('/', express.static(publicPath));
 
 app.post('/articles', (req, res) => {
-
+    // Handle article post
 });
 
 app.post('/login', (req, res) => {
