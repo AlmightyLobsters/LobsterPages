@@ -14,7 +14,7 @@ before_deploy:
 - rm webpack.config.js
 - rm yarn.lock
 - git init
-- git config user.name "travis"
+- git config user.name "almightylobsters"
 - git config user.email "vojtechstepancik@outlook.com"
 - git add .
 - git commit -m "$TRAVIS_COMMIT"
