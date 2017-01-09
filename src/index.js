@@ -27,11 +27,7 @@ const dbName = isDev ? "LobsterPagesDev" : "LobsterPages";
 // Assets Setup
 
 if (isDev) {
-    const compiler = require('webpack')(require('../webpack.config'));
-    compiler.run((err, stats) => {
-        if (err) console.error(err);
-        else console.log('app bundled');
-    });
+    require('../build');
 }
 
 // Database Setup
