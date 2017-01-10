@@ -5,7 +5,7 @@
 
 # LobsterPages
 
-<a href="https://github.com/AlmightyLobsters"><img src="src/assets/imgs/logoRed.svg" alt="Almighty Lobsters Logo" width="80" height="80" align="right"></a>
+<a href="https://github.com/AlmightyLobsters"><img src="https://cdn.rawgit.com/AlmightyLobsters/LobsterPages/6ed8e2cb/src/assets/imgs/logoRed.svg" alt="Almighty Lobsters Logo" width="80" height="80" align="right"></a>
 
 Project of a webpage covering the exploits and advances of the team the **Almighty Lobsters** through the [CanSat competition](http://www.esero.scientica.cz/cansat).
 This being the front-end part of the project (as of *now*).
