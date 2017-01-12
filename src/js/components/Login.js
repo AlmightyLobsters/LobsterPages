@@ -18,13 +18,12 @@ export const Login = ({ params }) => (
                 const passwd = document.getElementById('passwd').value;
                 http.open('POST', '/login', true);
                 http.setRequestHeader('Authorization', `Basic ${btoa(`${uname}:${passwd}`)}`);
-                http.send(null);
+                http.setRequestHeader('Content-Type', 'application/json');
+                http.send(JSON.stringify({ nextLoc: params.nextUrl }));
                 http.onreadystatechange = () => {
                     if (http.readyState === XMLHttpRequest.DONE)
-                        if (http.status === 302)
-                            window.location.pathname = params.nextLocation || '/';
-                        else if (http.status === 401)
-                            window.location.reload();
+                        if (http.status === 401) window.location.reload(true);
+                        else if (http.status === 200) window.location = http.getResponseHeader('Location');
                 };
             }}/>
         </form>

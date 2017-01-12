@@ -2,15 +2,15 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import auth from 'basic-auth';
+import bodyParser from 'body-parser';
 import crypto from 'crypto';
 import React from 'react';
 import { match, RouterContext } from 'react-router';
 import { renderToString } from 'react-dom/server';
 import { join } from 'path';
 import { DocumentClient } from 'documentdb';
-import ArticlesDB from './js/ArticlesDB';
-import { LobsterRoutes, AuthRequired } from './js/routes';
-import users from './users';
+import DatabaseRepo from './js/DatabaseRepo';
+import { LobsterRoutes } from './js/routes';
 
 let config = {};
 if (!process.env.DB_HOST || !process.env.DB_MASTER_KEY)
@@ -34,9 +34,13 @@ if (isDev)
 
 const dbClient = new DocumentClient(process.env.DB_HOST || config.DB_HOST,
     { masterKey: process.env.DB_MASTER_KEY || config.DB_MASTER_KEY });
-const articlesDB = new ArticlesDB(dbClient, dbName, "Articles");
+const articlesDB = new DatabaseRepo(dbClient, dbName, "Articles");
 articlesDB.init(err => {
     console.error('Error initializing article database: ', err);
+});
+const userDB = new DatabaseRepo(dbClient, dbName, "Users");
+userDB.init(err => {
+    console.log('Error initializing user database: ', err);
 });
 
 // Server Setup
@@ -51,17 +55,29 @@ app.post('/articles', (req, res) => {
     // Handle article post
 });
 
-app.post('/login', (req, res) => {
+app.post('/login', bodyParser.json(), (req, res) => {
+    console.log(req.body);
     const user = auth(req);
-    if (user) {
+    if (!user) res.status(401).redirect('/login');
+    else {
         res.cookie('authHash', crypto
             .createHmac('sha256', process.env.SHA_SECRET || config.SHA_SECRET)
             .update(`${user.name}:${user.pass}`)
             .digest('base64')
         );
-        res.sendStatus(302);
+        res.status(200).location(`${req.protocol}://${req.get('host')}/${req.body.nextLoc || ''}`).end();
     }
-    else res.sendStatus(401);
+});
+
+app.post('/perm', bodyParser.json(), (req, res) => {
+    if (!req.body.userGroup) res.sendStatus(400);
+    else if (!req.cookies.authHash) res.sendStatus(401);
+    else userDB.get(req.body.userGroup, (err, result) => {
+        if (err) { console.log(err); res.sendStatus(500); }
+        else if (!result) res.sendStatus(404);
+        else if (result.hashes.includes(req.cookies.authHash)) res.sendStatus(200);
+        else res.sendStatus(403);
+    });
 });
 
 app.get('*', (req, res) => {
@@ -69,17 +85,8 @@ app.get('*', (req, res) => {
         if (error) res.status(500).send(error.message);
         else if (redirectLocation) res.redirect(302, redirectLocation.pathname + redirectLocation.search);
         else if (renderProps) {
-            const requireLogin = AuthRequired.reduce(
-                (val, reg) => val || reg.test(renderProps.location.pathname),
-                false
-            );
-            console.log(requireLogin);
-            if (!requireLogin || (requireLogin && users.ADMINS.includes(req.cookies.authHash))) {
-                console.log("Access permitted");
-                const content = renderToString(<RouterContext {...renderProps} />);
-                res.render(join(__dirname, 'index.ejs'), { content });
-            }
-            else res.redirect('/login');
+            const content = renderToString(<RouterContext {...renderProps} />);
+            res.render(join(__dirname, 'index.ejs'), { content });
         }
         else res.status(404).send("Not Found");
     });

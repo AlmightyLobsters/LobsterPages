@@ -1,7 +1,7 @@
 import { getOrCreateCollection, getOrCreateDatabase } from './DocDBUtils';
 import { DocumentClient } from 'documentdb';
 
-export default class ArticlesDB {
+export default class DatabaseRepo {
     constructor(client, dbId, colId) {
         if(client instanceof DocumentClient)
             this.client = client;
