@@ -8,7 +8,7 @@ import { Code } from './components/Code';
 import { Login } from './components/Login';
 import { NotFound } from './components/NotFound';
 
-const Authenticate = (nextState, replace, callback, userGroup) => {
+const Authenticate = userGroup => (nextState, replace, callback) => {
     if(process.env.SIDE === 'client') {
         const http = new XMLHttpRequest();
         http.open('POST', '/perm', true);
@@ -17,7 +17,7 @@ const Authenticate = (nextState, replace, callback, userGroup) => {
         http.onreadystatechange = () => {
             if (http.readyState === XMLHttpRequest.DONE) {
                 if (http.status === 401 || http.status === 403)
-                    replace('/login' + nextState.location.pathname);
+                    replace('/login' + escape(nextState.location.pathname.replace(/^\//, '')));
                 callback();
             }
         };
@@ -30,7 +30,7 @@ export const LobsterRoutes = (
         <IndexRoute component={Home} />
         <Route path="/about" component={About} />
         <Route path="/blog" component={Articles} />
-        <Route path="/code" component={Code} onEnter={(s, r, c) => { Authenticate(s, r, c, 'ADMIN'); }} />
+        <Route path="/code" component={Code} onEnter={Authenticate('ADMIN')} />
         <Route path="/login(/:nextUrl)" component={Login} />
         <Route path="*" component={NotFound} />
     </Route>
