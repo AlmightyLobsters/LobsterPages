@@ -17,7 +17,7 @@ const Authenticate = userGroup => (nextState, replace, callback) => {
         http.onreadystatechange = () => {
             if (http.readyState === XMLHttpRequest.DONE) {
                 if (http.status === 401 || http.status === 403)
-                    replace('/login' + escape(nextState.location.pathname.replace(/^\//, '')));
+                    replace('/login/' + escape(nextState.location.pathname.replace(/^\//, '')));
                 callback();
             }
         };
