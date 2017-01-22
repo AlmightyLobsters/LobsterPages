@@ -1,0 +1,5 @@
+.article {
+    &.reversed {
+        flex-direction: row-reverse;
+    }
+}
