@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const Article = ({data: { title, text, imgFormat, reversed, imgPath}}) => (
-    <section className="container" style={ reversed ? {flexDirection: 'row-reverse'} : {}}>
+    <section className={`article container${reversed ? ' reversed' : ''}`}>
         <article className={`col-${imgFormat === 'tall' ? 2 : 1}-${!imgPath ? 1 : (imgFormat === 'medium' ? 2 : 3)}`}>
             <div className="title"><h3>{title}</h3></div>
             <div className="article_innerWrapper">
