@@ -22,7 +22,24 @@ if (!process.env.DB_HOST || !process.env.DB_MASTER_KEY)
 
 const isDev = process.env.NODE_ENV !== 'production';
 const publicPath = join(__dirname, '..', 'public');
-const dbName = isDev ? "LobsterPagesDev" : "LobsterPages";
+const dbName = isDev ? 'LobsterPagesDev' : 'LobsterPages';
+
+const requireGroup = userGroup => (req, res, next) => {
+    if (!req.body) req.body = {};
+    req.body.userGroup = userGroup;
+    next();
+};
+
+const authenticate = (req, cb) => {
+    if (!req.body.userGroup) cb({status: 400, msg: 'User group not specified'});
+    else if (!req.cookies.authHash) cb({status: 401, msg: 'Not logged in'});
+    else userDB.get(req.body.userGroup, (err, result) => {
+        if (err) cb({status: 500, msg: err});
+        else if (!result) cb({status: 404, msg: 'User group record not found'});
+        else if (result.hashes.includes(req.cookies.authHash)) cb(null);
+        else cb({status: 403, msg: 'Access denied'});
+    });
+}
 
 // Assets Setup
 
@@ -34,11 +51,11 @@ if (isDev)
 
 const dbClient = new DocumentClient(process.env.DB_HOST || config.DB_HOST,
     { masterKey: process.env.DB_MASTER_KEY || config.DB_MASTER_KEY });
-const articlesDB = new DatabaseRepo(dbClient, dbName, "Articles");
+const articlesDB = new DatabaseRepo(dbClient, dbName, 'Articles');
 articlesDB.init(err => {
     console.error('Error initializing article database: ', err);
 });
-const userDB = new DatabaseRepo(dbClient, dbName, "Users");
+const userDB = new DatabaseRepo(dbClient, dbName, 'Users');
 userDB.init(err => {
     console.log('Error initializing user database: ', err);
 });
@@ -64,32 +81,54 @@ app.get('/articles(/:id)?', (req, res) => {
         )));
     });
 });
-app.post('/articles', (req, res) => {
-    // Handle article post
+app.post('/articles', bodyParser.json(), requireGroup('ADMIN'), (req, res) => {
+    authenticate(req, err => {
+        if (err) res.status(err.status).send(err.msg);
+        else {
+            let unparsed = req.body;
+            if (!unparsed || !unparsed.title || !unparsed.text)
+                res.status(422).send('New article must specify at least a title and text components');
+            else if (!articlesDB.initialized) res.status(500).send('Article database not connected');
+            else articlesDB.getCount((err, count) => {
+                if (err) res.status(500).send(err);
+                else {
+                    const newArt = {
+                        id: JSON.stringify(count),
+                        title: unparsed.title,
+                        text: unparsed.text,
+                        reversed: !!unparsed.reversed
+                    };
+                    if (unparsed.imgPath) {
+                        newArt.imgPath = unparsed.imgPath;
+                        newArt.imgFormat = unparsed.imgFormat || 'medium';
+                    }
+                    articlesDB.add(newArt, (err, doc) => {
+                        if (err) res.status(500).send(err);
+                        else res.status(201).location(`${req.protocol}://${req.host}/articles/${doc.id}`).send(doc);
+                    });
+                }
+            });
+        }
+    });
 });
 
-app.post('/login', bodyParser.json(), (req, res) => {
-    console.log(req.body);
+app.post('/login', (req, res) => {
     const user = auth(req);
-    if (!user) res.status(401).redirect('/login');
+    if (!user) res.sendStatus(401);
     else {
         res.cookie('authHash', crypto
             .createHmac('sha256', process.env.SHA_SECRET || config.SHA_SECRET)
             .update(`${user.name}:${user.pass}`)
             .digest('base64')
         );
-        res.status(200).location(`${req.protocol}://${req.get('host')}/${req.body.nextLoc || ''}`).end();
+        res.status(200).end();
     }
 });
 
 app.post('/perm', bodyParser.json(), (req, res) => {
-    if (!req.body.userGroup) res.sendStatus(400);
-    else if (!req.cookies.authHash) res.sendStatus(401);
-    else userDB.get(req.body.userGroup, (err, result) => {
-        if (err) { console.log(err); res.sendStatus(500); }
-        else if (!result) res.sendStatus(404);
-        else if (result.hashes.includes(req.cookies.authHash)) res.sendStatus(200);
-        else res.sendStatus(403);
+    authenticate(req, err => {
+        if(err) res.status(err.status).send(err.msg);
+        else res.status(200).send('Access granted');
     });
 });
 
@@ -101,7 +140,7 @@ app.get('*', (req, res) => {
             const content = renderToString(<RouterContext {...renderProps} />);
             res.render(join(__dirname, 'index.ejs'), { content });
         }
-        else res.status(404).send("Not Found");
+        else res.status(404).send('Not Found');
     });
 });
 
