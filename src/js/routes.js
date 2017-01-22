@@ -6,6 +6,8 @@ import { About } from './components/About';
 import { Articles } from './components/Articles';
 import { Code } from './components/Code';
 import { Login } from './components/Login';
+import { Admin } from './components/Admin/Admin';
+import { Dashboard } from './components/Admin/Dashboard';
 import { NotFound } from './components/NotFound';
 
 const Authenticate = userGroup => (nextState, replace, callback) => {
@@ -30,8 +32,11 @@ export const LobsterRoutes = (
         <IndexRoute component={Home} />
         <Route path="/about" component={About} />
         <Route path="/blog" component={Articles} />
-        <Route path="/code" component={Code} onEnter={Authenticate('ADMIN')} />
+        <Route path="/code" component={Code} />
         <Route path="/login(/:nextUrl)" component={Login} />
+        <Route path="/admin" component={Admin} onEnter={Authenticate('ADMIN')}>
+            <IndexRoute component={Dashboard} />
+        </Route>
         <Route path="*" component={NotFound} />
     </Route>
 );
