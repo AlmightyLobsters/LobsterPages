@@ -9,6 +9,7 @@ export default class DatabaseRepo {
         this.colId = colId;
         this.db = null;
         this.col = null;
+        this.initialized = false;
     }
 
     init(cb) {
@@ -18,7 +19,10 @@ export default class DatabaseRepo {
                 this.db = db;
                 getOrCreateCollection(this.client, this.db._self, this.colId, (err, col) => {
                     if (err) cb(err);
-                    else this.col = col;
+                    else {
+                        this.col = col;
+                        this.initialized = true;
+                    }
                 });
             }
         });
@@ -38,6 +42,13 @@ export default class DatabaseRepo {
         });
     }
 
+    getCount(cb) {
+        this.client.queryDocuments(this.col._self, 'SELECT 1 FROM root').toArray((err, results) => {
+            if (err) cb(err);
+            else cb(null, results.length);
+        });
+    }
+
     get(id, cb) {
         const query = {
             query: 'SELECT * FROM root r WHERE r.id= @id',
@@ -53,7 +64,7 @@ export default class DatabaseRepo {
     }
 
     add(item, cb) {
-        if (!item.date) item.date = Date.now;
+        if (!item.createdAt) item.createdAt = new Date();
         this.client.createDocument(this.col._self, item, (err, doc) => {
             if (err) cb(err);
             else cb(null, doc);
