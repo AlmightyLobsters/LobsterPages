@@ -38,14 +38,14 @@ export default class DatabaseRepo {
     getAll(cb) {
         this.client.queryDocuments(this.col._self, 'SELECT * FROM root').toArray((err, results) => {
             if (err) cb(err);
-            else cb(null, results);
+            else cb(null, results || []);
         });
     }
 
     getCount(cb) {
         this.client.queryDocuments(this.col._self, 'SELECT 1 FROM root').toArray((err, results) => {
             if (err) cb(err);
-            else cb(null, results.length);
+            else cb(null, results.length || 0);
         });
     }
 
@@ -74,6 +74,7 @@ export default class DatabaseRepo {
     update(id, item, cb) {
         this.get(id, (err, doc) => {
             if (err) cb(err);
+            else if (!doc) cb({message: 'Document not found'});
             else {
                 for (prop in item)
                     if (item.hasOwnProperty(prop))
@@ -89,10 +90,11 @@ export default class DatabaseRepo {
     remove(id, cb) {
         this.get(id, (err, doc) => {
             if (err) cb(err);
+            else if (!doc) cb({message: 'Document not found'});
             else
                 this.client.deleteDocument(doc._self, (err, removed) => {
                     if (err) cb(err);
-                    else cb(null, removed);
+                    else cb(null, doc);
                 });
         });
     }
