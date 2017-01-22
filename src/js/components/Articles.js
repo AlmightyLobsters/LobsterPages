@@ -1,27 +1,38 @@
 import React from 'react';
+import { Article } from './Article';
+import axios from 'axios';
 
-export const Articles = _ => (
-    <div id="articles">
-        <section className="hero">
-            <header>
-                <h1>Blog</h1>
-                <h2>A <b>sassy</b> subtitle</h2>
-            </header>
-        </section>
-        <main>
-            <div className="row">
-                <article className="tweetArticle col-1-3">
-                    <h3>Vlastní stránka</h3>
-                    <div className="article_innerWrapper">
-                        <p>Po měsíci plném plánování, příprav, testování a praktikování černé css magie, vám hrdě ohlašujeme spuštění naší vlastní web stránky.</p>
-                        <p>Můžete se těšit na (více méně) pravidelné články o našem postupu, obrázky, představení kódu, atd.</p>
-                        <p>Šťastný nový rok, plný úspěchů a obsahu z <a href="http://almighty.lobsters.tech">almighty.lobsters.tech</a>!</p>
-                    </div>
-                </article>
-                <article className="imageArticle col-2-3">
-                    <img src="/imgs/happyNewYear.jpg" alt="Happy New Year for the Almighty Lobsters team" />
-                </article>
+export class Articles extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            err: null,
+            articles: []
+        };
+    }
+
+    componentWillMount() {
+        axios.get('/articles')
+            .then(res => { console.log(res); this.setState({ articles: res.data || [] }); })
+            .catch(err => { this.setState({ err, articles: []}); });
+    }
+
+    render() {
+        return (
+            <div id="articles">
+                <section className="hero">
+                    <header>
+                        <h1>Blog</h1>
+                        <h2>A <b>sassy</b> subtitle</h2>
+                    </header>
+                </section>
+                <main>
+                    {this.state.err
+                        ? <p>{this.state.err}</p>
+                        : this.state.articles.map(art => <Article data={art} />)}
+                </main>
             </div>
-        </main>
-    </div>
-);
+        );
+    }
+}

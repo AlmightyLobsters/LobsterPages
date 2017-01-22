@@ -31,6 +31,13 @@ export default class DatabaseRepo {
         });
     }
 
+    getAll(cb) {
+        this.client.queryDocuments(this.col._self, 'SELECT * FROM root').toArray((err, results) => {
+            if (err) cb(err);
+            else cb(null, results);
+        });
+    }
+
     get(id, cb) {
         const query = {
             query: 'SELECT * FROM root r WHERE r.id= @id',

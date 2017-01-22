@@ -51,6 +51,19 @@ app.use(cookieParser(process.env.COOKIE_SECRET || config.COOKIE_SECRET));
 
 app.use('/', express.static(publicPath));
 
+app.get('/articles(/:id)?', (req, res) => {
+    const snd = (err, result) => {
+        if (err) res.status(500).send(err);
+        else if (result) res.status(200).send(result);
+        else res.sendStatus(404);
+    };
+    if(req.params.id) articlesDB.get(req.params.id, snd);
+    else articlesDB.getAll((err, results) => {
+        snd(err, results.sort(($, _) => (
+            new Date(_.createdAt).getTime() - new Date($.createdAt).getTime()
+        )));
+    });
+});
 app.post('/articles', (req, res) => {
     // Handle article post
 });

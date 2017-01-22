@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Footer = _ => (
     <div id="footer">
-        <section className="row">
+        <section className="container">
             <section id="socialNetworks" className="col-1-3">
                 <h6>Humři na sociálních sítích</h6>
                 <ul>

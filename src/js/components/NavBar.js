@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 export const NavBar = _ => (
     <nav id="navbar">
         <Link to="/" id="logo">
-            <img src="/imgs/logoWhite.png" alt="Almighty Lobsters Logo"/>
+            <img src="/imgs/logoRed.svg" alt="Almighty Lobsters Logo"/>
             <span>Almighty Lobsters</span>
         </Link>
         <ul>

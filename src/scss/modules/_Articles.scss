@@ -2,7 +2,7 @@ $article_accent_colour: #2c18cc;
 
 #articles {
 	.hero {
-        background: url('../../public/imgs/articles.jpg') center no-repeat fixed;
+        background: url('../../public/imgs/articles.jpg') #33322d center no-repeat fixed;
         background-size: cover;
     }
 
@@ -10,13 +10,12 @@ $article_accent_colour: #2c18cc;
         border-bottom: 6px #2c18cc solid;    
     }
 
-    .row {
-        width: 100%;
-        border-top: thin #000 solid;
+    h3 {
+        margin: 0;
     }
 
-    @media (min-width: 48em) {
-        .row { align-items: center }
+    a {
+        color: $article_accent_colour;
     }
 }
 

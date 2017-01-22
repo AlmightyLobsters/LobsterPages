@@ -11,7 +11,6 @@ html {
 	width: 100%; //98.95
 	height: 100vh;
 	max-height: 1000px;
-	border: thin #333 solid;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -22,6 +21,10 @@ html {
 		h1 {
 			margin: 0.05em;
 		}
+
+		b {
+			font-weight: bold;
+		}
 	}
 }
 
@@ -29,32 +32,32 @@ html {
 body {
 	min-height: 100%;
 	background: #fff;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #app {
 	min-height: calc(100% - 60px);
 	padding-bottom: 60px;
 	position: relative;
-	margin-bottom: -6em;
 }
 
 /* general style elements */
 h1 {
 	font-family: 'Novecento Sans Bold';
-	font-size: 200px !important;
+	font-size: 200px;
 }
 
 h2 {
 	font-family: Novecento;
 	font-style: italic;
-	font-size: 50px !important;
+	font-size: 50px;
+	font-weight: normal;
 }
 
 h3 {
 	font-family: 'Novecento Sans Light';
 	font-weight: 300;
-	font-size: 3em !important;
+	font-size: 2.5em;
 }
 
 h4 {
@@ -62,9 +65,14 @@ h4 {
 	font-size: 1.5em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (min-height: 500px) {
 	h1 { font-size: 26vw }
 	h2 { font-size: 7vw }
+}
+
+@media (max-height: 500px) {
+	h1 { font-size: 20vw }
+	h2 { font-size: 8vh }
 }
 
 p {
@@ -76,7 +84,11 @@ em {
 }
 
 b {
-	font-weight: 700;
+	font-weight: 500;
+}
+
+a {
+	text-decoration: none;
 }
 
 /* content elements */
@@ -85,10 +97,36 @@ main {
 	margin:2em auto;
 	padding: 2em;
 
-	.article_innerWrapper {
-		max-width: 50rem;
-		margin: 0 auto;
+	section.container {
+		background: #fff;
 	}
+}
+
+.article_innerWrapper {
+	color: #000;
+
+	a {
+		padding: 0 5px;
+
+		&:hover {
+			background: #333;
+			color: white !important;
+		}
+	}
+}
+
+article {
+	font-weight: 200;
+	text-align: justify;
+
+	.title {
+		text-align: center;
+	}
+}
+
+img {
+	width: 100%;
+	height: auto;
 }
 
 .videoWrapper {
@@ -106,33 +144,19 @@ main {
 	}
 }
 
-.classicArticle {
-	text-align: justify;
-}
-
-.videoArticle {
-	background: goldenrod;
-}
-
-.imageArticle {
-	img {
-		width: 100%;
-		height: auto;
-	}
-}
-
-.tweetArticle {
-	text-align: left;
-}
-
 /* grid */
 [class*='col-'] {
 	width: 100%;
 	padding: 15px;
 }
 
+.container {
+	padding: 30px 0;
+	border-top: thin #333 solid;
+}
+
 @media (min-width: 48em) {
-	.row {
+	.container {
 		display: inline-flex;
 		flex-flow: row nowrap;
 	}
@@ -147,5 +171,10 @@ main {
 
 	.col-1-2 {
 		width: 50%;
+	}
+
+	.article_innerWrapper {
+		max-width: 50rem;
+		margin: 0 auto;
 	}
 }
