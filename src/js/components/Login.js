@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Login = ({ params }) => (
+export const Login = ({ params: { nextUrl } }) => (
     <div id="login">
         <form>
             <fieldset>
@@ -18,12 +18,11 @@ export const Login = ({ params }) => (
                 const passwd = document.getElementById('passwd').value;
                 http.open('POST', '/login', true);
                 http.setRequestHeader('Authorization', `Basic ${btoa(`${uname}:${passwd}`)}`);
-                http.setRequestHeader('Content-Type', 'application/json');
-                http.send(JSON.stringify({ nextLoc: params.nextUrl }));
+                http.send(null);
                 http.onreadystatechange = () => {
                     if (http.readyState === XMLHttpRequest.DONE)
                         if (http.status === 401) window.location.reload(true);
-                        else if (http.status === 200) window.location = http.getResponseHeader('Location');
+                        else if (http.status === 200) window.location.replace(nextUrl || '/');
                 };
             }}/>
         </form>
