@@ -33,6 +33,7 @@ const requireGroup = userGroup => (req, res, next) => {
 const authenticate = (req, cb) => {
     if (!req.body.userGroup) cb({status: 400, msg: 'User group not specified'});
     else if (!req.cookies.authHash) cb({status: 401, msg: 'Not logged in'});
+    else if (!userDB.initialized) cb({status: 500, msg: 'User database not initialized'});
     else userDB.get(req.body.userGroup, (err, result) => {
         if (err) cb({status: 500, msg: err});
         else if (!result) cb({status: 404, msg: 'User group record not found'});
@@ -69,15 +70,16 @@ app.use(cookieParser(process.env.COOKIE_SECRET || config.COOKIE_SECRET));
 app.use('/', express.static(publicPath));
 
 app.get('/articles(/:id)?', (req, res) => {
-    const snd = (err, result) => {
+    if(req.params.id) articlesDB.get(req.params.id, (err, result) => {
         if (err) res.status(500).send(err);
-        else if (result) res.status(200).send(result);
-        else res.sendStatus(404);
-    };
-    if(req.params.id) articlesDB.get(req.params.id, snd);
+        else if (!result) res.sendStatus(404);
+        else res.status(200).send(result);
+    });
     else articlesDB.getAll((err, results) => {
-        snd(err, results.sort(($, _) => (
-            new Date(_.createdAt).getTime() - new Date($.createdAt).getTime()
+        if(err) res.status(500).send(err);
+        else if(!results) res.sendStatus(500);
+        else res.status(200).send(results.sort((a, b) => (
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
         )));
     });
 });
@@ -90,11 +92,11 @@ app.post('/articles', bodyParser.json(), requireGroup('ADMIN'), (req, res) => {
             if (!unparsed || !unparsed.title || !unparsed.text)
                 res.status(422).send('New article must specify at least a title and text components');
             else if (!articlesDB.initialized) res.status(500).send('Article database not connected');
-            else articlesDB.getCount((err, count) => {
+            else articlesDB.getAll((err, all) => {
                 if (err) res.status(500).send(err);
                 else {
                     const newArt = {
-                        id: JSON.stringify(count),
+                        id: JSON.stringify(parseInt(all.slice(-1)[0].id) + 1),
                         title: unparsed.title,
                         text: unparsed.text,
                         reversed: !!unparsed.reversed
@@ -105,7 +107,7 @@ app.post('/articles', bodyParser.json(), requireGroup('ADMIN'), (req, res) => {
                     }
                     articlesDB.add(newArt, (err, doc) => {
                         if (err) res.status(500).send(err);
-                        else res.status(201).location(`${req.protocol}://${req.host}/articles/${doc.id}`).send(doc);
+                        else res.status(201).location(`${req.protocol}://${req.get('host')}/articles/${doc.id}`).send(doc);
                     });
                 }
             });
