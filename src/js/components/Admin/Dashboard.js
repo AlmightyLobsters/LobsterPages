@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { Article } from '../Article';
 
 
 export class Dashboard extends React.Component {
@@ -12,17 +11,64 @@ export class Dashboard extends React.Component {
         };
     }
 
+    componentDidMount() {
+        axios.get('/articles')
+            .then(res => {
+                this.setState({
+                    err: null,
+                    articles: res.data
+                });
+            })
+            .catch(err => {
+                this.setState({
+                    err,
+                    articles: []
+                });
+            });
+    }
+
+    deleteArticle(id) {
+        return e => {
+            e.preventDefault();
+            const select = this.state.articles.find(val => val.id===id);
+            if (confirm(`Do you want to delete article: '${select.title}'?`)) // eslint no-alert:0
+                axios.delete(`/articles/${id}`)
+                    .then(res => {
+                        this.setState((prevState, props) => ({
+                            err: null,
+                            articles: prevState.articles.filter(a => a.id !== res.data.id)
+                        }));
+                    })
+                    .catch(err => {
+                        this.setState({err});
+                    });
+        };
+    }
+
     render() {
-        // axios.get('/articles')
-        //     .then(res => this.setState({ articles: res.data}))
-        //     .catch(err => this.setState({err}));
         return (
             <div id="adminDash">
                 <h3>Dashboard</h3>
-                {this.state.err
-                    ? <p>{this.state.err}</p>
-                    : this.state.articles.map(art => <Article data={art} />)}
-                <input type="button" value="Add an Article" />
+                <main>
+                    <div className="articleList">
+                        <button>Add an article</button>
+                        {this.state.err
+                            ? <p>{this.state.err}</p>
+                            : this.state.articles.map(art => (
+                                <div className="articleHeader">
+                                    <header>
+                                        <p>{art.title}<span className="idIndicator">{`#${art.id}`}</span></p>
+                                        <div className="controls">
+                                            <button className="edit">Edit</button>
+                                            <button className="delete" onClick={this.deleteArticle(art.id)}>Delete</button>
+                                        </div>
+                                    </header>
+                                    <div className="editForm">
+                                    </div>
+                                </div>
+                            ))}
+                    </div>
+                </main>
             </div>
         );
     }
