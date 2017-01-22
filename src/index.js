@@ -39,7 +39,7 @@ const authenticate = (req, cb) => {
         else if (result.hashes.includes(req.cookies.authHash)) cb(null);
         else cb({status: 403, msg: 'Access denied'});
     });
-}
+};
 
 // Assets Setup
 
@@ -81,6 +81,7 @@ app.get('/articles(/:id)?', (req, res) => {
         )));
     });
 });
+
 app.post('/articles', bodyParser.json(), requireGroup('ADMIN'), (req, res) => {
     authenticate(req, err => {
         if (err) res.status(err.status).send(err.msg);
@@ -109,6 +110,17 @@ app.post('/articles', bodyParser.json(), requireGroup('ADMIN'), (req, res) => {
                 }
             });
         }
+    });
+});
+
+app.delete('/articles/:id', requireGroup('ADMIN'), (req, res) => {
+    authenticate(req, err => {
+        if(err) res.status(err.status).send(err.msg);
+        else if(!articlesDB.initialized) res.status(500).send('Article database not connected');
+        else articlesDB.remove(req.params.id, (err, doc) => {
+            if (err) res.status(500).send(err);
+            else res.status(200).send(doc);
+        });
     });
 });
 
