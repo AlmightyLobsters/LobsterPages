@@ -11,7 +11,7 @@ export const Footer = _ => (
 					<li><a href="https://www.facebook.com/ALCanSat" target="_blank">Facebook</a></li>
 					<li><a href="https://twitter.com/almghtLobsters" target="_blank">Twitter</a></li>
 					<li><a href="https://www.youtube.com/channel/UCox2-N19JXhrZlNf8cEM2Zw" target="_blank">YouTube</a></li>
-					<li><a href="https://myaccount.google.com/brandaccounts/102005371252944081919/view?pli=1" target="_blank">GooglePlus</a></li>
+					<li><a href="https://plus.google.com/b/102005371252944081919/102005371252944081919" target="_blank">GooglePlus</a></li>
 				</ul>
 			</section>
 			<section id="CanSat" className="col-1-3">
