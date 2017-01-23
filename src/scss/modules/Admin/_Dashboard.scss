@@ -37,8 +37,62 @@
             }
 
             .editForm {
-                height: 100px;
                 display: none;
+                flex-direction: column;
+                margin: 20px;
+
+                input[type="text"] {
+                    padding: 10px;
+                }
+
+                textarea {
+                    height: 200px;
+                    padding: 10px;
+                }
+
+                .invalid {
+                    border: thin solid red;
+                    background-color: rgb(200,120,120);
+                }
+
+                section {
+                    display: flex;
+
+                    section {
+                        flex-direction: column;
+
+                        section {
+                            flex-direction: row;
+                            label {
+                                margin-right: 15px;
+                            }
+                        }
+
+                        &.buttons {
+                            margin-top: auto;
+                            margin-left: auto;
+                            flex-direction: row;
+                        }
+
+                        &.imgSelect {
+                            padding: 10px;
+                        }
+
+                    }
+                }
+
+
+                * {
+                    display: none;
+                    margin: 10px;
+                }
+            }
+
+            &.active .editForm {
+                display: flex;
+                * {
+                    display: inherit;
+                }
             }
         }
 
