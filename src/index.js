@@ -3,6 +3,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import auth from 'basic-auth';
 import bodyParser from 'body-parser';
+import fileUpload from 'express-fileupload';
 import crypto from 'crypto';
 import React from 'react';
 import { match, RouterContext } from 'react-router';
@@ -82,6 +83,11 @@ app.get('/articles(/:id)?', (req, res) => {
             new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
         )));
     });
+});
+
+app.post('/articlesTest', requireGroup('ADMIN'), fileUpload(), (req, res) => {
+    console.log('Post made');
+    res.status(200).send('OK');
 });
 
 app.post('/articles', bodyParser.json(), requireGroup('ADMIN'), (req, res) => {
