@@ -9,7 +9,7 @@ export const About = _ => (
             </header>
         </section>
         <main>
-            <article className="classicArticle">
+            <article>
                 <h3>Co jsme zač</h3>
                 <div className="article_innerWrapper">
                     <div className="videoWrapper"><iframe width="560" height="349" src="https://www.youtube.com/embed/9YXB2fL1riA" frameBorder="0" allowFullScreen></iframe></div>

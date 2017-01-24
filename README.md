@@ -5,7 +5,7 @@
 
 # LobsterPages
 
-<a href="https://github.com/AlmightyLobsters"><img src="src/assets/imgs/logoRed.png" alt="Almighty Lobsters Logo" width="80" height="80" align="right"></a>
+<a href="https://github.com/AlmightyLobsters"><img src="https://cdn.rawgit.com/AlmightyLobsters/LobsterPages/6ed8e2cb/src/assets/imgs/logoRed.svg" alt="Almighty Lobsters Logo" width="80" height="80" align="right"></a>
 
 Project of a webpage covering the exploits and advances of the team the **Almighty Lobsters** through the [CanSat competition](http://www.esero.scientica.cz/cansat).
 This being the front-end part of the project (as of *now*).
@@ -24,7 +24,6 @@ This being the front-end part of the project (as of *now*).
 `git clone https://github.com/AlmightyLobsters/LobsterPages.git` to clone repository <br>
 `yarn` / `npm install` to install packages <br>
 `yarn start` / `npm start` to spin up the hot-reloading webpack-dev-server <br>
-*(you'll find it then on* [`http://localhost:8080/`](http://localhost:8080) *in your browser)* <br>
 `yarn run build` / `npm run build` to build the project and get a static web page <br>
 
 ## TODOs
@@ -32,4 +31,4 @@ This being the front-end part of the project (as of *now*).
 * [x] stack implemented
 * [x] the whole thing designed
 * [ ] back-end done
-* [ ] site published
+* [x] site published

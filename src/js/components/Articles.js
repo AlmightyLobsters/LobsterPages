@@ -3,7 +3,6 @@ import { Article } from './Article';
 import axios from 'axios';
 
 export class Articles extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -14,7 +13,7 @@ export class Articles extends React.Component {
 
     componentWillMount() {
         axios.get('/articles')
-            .then(res => { console.log(res); this.setState({ articles: res.data || [] }); })
+            .then(res => { this.setState({ articles: res.data || [] }); })
             .catch(err => { this.setState({ err, articles: []}); });
     }
 
