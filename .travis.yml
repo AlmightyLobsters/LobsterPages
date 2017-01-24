@@ -1,21 +1,22 @@
 language: node_js
-node_js: '6'
+node_js: '7'
 script: yarn build
-after_success:
-- find . | grep -vE "^..?$|build" | xargs rm -rf
-- mv ./build/* ./
-- rmdir ./build
+before_deploy:
+- rm -rf node_modules
+- rm -rf .git
+- rm .eslintrc
+- rm .gitignore
+- rm .travis.yml
+- rm build.js
+- rm LICENSE.md
+- rm README.md
+- rm webpack.config.js
+- rm yarn.lock
 - git init
-- git config user.name "almightylobsters"
+- git config user.name "travis"
 - git config user.email "vojtechstepancik@outlook.com"
-- git add .
-- git commit -m "Build Repo commit"
 deploy:
   skip_cleanup: true
   provider: azure_web_apps
   site: uncannylobsters
-  verbose: true
-notifications:
-  slack:
-    secure: FgHj5ST7xLLybOhlSxmq4E5/RXYyliEBwn7sWilNQ4KREfYnOysPTPejbJHgiEEEdEw7t5gCBVrq9cIqC28cCm4uSrzgvefXT1DV+NAJQmJH6qd+K8+Up2/VDafmK3UpJ0gvhsQayLKEsDTOMLCQl7zSM/VNUVVXNxb+YCZJmGwa+nuhgVdvKAwx1BsykENyb+J6Am9tER2YM9xUYgu6gdVnxveejtOXYRB8e2owSsYQnRrTZufs3kRRySY1+A8p2Lp++RHv5Wqqrk9NrIVIfFrE/hro2GR8ZRvWUY0HQuTrzc+0fbIXZ+3bs7spuDHQ1gYk0oa7bj6NneVzKvLWKjQvuJxVnTMJjVQXZvT26EW/maZJYLwC2V7E5mPbtFMr1mrGQEoOhxWRPiRKVNQoYAJyTgZuBLQQ1VLRfpUA6f2AUZRrSZSkjZ3H8qO4q1r/nZyLu7jr8L2mjVIV68dZACHDkwgiaGpX/ROL80oqWNNCFXyHGKsYwql4pcu2boy8fCX+Sskh8rog44eBBP2292+/Fr8ztNu2RkG+HdQeisVetWG9IpOt1MOtofoYUwK5bBS4dWPKe0sYN2m/bCJfpJbEvRR8WrjLrjG2Obmvz7b1qqlwfK0xlkVzWnn/eN8/sosWmBw6Lp3y/LNbUH/wQP3ASlbQqtq3AyZRo7i0618=
-  email: false
+  slot: uncannylobsters-wip

@@ -107,13 +107,18 @@
 		"no-loop-func": "error",
 		// Variables
 		// Stylistic
+		"comma-dangle": "warn",
+		"eol-last": "error",
+		"no-trailing-spaces": "error",
+		"semi-spacing": "error",
+		"semi": "error",
 		// ES6
 		// React
 		// JSX
 		// Import
 		"indent": [
 			"error",
-			"tab",
+			4,
 			{
 				"SwitchCase": 1,
 				"MemberExpression": 1,
@@ -173,7 +178,7 @@
 		],
 		"react/jsx-indent": [
 			"error",
-			"tab"
+			4
 		],
 		"react/react-in-jsx-scope": "error"
 	}

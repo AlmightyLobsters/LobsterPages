@@ -1,4 +1,6 @@
-$font_folder: '../assets/fonts/';
+// Fonts
+
+$font_folder: '../../public/fonts/';
 $nove_name: 'Novecentoslabwide-Regular';
 $nove_light_name: 'Novecentosanswide-Book';
 $nove_bold_name: 'Novecentosanswide-Bold';
@@ -17,3 +19,22 @@ $nove_bold_name: 'Novecentosanswide-Bold';
     font-family: 'Novecento Sans Bold';
     src: url($font_folder+'woff2/'+$nove_bold_name+'.woff2') format('woff2'), url($font_folder+'woff/'+$nove_bold_name+'.woff') format('woff'), url($font_folder+'otf/'+$nove_bold_name+'.otf') format('opentype');
 }
+
+// User styles
+
+@import './modules/About';
+@import './modules/App';
+@import './modules/Article';
+@import './modules/Articles';
+@import './modules/Code';
+@import './modules/Footer';
+@import './modules/Home';
+@import './modules/Login';
+@import './modules/NavBar';
+@import './modules/NotFound';
+
+// Admin styles
+
+@import './modules/Admin/Admin';
+@import './modules/Admin/AdminNavBar';
+@import './modules/Admin/Dashboard';
