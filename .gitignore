@@ -1,9 +1,16 @@
 /node_modules
+<<<<<<< HEAD
 /build
 /private
 /public/js
 /public/styles
 /public/sitemap.xml
+=======
+>>>>>>> d4ab513aa6fec0b2426f2fc67d9d37c062eca449
 /.vscode
+/public/styles
+/public/js
+/public/sitemap.xml
+/private
 **/*.log
 desktop.ini

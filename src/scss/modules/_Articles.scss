@@ -1,0 +1,21 @@
+$article_accent_colour: #2c18cc;
+
+#articles {
+	.hero {
+        background: url('../../public/imgs/articles.jpg') #33322d center no-repeat fixed;
+        background-size: cover;
+    }
+
+    b {
+        border-bottom: 6px #2c18cc solid;    
+    }
+
+    h3 {
+        margin: 0;
+    }
+
+    a {
+        color: $article_accent_colour;
+    }
+}
+
