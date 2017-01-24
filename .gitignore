@@ -1,5 +1,9 @@
 /node_modules
 /build
+/private
+/public/js
+/public/styles
+/public/sitemap.xml
 /.vscode
 **/*.log
 desktop.ini
