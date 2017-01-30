@@ -68,6 +68,18 @@ const app = express();
 
 app.use(cookieParser(process.env.COOKIE_SECRET || config.COOKIE_SECRET));
 
+if(isDev)
+    app.use(require('express-winston').logger({
+        transports: [
+            new (require('winston')).transports.Console({
+                colorize: true
+            })
+        ],
+        colorize: true,
+        expressFormat: true,
+        meta: false
+    }));
+
 app.use('/', express.static(publicPath));
 
 app.get('/articles(/:id)?', (req, res) => {
@@ -133,6 +145,7 @@ app.delete('/articles/:id', requireGroup('ADMIN'), (req, res) => {
 });
 
 app.post('/login', (req, res) => {
+    res.clearCookie('authHash');
     const user = auth(req);
     if (!user) res.sendStatus(401);
     else {
