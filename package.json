@@ -4,7 +4,7 @@
   "description": "Blog style web page for the team Almighty Lobsters",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon -e js,scss,ejs,json --watch src/ server.js",
+    "dev": "nodemon -e js,scss,ejs,json --watch src/ --ignore src/faviconsHeader.ejs server.js",
     "build": "node ./build.js",
     "test": "eslint ./src/"
   },
