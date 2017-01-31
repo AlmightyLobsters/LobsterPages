@@ -1,13 +1,10 @@
 /node_modules
-/build
 /private
 /public/js
+/public/icons
 /public/styles
 /public/sitemap.xml
 /.vscode
-/public/styles
-/public/js
-/public/sitemap.xml
-/private
+/src/faviconsHeader.ejs
 **/*.log
 desktop.ini
