@@ -1,4 +1,0 @@
-Sitemap: http://almighty.lobsters.tech/sitemap.xml
-
-User-agent: *
-	Disallow:

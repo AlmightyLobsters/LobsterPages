@@ -165,6 +165,15 @@ app.post('/perm', bodyParser.json(), (req, res) => {
     });
 });
 
+app.get('/robots.txt', (req, res) => {
+    res.send(`
+    Sitemap: http://almighty.lobsters.tech/sitemap.xml
+
+    User-agent: *
+	    Disallow:`
+    );
+});
+
 app.get('*', (req, res) => {
     match({ routes: LobsterRoutes, location: req.url }, (error, redirectLocation, renderProps) => {
         if (error) res.status(500).send(error.message);
