@@ -4,6 +4,7 @@
 /public/icons
 /public/styles
 /public/sitemap.xml
+/public/upload
 /.vscode
 /src/faviconsHeader.ejs
 **/*.log

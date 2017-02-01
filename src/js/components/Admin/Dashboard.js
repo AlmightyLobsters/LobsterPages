@@ -33,6 +33,40 @@ export class Dashboard extends React.Component {
             });
     }
 
+    postArticle() {
+        const addForm = document.getElementById('addForm');
+        const newArt = {
+            title: this.state.newArt.title,
+            text: this.state.newArt.text.split('\n'),
+            reversed: addForm.querySelector('#reversed').checked
+        }
+        const files = addForm.querySelector('[name="headerImg"]').files;
+        const doPost = () => {
+            axios.post('/articles', newArt)
+                .then(resp => this.setState(prevState => ({
+                    err: null,
+                    articles: [
+                        newArt,
+                        ...prevState.articles
+                    ]
+                })))
+                .catch(err => this.setState({err}));
+        };
+        if(files.length === 1) {
+            const data = new FormData();
+            data.append('file', files[0]);
+            axios.post('/upload', data)
+                .then(resp => {
+                    const imgFormE = addForm.querySelector('#imgFormat');
+                    newArt.imgPath = resp.headers.location;
+                    newArt.imgFormat = imgFormE.options[imgFormE.selectedIndex].value;
+                    doPost();
+                })
+                .catch(err => this.setState({err}));
+        }
+        else doPost();
+    }
+
     deleteArticle(id) {
         const select = this.state.articles.find(val => val.id===id);
         if (confirm(`Do you want to delete article: '${select.title}'?`)) // eslint no-alert:0
@@ -60,7 +94,7 @@ export class Dashboard extends React.Component {
         }));
     }
 
-    updateTitle(prop, val) {
+    updateNewArt(prop, val) {
         this.setState(prevState => ({
             newArt: {
                 ...prevState.newArt,
@@ -75,12 +109,13 @@ export class Dashboard extends React.Component {
                 <h3>Dashboard</h3>
                 <main>
                     <div className="articleList">
-                        {this.state.adding
-                            ? (
-                                <div className="articleHeader active">
+                        {!this.state.adding
+                            ? <button onClick={e => this.toggleAddView()}>Add an article</button>
+                            : (
+                                <div id="addForm" className="articleHeader active">
                                     <div className="editForm">
-                                        <input name="title" className={`${this.state.newArt.title === '' ? 'invalid' : ''}`} onChange={e => this.updateTitle('title', e.target.value)} type="text" />
-                                        <textarea name="text" className={`${this.state.newArt.text === '' ? 'invalid' : ''}`} onChange={e => this.updateTitle('text', e.target.value)} />
+                                        <input name="title" className={`${this.state.newArt.title === '' ? 'invalid' : ''}`} onChange={e => this.updateNewArt('title', e.target.value)} type="text" />
+                                        <textarea name="text" className={`${this.state.newArt.text === '' ? 'invalid' : ''}`} onChange={e => this.updateNewArt('text', e.target.value)} />
                                         <section>
                                             <section>
                                                 <section>
@@ -97,17 +132,16 @@ export class Dashboard extends React.Component {
                                                 </section>
                                             </section>
                                             <section className="imgSelect">
-                                                <input type="file" name="headerImg"/>
+                                                <input type="file" name="headerImg" accept="image/*,text/*"/>
                                             </section>
                                             <section className="buttons">
-                                                <button disabled={this.state.newArt.text === '' || this.state.newArt.title === ''}>Add</button>
+                                                <button disabled={this.state.newArt.text === '' || this.state.newArt.title === ''} onClick={e => this.postArticle()}>Add</button>
                                                 <button onClick={e => this.toggleAddView()}>Cancel</button>
                                             </section>
                                         </section>
                                     </div>
                                 </div>
                             )
-                            : <button onClick={e => this.toggleAddView()}>Add an article</button>
                         }
                         {this.state.err
                             ? <p>{this.state.err}</p>
