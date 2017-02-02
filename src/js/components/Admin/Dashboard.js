@@ -39,18 +39,19 @@ export class Dashboard extends React.Component {
             title: this.state.newArt.title,
             text: this.state.newArt.text.split('\n'),
             reversed: addForm.querySelector('#reversed').checked
-        }
+        };
         const files = addForm.querySelector('[name="headerImg"]').files;
         const doPost = () => {
             axios.post('/articles', newArt)
                 .then(resp => this.setState(prevState => ({
                     err: null,
                     articles: [
-                        newArt,
+                        resp.data,
                         ...prevState.articles
                     ]
                 })))
                 .catch(err => this.setState({err}));
+            this.toggleAddView();
         };
         if(files.length === 1) {
             const data = new FormData();
