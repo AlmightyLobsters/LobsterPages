@@ -26,21 +26,19 @@ const isDev = process.env.NODE_ENV !== 'production';
 const publicPath = join(__dirname, '..', 'public');
 const dbName = isDev ? 'LobsterPagesDev' : 'LobsterPages';
 
-const requireGroup = userGroup => (req, res, next) => {
-    if (!req.body) req.body = {};
-    req.body.userGroup = userGroup;
-    next();
-};
-
-const authenticate = (req, cb) => {
-    if (!req.body.userGroup) cb({status: 400, msg: 'User group not specified'});
-    else if (!req.cookies.authHash) cb({status: 401, msg: 'Not logged in'});
-    else if (!userDB.initialized) cb({status: 500, msg: 'User database not initialized'});
+const authenticate = userGroup => (req, res, next) => {
+    if(userGroup !== null) {
+        if (!req.body) req.body = {};
+        req.body.userGroup = userGroup;
+    }
+    if (!req.body.userGroup) res.status(400).send('User group not specified');
+    else if (!req.cookies.authHash) res.status(401).send('Not logged in');
+    else if (!userDB.initialized) res.status(500).send('User database not initialized');
     else userDB.get(req.body.userGroup, (err, result) => {
-        if (err) cb({status: 500, msg: err});
-        else if (!result) cb({status: 404, msg: 'User group record not found'});
-        else if (result.hashes.includes(req.cookies.authHash)) cb(null);
-        else cb({status: 403, msg: 'Access denied'});
+        if (err) res.status(500).send(err);
+        else if (!result) res.status(404).send('User group record not found');
+        else if (result.hashes.includes(req.cookies.authHash)) next();
+        else res.status(403).send('Access denied');
     });
 };
 
@@ -98,7 +96,7 @@ app.get('/articles(/:id)?', (req, res) => {
     });
 });
 
-app.post('/upload', requireGroup('ADMIN'), fileUpload(), (req, res) => {
+app.post('/upload', authenticate('ADMIN'), fileUpload(), (req, res) => {
     const file = req.files.file;
     if(!fs.existsSync(join(publicPath, 'upload'))) fs.mkdirSync(join(publicPath, 'upload'));
     if(!file) res.status(400).send('File not attached');
@@ -115,45 +113,37 @@ app.post('/upload', requireGroup('ADMIN'), fileUpload(), (req, res) => {
     }
 });
 
-app.post('/articles', bodyParser.json(), requireGroup('ADMIN'), (req, res) => {
-    authenticate(req, err => {
-        if (err) res.status(err.status).send(err.msg);
+app.post('/articles', bodyParser.json(), authenticate('ADMIN'), (req, res) => {
+    let unparsed = req.body;
+    if (!unparsed || !unparsed.title || !unparsed.text)
+        res.status(422).send('New article must specify at least a title and text components');
+    else if (!articlesDB.initialized) res.status(500).send('Article database not connected');
+    else articlesDB.getAll((err, all) => {
+        if (err) res.status(500).send(err);
         else {
-            let unparsed = req.body;
-            if (!unparsed || !unparsed.title || !unparsed.text)
-                res.status(422).send('New article must specify at least a title and text components');
-            else if (!articlesDB.initialized) res.status(500).send('Article database not connected');
-            else articlesDB.getAll((err, all) => {
+            const newArt = {
+                id: JSON.stringify(parseInt(all.slice(-1)[0].id) + 1),
+                title: unparsed.title,
+                text: unparsed.text,
+                reversed: !!unparsed.reversed
+            };
+            if (unparsed.imgPath) {
+                newArt.imgPath = unparsed.imgPath;
+                newArt.imgFormat = unparsed.imgFormat || 'medium';
+            }
+            articlesDB.add(newArt, (err, doc) => {
                 if (err) res.status(500).send(err);
-                else {
-                    const newArt = {
-                        id: JSON.stringify(parseInt(all.slice(-1)[0].id) + 1),
-                        title: unparsed.title,
-                        text: unparsed.text,
-                        reversed: !!unparsed.reversed
-                    };
-                    if (unparsed.imgPath) {
-                        newArt.imgPath = unparsed.imgPath;
-                        newArt.imgFormat = unparsed.imgFormat || 'medium';
-                    }
-                    articlesDB.add(newArt, (err, doc) => {
-                        if (err) res.status(500).send(err);
-                        else res.status(201).location(`${req.protocol}://${req.get('host')}/articles/${doc.id}`).send(doc);
-                    });
-                }
+                else res.status(201).location(`${req.protocol}://${req.get('host')}/articles/${doc.id}`).send(doc);
             });
         }
     });
 });
 
-app.delete('/articles/:id', requireGroup('ADMIN'), (req, res) => {
-    authenticate(req, err => {
-        if(err) res.status(err.status).send(err.msg);
-        else if(!articlesDB.initialized) res.status(500).send('Article database not connected');
-        else articlesDB.remove(req.params.id, (err, doc) => {
-            if (err) res.status(500).send(err);
-            else res.status(200).send(doc);
-        });
+app.delete('/articles/:id', authenticate('ADMIN'), (req, res) => {
+    if(!articlesDB.initialized) res.status(500).send('Article database not connected');
+    else articlesDB.remove(req.params.id, (err, doc) => {
+        if (err) res.status(500).send(err);
+        else res.status(200).send(doc);
     });
 });
 
@@ -171,11 +161,8 @@ app.post('/login', (req, res) => {
     }
 });
 
-app.post('/perm', bodyParser.json(), (req, res) => {
-    authenticate(req, err => {
-        if(err) res.status(err.status).send(err.msg);
-        else res.status(200).send('Access granted');
-    });
+app.post('/perm', bodyParser.json(), authenticate(null), (req, res) => {
+    res.status(200).send('Access granted');
 });
 
 app.get('/robots.txt', (req, res) => {
