@@ -4,6 +4,7 @@ import { App } from './components/App';
 import { Home } from './components/Home';
 import { About } from './components/About';
 import { Articles } from './components/Articles';
+import { Blog } from './components/Blog';
 import { Code } from './components/Code';
 import { Login } from './components/Login';
 import { Admin } from './components/Admin/Admin';
@@ -31,7 +32,10 @@ export const LobsterRoutes = (
     <Route path="/" component={App}>
         <IndexRoute component={Home} />
         <Route path="/about" component={About} />
-        <Route path="/blog" component={Articles} />
+        <Route path="/blog">
+            <IndexRoute component={Articles} />
+            <Route path=":artId" component={Blog} />
+        </Route>
         <Route path="/code" component={Code} />
         <Route path="/login(/:nextUrl)" component={Login} />
         <Route path="/admin" component={Admin} onEnter={Authenticate('ADMIN')}>
