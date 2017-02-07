@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 export const Login = ({ params: { nextUrl } }) => (
     <div id="login">
@@ -13,17 +14,11 @@ export const Login = ({ params: { nextUrl } }) => (
             </fieldset>
             <input type="submit" onClick={e => {
                 e.preventDefault();
-                const http = new XMLHttpRequest();
-                const uname = document.getElementById('uname').value;
-                const passwd = document.getElementById('passwd').value;
-                http.open('POST', '/login', true);
-                http.setRequestHeader('Authorization', `Basic ${btoa(`${uname}:${passwd}`)}`);
-                http.send(null);
-                http.onreadystatechange = () => {
-                    if (http.readyState === XMLHttpRequest.DONE)
-                        if (http.status === 401) window.location.reload(true);
-                        else if (http.status === 200) window.location.replace(nextUrl || '/');
-                };
+                const username = document.getElementById('uname').value;
+                const password = document.getElementById('passwd').value;
+                axios.post('/login', null, { auth: { username, password } })
+                    .then(resp =>resp.status === 200 ? window.location.pathname = nextUrl || '/' : window.location.reload(true))
+                    .catch(err => window.location.reload(true));
             }}/>
         </form>
     </div>
