@@ -1,0 +1,12 @@
+$gallery_accent_colour: #2ccc18;
+
+#gallery {
+    .hero {
+        background: url('/imgs/gallery.jpg') #33322d center no-repeat fixed;
+        background-size: cover;
+    }
+
+    a {
+        color: $gallery_accent_colour;
+    }
+}
