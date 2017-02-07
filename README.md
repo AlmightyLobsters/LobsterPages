@@ -2,6 +2,7 @@
 [![dependencies Status](https://david-dm.org/AlmightyLobsters/LobsterPages/status.svg)](https://david-dm.org/AlmightyLobsters/LobsterPages)
 [![devDependencies Status](https://david-dm.org/AlmightyLobsters/LobsterPages/dev-status.svg)](https://david-dm.org/AlmightyLobsters/LobsterPages?type=dev)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE.md)
+<a href="https://zenhub.com"><img src="https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png"></a>
 
 # LobsterPages
 
