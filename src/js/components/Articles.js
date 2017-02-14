@@ -33,7 +33,7 @@ export class Articles extends React.Component {
                             : this.state.articles.map(art => <Article data={art} />)}
                     </div>
                     <div className="socialFeed">
-                        {/*Social feed code*/}
+                        <iframe src="https://snapwidget.com/embed/335969" className="instaWidget" allowTransparency="true" frameborder="0" scrolling="yes"></iframe>
                     </div>
                 </main>
             </div>

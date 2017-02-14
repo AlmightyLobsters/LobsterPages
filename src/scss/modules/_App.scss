@@ -93,39 +93,24 @@ a {
 
 /* content elements */
 main {
-	max-width: 65rem;
 	margin:2em auto;
-	padding: 2em;
-
-	section.container {
-		background: #fff;
-	}
-}
-
-.articlesWrapper {
-	color: #000;
-
-	a {
-		padding: 0 5px;
-
-		&:hover {
-			background: #333;
-			color: white !important;
-		}
-	}
-}
-
-.socialFeed {
-
 }
 
 article {
 	font-weight: 200;
-	text-align: justify;
 
 	.title {
 		text-align: center;
 	}
+
+	a {
+            padding: 0 5px;
+
+            &:hover {
+                background: #333;
+                color: white !important;
+            }
+        }
 }
 
 img {

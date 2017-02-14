@@ -13,4 +13,10 @@ $about_accent_colour: #cc2c18;
     a {
         color: $about_accent_colour;
     }
+
+    main {
+        max-width: 65rem;
+        padding: 2em;
+        display: flex;
+    }
 }
