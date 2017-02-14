@@ -30,9 +30,7 @@ export const Article = ({data: { id, title, text, imgFormat, reversed, imgPath}}
         <section className={`article container${reversed ? ' reversed' : ''}`}>
             <article className={`col-${imgFormat === 'tall' ? 2 : 1}-${!imgPath ? 1 : (imgFormat === 'medium' ? 2 : 3)}`}>
                 <div className="title"><h3>{title}</h3></div>
-                <div className="article_innerWrapper">
-                    {shortify(text)}
-                </div>
+                {shortify(text)}
             </article>
             {imgPath &&
                 <a href={imgPath} className={`col-${imgFormat === 'wide' ? 2 : 1}-${imgFormat === 'medium' ? 2 : 3}`}><img src={imgPath} alt={title} /></a>

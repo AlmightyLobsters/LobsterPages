@@ -27,9 +27,14 @@ export class Articles extends React.Component {
                     </header>
                 </section>
                 <main>
-                    {this.state.err
-                        ? <p>{this.state.err}</p>
-                        : this.state.articles.map(art => <Article data={art} />)}
+                    <div className="articlesWrapper">
+                        {this.state.err
+                            ? <p>{this.state.err}</p>
+                            : this.state.articles.map(art => <Article data={art} />)}
+                    </div>
+                    <div className="socialFeed">
+                        {/*Social feed code*/}
+                    </div>
                 </main>
             </div>
         );

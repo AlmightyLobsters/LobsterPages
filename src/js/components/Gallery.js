@@ -9,7 +9,7 @@ export const Gallery = _ => (
             </header>
         </section>
         <main>
-
+            {/*Gallery code*/}
         </main>
     </div>
 );
