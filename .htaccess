@@ -1,3 +1,0 @@
-Options +FollowSymLinks
-RewriteEngine on
-RewriteRule (.*) http://almighty.lobsters.tech/$1 [R=301,L]
