@@ -18,22 +18,25 @@ $article_accent_colour: #2c18cc;
         color: $article_accent_colour;
     }
 
-    // articles logic
+    main {
+        background: url('/imgs/articles_blured.jpg') center no-repeat fixed;
+    }
+
+    /* articles logic */
     .articlesWrapper {
         color: #000;
-        background: rgba(256, 256, 256, .9);
-        // border: thin #333 solid;
     }
 
     .articleWrapper {
-        margin: 3em 2em;
-        // border: thin #2c18cc solid;
+        background: rgba(256, 256, 256, .8);
+        margin: 1em 2em;
+        padding: 1rem;
+        padding-top: 3rem;
     }
 
     .socialFeed {
-        background: rgba(256, 256, 256, .9);
+        background: rgba(256, 256, 256, .7);
         margin: 2em;
-        // border: thin #333 solid;
 
         .instaWidget {
             min-height: 100vw;
@@ -54,10 +57,13 @@ $article_accent_colour: #2c18cc;
         }
 
         .articlesWrapper {
-            margin: 2em;
             width: 61.8%;
-            max-width: 45rem;
             margin-left: 4rem;
+        }
+
+        .articleWrapper {
+            margin: 2em;
+            max-width: 45rem;
         }
 
         .socialFeed {
