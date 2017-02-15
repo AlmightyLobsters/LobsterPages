@@ -23,7 +23,7 @@ export class Articles extends React.Component {
                 <section className="hero">
                     <header>
                         <h1>Blog</h1>
-                        <h2>A <b>sassy</b> subtitle</h2>
+                        <h2>Work <b>almost</b> in progress</h2>
                     </header>
                 </section>
                 <main>
@@ -33,7 +33,7 @@ export class Articles extends React.Component {
                             : this.state.articles.map(art => <Article data={art} />)}
                     </div>
                     <div className="socialFeed">
-                        <iframe src="https://snapwidget.com/embed/335969" className="instaWidget" allowTransparency="true" frameborder="0" scrolling="yes"></iframe>
+                        <iframe src="https://snapwidget.com/embed/335969" className="instaWidget" allowTransparency="true" frameborder="0" scrolling="no"></iframe>
                     </div>
                 </main>
             </div>
