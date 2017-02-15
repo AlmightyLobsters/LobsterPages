@@ -90,9 +90,7 @@ app.get('/articles(/:id)?', (req, res) => {
     else articlesDB.getAll((err, results) => {
         if(err) res.status(500).send(err);
         else if(!results) res.sendStatus(500);
-        else res.status(200).send(results.sort((a, b) => (
-            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-        )));
+        else res.status(200).send(results.sort((a, b) => b._ts - a._ts));
     });
 });
 
