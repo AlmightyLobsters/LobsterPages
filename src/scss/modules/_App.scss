@@ -31,7 +31,7 @@ html {
 
 /* main page elements */
 body {
-	min-height: 100%;
+	height: 100%;
 	background: #fff;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -94,6 +94,7 @@ a {
 
 /* content elements */
 main {
+	height: 100%;
 	margin: 0 auto;
 }
 
