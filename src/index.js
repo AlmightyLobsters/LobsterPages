@@ -94,23 +94,6 @@ app.get('/articles(/:id)?', (req, res) => {
     });
 });
 
-app.post('/upload', authenticate('ADMIN'), fileUpload(), (req, res) => {
-    const file = req.files.file;
-    if(!fs.existsSync(join(publicPath, 'upload'))) fs.mkdirSync(join(publicPath, 'upload'));
-    if(!file) res.status(400).send('File not attached');
-    else {
-        while(fs.existsSync(join(publicPath, 'upload', file.name))) {
-            const splitPattern = /(?:(.+?)(\d+)?)\.(\w{2,4})/i;
-            const [,name, index, ext] = splitPattern.exec(file.name);
-            file.name = `${name}${Number(index) ? Number(index) + 1 : 1}.${ext}`;
-        }
-        fs.writeFile(join(publicPath, 'upload', file.name), file.data, err => {
-            if (err) res.status(500).send(err);
-            else res.status(201).location(`/upload/${file.name}`).send(file);
-        });
-    }
-});
-
 app.post('/articles', bodyParser.json(), authenticate('ADMIN'), (req, res) => {
     let unparsed = req.body;
     if (!unparsed || !unparsed.title || !unparsed.text)
@@ -143,6 +126,31 @@ app.delete('/articles/:id', authenticate('ADMIN'), (req, res) => {
         if (err) res.status(500).send(err);
         else res.status(200).send(doc);
     });
+});
+
+app.put('/articles/:id', authenticate('ADMIN'), (req, res) => {
+    if (!articlesDB.initialized) res.status(500).send('Article database not connected');
+    else articlesDB.update(req.params.id, req.body, (err, doc) => {
+        if (err) res.status(500).send(err);
+        else res.status(200).send(doc);
+    });
+});
+
+app.post('/upload', authenticate('ADMIN'), fileUpload(), (req, res) => {
+    const file = req.files.file;
+    if(!fs.existsSync(join(publicPath, 'upload'))) fs.mkdirSync(join(publicPath, 'upload'));
+    if(!file) res.status(400).send('File not attached');
+    else {
+        while(fs.existsSync(join(publicPath, 'upload', file.name))) {
+            const splitPattern = /(?:(.+?)(\d+)?)\.(\w{2,4})/i;
+            const [,name, index, ext] = splitPattern.exec(file.name);
+            file.name = `${name}${Number(index) ? Number(index) + 1 : 1}.${ext}`;
+        }
+        fs.writeFile(join(publicPath, 'upload', file.name), file.data, err => {
+            if (err) res.status(500).send(err);
+            else res.status(201).location(`/upload/${file.name}`).send(file);
+        });
+    }
 });
 
 app.post('/login', (req, res) => {
