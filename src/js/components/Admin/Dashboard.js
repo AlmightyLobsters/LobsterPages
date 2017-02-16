@@ -37,8 +37,7 @@ export class Dashboard extends React.Component {
         const addForm = document.getElementById('addForm');
         const newArt = {
             title: this.state.newArt.title,
-            text: this.state.newArt.text.split('\n'),
-            reversed: addForm.querySelector('#reversed').checked
+            text: this.state.newArt.text.split('\n')
         };
         const files = addForm.querySelector('[name="headerImg"]').files;
         const doPost = () => {
@@ -58,14 +57,15 @@ export class Dashboard extends React.Component {
             data.append('file', files[0]);
             axios.post('/upload', data)
                 .then(resp => {
-                    const imgFormE = addForm.querySelector('#imgFormat');
                     newArt.imgPath = resp.headers.location;
-                    newArt.imgFormat = imgFormE.options[imgFormE.selectedIndex].value;
                     doPost();
                 })
                 .catch(err => this.setState({err}));
         }
         else doPost();
+    }
+
+    updateArticle(id) {
     }
 
     deleteArticle(id) {
@@ -104,6 +104,18 @@ export class Dashboard extends React.Component {
         }));
     }
 
+    updateOldArt(id, prop, val) {
+        this.setState(prevState => ({
+            articles: prevState.articles.map(art => {
+                if (art.id !== id) return art;
+                return {
+                    ...art,
+                    [prop]: val
+                };
+            })
+        }));
+    }
+
     render() {
         return (
             <div id="adminDash">
@@ -118,22 +130,8 @@ export class Dashboard extends React.Component {
                                         <input name="title" className={`${this.state.newArt.title === '' ? 'invalid' : ''}`} onChange={e => this.updateNewArt('title', e.target.value)} type="text" />
                                         <textarea name="text" className={`${this.state.newArt.text === '' ? 'invalid' : ''}`} onChange={e => this.updateNewArt('text', e.target.value)} />
                                         <section>
-                                            <section>
-                                                <section>
-                                                    <label htmlFor="imgFormat">Image Format: </label>
-                                                    <select id="imgFormat">
-                                                        <option value="wide">Wide</option>
-                                                        <option value="medium">Medium</option>
-                                                        <option value="tall">Tall</option>
-                                                    </select>
-                                                </section>
-                                                <section>
-                                                    <label htmlFor="reversed">Image on the left</label>
-                                                    <input type="checkbox" id="reversed"/>
-                                                </section>
-                                            </section>
                                             <section className="imgSelect">
-                                                <input type="file" name="headerImg" accept="image/*,text/*"/>
+                                                <input type="file" name="headerImg" accept="image/*"/>
                                             </section>
                                             <section className="buttons">
                                                 <button disabled={this.state.newArt.text === '' || this.state.newArt.title === ''} onClick={e => this.postArticle()}>Add</button>
@@ -156,23 +154,15 @@ export class Dashboard extends React.Component {
                                         </div>
                                     </header>
                                     <div className="editForm">
-                                        <input type="text" value={art.title}/>
-                                        <textarea value={(!art.text ? [] : typeof(art.text) === 'string' ? [art.text] : art.text).join('\n')}/>
+                                        <input type="text" value={art.title} onChange={e => this.updateOldArt('title', e.target.value)}/>
+                                        <textarea value={(!art.text ? [] : typeof(art.text) === 'string' ? [art.text] : art.text).join('\n')} onChange={e => this.updateOldArt('text', e.target.value)}/>
                                         <section>
-                                            <section>
-                                                <section>
-                                                    <label htmlFor="imgFormat">Image Format: </label>
-                                                    <select id="imgFormat">
-                                                        <option value="wide">Wide</option>
-                                                        <option value="medium">Medium</option>
-                                                        <option value="tall">Tall</option>
-                                                    </select>
-                                                </section>
-                                                <section>
-                                                    <label htmlFor="reversed">Image on the left</label>
-                                                    <input type="checkbox" id="reversed"/>
-                                                </section>
+                                            <section className="imgSelect">
+                                                <input type="file" name="headerImg" accept="image/*" files={[art.imgPath]}/>
                                             </section>
+                                        </section>
+                                        <section className="buttons">
+                                            <button disabled={(this.state.articles[art.id] || {text: ''}).text === '' || (this.state.articles[art.id] || {title: ''}).title === ''} onClick={e => this.updateArticle(art.id)}></button>
                                         </section>
                                     </div>
                                 </div>
