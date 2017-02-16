@@ -2,7 +2,7 @@ import React from 'react';
 
 const maxPreviewLength = 400;
 
-export const Article = ({data: { id, title, text, imgFormat, reversed, imgPath}}) => {
+export const Article = ({data: { id, title, text, imgPath}}) => {
     let shortify = cont => {
         let deHTMLify = htmlCont => htmlCont.replace(/<.+?>/gi, '');
         let needsNewPage = (typeof(cont) === 'string' ? [cont] : cont).reduce((aggr, item) => aggr + deHTMLify(item).length, 0) > maxPreviewLength;
