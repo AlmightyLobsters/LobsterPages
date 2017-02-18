@@ -27,14 +27,16 @@ export class Articles extends React.Component {
                     </header>
                 </section>
                 <main>
-                    <div className="articlesWrapper">
-                        {this.state.err
-                            ? <p>{this.state.err}</p>
-                            : this.state.articles.map(art => <Article data={art} />)}
-                    </div>
-                    <div className="socialFeed">
-                        <iframe src="https://snapwidget.com/embed/335969" className="instaWidget" allowTransparency="true" frameborder="0" scrolling="yes"></iframe>
-                    </div>
+                    <section id="content">
+                        <div className="articlesWrapper">
+                            {this.state.err
+                                ? <p>{this.state.err}</p>
+                                : this.state.articles.map(art => <Article data={art} />)}
+                        </div>
+                        <div className="socialFeed">
+                            <iframe src="https://snapwidget.com/embed/335969" className="instaWidget" allowTransparency="true" frameborder="0" scrolling="yes"></iframe>
+                        </div>
+                    </section>
                 </main>
             </div>
         );

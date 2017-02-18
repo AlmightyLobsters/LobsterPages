@@ -20,9 +20,11 @@ $article_accent_colour: #2c18cc;
 
     main {
         border-top: 5px #fff solid;
-        border-bottom: 5px #fff solid;
         background: url('/imgs/articles_blured.jpg') center no-repeat fixed;
-        max-width: 50rem;
+    }
+
+    #content {
+        margin: 2em auto;
     }
 
     /* articles logic */
@@ -53,15 +55,18 @@ $article_accent_colour: #2c18cc;
 
     @media (min-width: 48em) {
         main {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
             width: 100%;
+        }
+
+        #content {
+            display: flex;
+            flex-direction: row nowrap;
+            justify-content: space-around;
         }
 
         .articlesWrapper {
             width: 61.8%;
-            margin-left: 4rem;
+            max-width: 50rem;
         }
 
         .articleWrapper {
