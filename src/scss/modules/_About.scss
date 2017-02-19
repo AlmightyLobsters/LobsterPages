@@ -8,6 +8,10 @@ $about_accent_colour: #cc2c18;
         b {
             border-bottom: 6px $about_accent_colour solid;    
         }
+
+        h1 {
+            margin: 0;
+        }
     }
 
     a {
@@ -23,13 +27,36 @@ $about_accent_colour: #cc2c18;
         max-width: 65rem;
     }
 
-    .articleWrapper {
+    .articlesWrapper {
         margin-top: 4em;
         margin-bottom: 4em;
     }
 
-    h3 {
+    .articleWrapper {
+    }
+
+    h1 {
+        text-align: center;
         margin-left: 1em;
         margin-top: 0;
     }
+
+    @media (min-width: 48em) {
+        .articleWrapper {
+            padding-left: 5rem;
+            padding-right: 5rem;
+        }
+
+        h2 {
+            margin-left: -2rem;
+        }
+
+        h3 {
+            margin-left: -1rem;
+        }
+    }
+}
+
+#IVideo {
+    margin: -1em 1em;
 }

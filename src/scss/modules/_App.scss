@@ -27,6 +27,28 @@ html {
 			font-weight: bold;
 		}
 	}
+
+	h1 {
+		font-family: 'Novecento Sans Bold';
+		font-size: 200px;
+	}
+
+	h2 {
+		font-family: Novecento;
+		font-style: italic;
+		font-size: 50px;
+		font-weight: normal;
+	}
+
+	@media (max-width: 768px) and (min-height: 500px) {
+		h1 { font-size: 26vw }
+		h2 { font-size: 7vw }
+	}
+
+	@media (max-height: 500px) {
+		h1 { font-size: 20vw }
+		h2 { font-size: 8vh }
+	}
 }
 
 /* main page elements */
@@ -44,36 +66,14 @@ body {
 
 /* general style elements */
 h1 {
-	font-family: 'Novecento Sans Bold';
-	font-size: 200px;
-}
-
-h2 {
-	font-family: Novecento;
-	font-style: italic;
-	font-size: 50px;
-	font-weight: normal;
-}
-
-h3 {
 	font-family: 'Novecento Sans Light';
 	font-weight: 300;
 	font-size: 2.5em;
 }
 
-h4 {
+h2 {
 	font-family: 'Novecento';
 	font-size: 1.5em;
-}
-
-@media (max-width: 768px) and (min-height: 500px) {
-	h1 { font-size: 26vw }
-	h2 { font-size: 7vw }
-}
-
-@media (max-height: 500px) {
-	h1 { font-size: 20vw }
-	h2 { font-size: 8vh }
 }
 
 p {
@@ -92,9 +92,19 @@ a {
 	text-decoration: none;
 }
 
+hr {
+	margin: 1em;
+}
+
+blockquote {
+	text-align: center;
+	font-style: italic;
+}
+
 /* content elements */
 main {
-    border-top: 5px #fff solid;
+    border-top: thin #000 solid;
+	box-shadow: 0 -1px 100px white;
 	height: 100%;
 	width: 100%;
 }
@@ -125,7 +135,6 @@ article {
 	background: rgba(256, 256, 256, .8);
 	margin: 1em 1em;
 	padding: 1rem;
-	padding-top: 3rem;
 }
 
 img {

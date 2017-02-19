@@ -4,14 +4,14 @@ $article_accent_colour: #2c18cc;
 	.hero {
         background: url('/imgs/articles.jpg') #33322d center no-repeat fixed;
         background-size: cover;
-    }
 
-    b {
-        border-bottom: 6px #2c18cc solid;    
-    }
+        b {
+            border-bottom: 6px #2c18cc solid;    
+        }
 
-    h3 {
-        margin: 0;
+        h1 {
+            margin: 0;
+        }
     }
 
     a {
@@ -26,6 +26,9 @@ $article_accent_colour: #2c18cc;
     /* articles logic */
     .articlesWrapper {
         color: #000;
+    }
+
+    .articleWrapper {
     }
 
     .socialFeed {

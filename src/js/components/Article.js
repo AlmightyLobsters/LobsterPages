@@ -29,7 +29,7 @@ export const Article = ({data: { id, title, text, imgPath}}) => {
     return (
         <section className={`articleWrapper`}>
             <article className={`article`}>
-                <div className="title"><h3>{title}</h3></div>
+                <div className="title"><h1>{title}</h1></div>
                 {shortify(text)}
             </article>
             {imgPath &&
