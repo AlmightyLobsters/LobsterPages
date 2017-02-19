@@ -101,6 +101,7 @@ main {
 
 #content {
 	margin: 2em auto;
+	max-width: 80rem;
 }
 
 article {
@@ -122,7 +123,7 @@ article {
 
 .articleWrapper {
 	background: rgba(256, 256, 256, .8);
-	margin: 1em 2em;
+	margin: 1em 1em;
 	padding: 1rem;
 	padding-top: 3rem;
 }

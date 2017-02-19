@@ -20,6 +20,7 @@ $article_accent_colour: #2c18cc;
 
     main {
         background: url('/imgs/articles_blured.jpg') center no-repeat fixed;
+        background-size: cover;
     }
 
     /* articles logic */
@@ -29,10 +30,10 @@ $article_accent_colour: #2c18cc;
 
     .socialFeed {
         background: rgba(256, 256, 256, .7);
-        margin: 2em;
+        margin: 2em 1em;
 
         .instaWidget {
-            min-height: 100vw;
+            min-height: 35rem;
             border: none;
             overflow: hidden;
             width: 100%;
@@ -40,6 +41,17 @@ $article_accent_colour: #2c18cc;
             padding: 20px;
         }
     }
+
+    @media (min-width: 35em) {
+        .articleWrapper {
+            margin: 1em 2em;
+        }
+
+        .socialFeed {
+            margin: 2em;
+        }
+    }
+
 
     @media (min-width: 48em) {
         #content {
