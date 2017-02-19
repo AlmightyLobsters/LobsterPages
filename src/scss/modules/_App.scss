@@ -94,8 +94,13 @@ a {
 
 /* content elements */
 main {
+    border-top: 5px #fff solid;
 	height: 100%;
 	width: 100%;
+}
+
+#content {
+	margin: 2em auto;
 }
 
 article {
@@ -113,6 +118,13 @@ article {
                 color: white !important;
             }
         }
+}
+
+.articleWrapper {
+	background: rgba(256, 256, 256, .8);
+	margin: 1em 2em;
+	padding: 1rem;
+	padding-top: 3rem;
 }
 
 img {

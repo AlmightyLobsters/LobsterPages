@@ -2,7 +2,7 @@ $article_accent_colour: #2c18cc;
 
 #articles {
 	.hero {
-        background: url('../../public/imgs/articles.jpg') #33322d center no-repeat fixed;
+        background: url('/imgs/articles.jpg') #33322d center no-repeat fixed;
         background-size: cover;
     }
 
@@ -19,24 +19,12 @@ $article_accent_colour: #2c18cc;
     }
 
     main {
-        border-top: 5px #fff solid;
         background: url('/imgs/articles_blured.jpg') center no-repeat fixed;
-    }
-
-    #content {
-        margin: 2em auto;
     }
 
     /* articles logic */
     .articlesWrapper {
         color: #000;
-    }
-
-    .articleWrapper {
-        background: rgba(256, 256, 256, .8);
-        margin: 1em 2em;
-        padding: 1rem;
-        padding-top: 3rem;
     }
 
     .socialFeed {
@@ -54,10 +42,6 @@ $article_accent_colour: #2c18cc;
     }
 
     @media (min-width: 48em) {
-        main {
-            width: 100%;
-        }
-
         #content {
             display: flex;
             flex-direction: row nowrap;
