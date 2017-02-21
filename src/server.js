@@ -1,11 +1,11 @@
 /* eslint no-console:0 */
 import express from 'express';
-import fs from 'fs';
+// import fs from 'fs';
 import cookieParser from 'cookie-parser';
-import auth from 'basic-auth';
+// import auth from 'basic-auth';
 import bodyParser from 'body-parser';
-import fileUpload from 'express-fileupload';
-import crypto from 'crypto';
+// import fileUpload from 'express-fileupload';
+// import crypto from 'crypto';
 import React from 'react';
 import { match, RouterContext } from 'react-router';
 import { renderToString } from 'react-dom/server';
@@ -13,6 +13,7 @@ import { join } from 'path';
 import { DocumentClient } from 'documentdb';
 import DatabaseRepo from './js/DatabaseRepo';
 import { LobsterRoutes } from './js/routes';
+import api from './js/api/api';
 
 let config = {};
 if (!process.env.DB_HOST || !process.env.DB_MASTER_KEY)
@@ -65,6 +66,8 @@ userDB.init(err => {
 
 const app = express();
 
+app.use('/api', api);
+
 app.use(cookieParser(process.env.COOKIE_SECRET || config.COOKIE_SECRET));
 
 if(isDev)
@@ -79,8 +82,9 @@ if(isDev)
         meta: false
     }));
 
-app.use('/', express.static(publicPath));
+app.use('/', express.static(publicPath)); // do I need to copy this too?
 
+/*
 app.get('/articles(/:id)?', (req, res) => {
     if(req.params.id) articlesDB.get(req.params.id, (err, result) => {
         if (err) res.status(500).send(err);
@@ -135,8 +139,9 @@ app.put('/articles/:id', authenticate('ADMIN'), (req, res) => {
         else res.status(200).send(doc);
     });
 });
+*/
 
-app.post('/upload', authenticate('ADMIN'), fileUpload(), (req, res) => {
+/* app.post('/upload', authenticate('ADMIN'), fileUpload(), (req, res) => {
     const file = req.files.file;
     if(!fs.existsSync(join(publicPath, 'upload'))) fs.mkdirSync(join(publicPath, 'upload'));
     if(!file) res.status(400).send('File not attached');
@@ -151,9 +156,9 @@ app.post('/upload', authenticate('ADMIN'), fileUpload(), (req, res) => {
             else res.status(201).location(`/upload/${file.name}`).send(file);
         });
     }
-});
+}); */
 
-app.post('/login', (req, res) => {
+/* app.post('/login', (req, res) => {
     res.clearCookie('authHash');
     const user = auth(req);
     if (!user) res.sendStatus(401);
@@ -165,7 +170,7 @@ app.post('/login', (req, res) => {
         );
         res.status(200).end();
     }
-});
+}); */
 
 app.post('/perm', bodyParser.json(), authenticate(null), (req, res) => {
     res.status(200).send('Access granted');

@@ -3,7 +3,7 @@ const join = require('path').join;
 
 module.exports = {
     entry: {
-        app: join(__dirname, 'src', 'js', 'index.js'),
+        app: join(__dirname, 'src', 'js', 'client.js'),
         vendor: [
             'react',
             'react-dom',
