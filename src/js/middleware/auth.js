@@ -5,7 +5,7 @@ export function authenticate (userGroup) {
             req.body.userGroup = userGroup;
         }
         if (!req.body.userGroup) res.status(400).send('User group not specified');
-        else if (!req.cookies.authHash) res.status(401).send('Not logged in');
+        else if (!req.cookies || !req.cookies.authHash) res.status(401).send('Not logged in');
         else if (!userDB.initialized) res.status(500).send('User database not initialized');
         else userDB.get(req.body.userGroup, (err, result) => {
             if (err) res.status(500).send(err);
