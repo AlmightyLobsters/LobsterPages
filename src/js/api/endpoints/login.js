@@ -21,7 +21,7 @@ router.post('/login', (req, res) => {
 });
 
 router.post('/perm', bodyParser.json(), authenticate(null), (req, res) => {
-    res.status(200).send('Access granted');
+    res.status(202).send('Access granted');
 });
 
 export default router;

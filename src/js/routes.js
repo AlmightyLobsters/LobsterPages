@@ -15,12 +15,12 @@ import { NotFound } from './components/NotFound';
 const Authenticate = userGroup => (nextState, replace, callback) => {
     if(process.env.SIDE === 'client') {
         const http = new XMLHttpRequest();
-        http.open('POST', '/perm', true);
+        http.open('POST', '/api/perm', true);
         http.setRequestHeader('Content-Type', 'application/json');
         http.send(JSON.stringify({ userGroup }));
         http.onreadystatechange = () => {
             if (http.readyState === XMLHttpRequest.DONE) {
-                if (http.status === 401 || http.status === 403)
+                if (http.status !== 202)
                     replace('/login/' + escape(nextState.location.pathname.replace(/^\//, '')));
                 callback();
             }
