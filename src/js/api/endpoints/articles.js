@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Router } from 'express';
 import bodyParser from 'body-parser';
 import { authenticate } from '../../middleware/auth';
@@ -7,7 +8,7 @@ import DatabaseRepo from '../../DatabaseRepo';
 let config = {};
 if (!process.env.DB_HOST || !process.env.DB_MASTER_KEY)
     try {
-        config = require('../private/config');
+        config = require('../../../../private/config');
     }
     catch (e) { console.error('Specify either the connection environment variables or include a config file'); }
 
