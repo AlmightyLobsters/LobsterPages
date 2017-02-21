@@ -3,17 +3,18 @@ import express from 'express';
 // import fs from 'fs';
 import cookieParser from 'cookie-parser';
 // import auth from 'basic-auth';
-import bodyParser from 'body-parser';
+// import bodyParser from 'body-parser';
 // import fileUpload from 'express-fileupload';
 // import crypto from 'crypto';
 import React from 'react';
 import { match, RouterContext } from 'react-router';
 import { renderToString } from 'react-dom/server';
 import { join } from 'path';
-import { DocumentClient } from 'documentdb';
-import DatabaseRepo from './js/DatabaseRepo';
+// import { DocumentClient } from 'documentdb';
+// import DatabaseRepo from './js/DatabaseRepo';
 import { LobsterRoutes } from './js/routes';
 import api from './js/api/api';
+// import { authenticate } from './js/middleware/auth';
 
 let config = {};
 if (!process.env.DB_HOST || !process.env.DB_MASTER_KEY)
@@ -25,9 +26,9 @@ if (!process.env.DB_HOST || !process.env.DB_MASTER_KEY)
 
 const isDev = process.env.NODE_ENV !== 'production';
 const publicPath = join(__dirname, '..', 'public');
-const dbName = isDev ? 'LobsterPagesDev' : 'LobsterPages';
+// const dbName = isDev ? 'LobsterPagesDev' : 'LobsterPages';
 
-const authenticate = userGroup => (req, res, next) => {
+/* const authenticate = userGroup => (req, res, next) => {
     if(userGroup !== null) {
         if (!req.body) req.body = {};
         req.body.userGroup = userGroup;
@@ -41,7 +42,7 @@ const authenticate = userGroup => (req, res, next) => {
         else if (result.hashes.includes(req.cookies.authHash)) next();
         else res.status(403).send('Access denied');
     });
-};
+}; */
 
 // Assets Setup
 
@@ -51,16 +52,16 @@ if (isDev)
 
 // Database Setup
 
-const dbClient = new DocumentClient(process.env.DB_HOST || config.DB_HOST,
-    { masterKey: process.env.DB_MASTER_KEY || config.DB_MASTER_KEY });
-const articlesDB = new DatabaseRepo(dbClient, dbName, 'Articles');
-articlesDB.init(err => {
-    console.error('Error initializing article database: ', err);
-});
-const userDB = new DatabaseRepo(dbClient, dbName, 'Users');
-userDB.init(err => {
-    console.log('Error initializing user database: ', err);
-});
+// const dbClient = new DocumentClient(process.env.DB_HOST || config.DB_HOST,
+//     { masterKey: process.env.DB_MASTER_KEY || config.DB_MASTER_KEY });
+// const articlesDB = new DatabaseRepo(dbClient, dbName, 'Articles');
+// articlesDB.init(err => {
+//     console.error('Error initializing article database: ', err);
+// });
+// const userDB = new DatabaseRepo(dbClient, dbName, 'Users');
+// userDB.init(err => {
+//     console.log('Error initializing user database: ', err);
+// });
 
 // Server Setup
 
@@ -172,9 +173,9 @@ app.put('/articles/:id', authenticate('ADMIN'), (req, res) => {
     }
 }); */
 
-app.post('/perm', bodyParser.json(), authenticate(null), (req, res) => {
+/* app.post('/perm', bodyParser.json(), authenticate(null), (req, res) => {
     res.status(200).send('Access granted');
-});
+}); */
 
 app.get('/robots.txt', (req, res) => {
     res.send(`

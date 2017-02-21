@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import fs from 'fs';
 import fileUpload from 'express-fileupload';
+import { authenticate } from '../../middleware/auth';
 
 const router = Router();
 

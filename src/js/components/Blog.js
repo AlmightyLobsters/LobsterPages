@@ -10,7 +10,7 @@ export class Blog extends React.Component {
         };
     }
     componentDidMount() {
-        axios.get(`/articles/${this.props.params.artId}`)
+        axios.get(`/api/articles/${this.props.params.artId}`)
             .then(resp => this.setState({err: null, article: resp.data}))
             .catch(err => this.setState({err}));
     }
