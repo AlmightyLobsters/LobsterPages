@@ -26,12 +26,7 @@ if (isDev)
 
 
 // Server Setup
-
 const app = express();
-
-app.use('/api', api);
-
-app.use(cookieParser(process.env.COOKIE_SECRET || config.COOKIE_SECRET));
 
 if(isDev)
     app.use(require('express-winston').logger({
@@ -45,7 +40,13 @@ if(isDev)
         meta: false
     }));
 
+
+
 app.use('/', express.static(publicPath)); // do I need to copy this too?
+
+app.use(cookieParser(process.env.COOKIE_SECRET || config.COOKIE_SECRET));
+
+app.use('/api', api);
 
 app.get('/robots.txt', (req, res) => {
     res.send(`
