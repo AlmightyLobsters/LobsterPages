@@ -6,6 +6,7 @@ const DB_NAME = getConfig('DB_NAME');
 
 const userDB = new DatabaseRepo(dbClient, DB_NAME, 'Users');
 userDB.init(err => {
+    // eslint-disable-next-line no-console
     console.log('Error initializing user database: ', err);
 });
 
