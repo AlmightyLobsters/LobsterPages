@@ -136,11 +136,11 @@
 			"error",
 			"always"
 		],
-		"arrow-parens": 0,
-		"linebreak-style": [
+		"arrow-parens": [
 			"warn",
-			"windows"
+			"as-needed"
 		],
+		"linebreak-style": "off",
 		"no-unused-vars": [
 			"error",
 			{

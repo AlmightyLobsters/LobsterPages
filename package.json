@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon -e js,scss,ejs,json --watch src/ --ignore src/faviconsHeader.ejs index.js",
     "build": "cross-env NODE_ENV=production node ./build.js",
-    "test": "eslint ./src/"
+    "lint": "eslint ./src/"
   },
   "repository": {
     "type": "git",
