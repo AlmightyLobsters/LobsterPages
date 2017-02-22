@@ -2,30 +2,15 @@
 import { Router } from 'express';
 import bodyParser from 'body-parser';
 import { authenticate } from '../../middleware/auth';
-import { DocumentClient } from 'documentdb';
+import { dbClient } from '../../DocDBUtils';
 import DatabaseRepo from '../../DatabaseRepo';
+import { getConfig } from '../../../config';
 
-let config = {};
-if (!process.env.DB_HOST || !process.env.DB_MASTER_KEY)
-    try {
-        config = require('../../../../private/config');
-    }
-    catch (e) { console.error('Specify either the connection environment variables or include a config file'); }
+const DB_NAME = getConfig("DB_NAME");
 
-const isDev = process.env.NODE_ENV !== 'production';
-const dbName = isDev ? 'LobsterPagesDev' : 'LobsterPages';
-
-// Database Setup
-
-const dbClient = new DocumentClient(process.env.DB_HOST || config.DB_HOST,
-    { masterKey: process.env.DB_MASTER_KEY || config.DB_MASTER_KEY });
-const articlesDB = new DatabaseRepo(dbClient, dbName, 'Articles');
+const articlesDB = new DatabaseRepo(dbClient, DB_NAME, 'Articles');
 articlesDB.init(err => {
     console.error('Error initializing article database: ', err);
-});
-const userDB = new DatabaseRepo(dbClient, dbName, 'Users');
-userDB.init(err => {
-    console.log('Error initializing user database: ', err);
 });
 
 const router = Router();
