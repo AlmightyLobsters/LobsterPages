@@ -4,6 +4,7 @@ import React from 'react';
 import { match, RouterContext } from 'react-router';
 import { renderToString } from 'react-dom/server';
 import { join } from 'path';
+import { INTERNAL_SERVER_ERROR, MOVED_TEMPORARILY, NOT_FOUND } from 'http-status-codes';
 import { LobsterRoutes } from './js/routes';
 import api from './js/api/api';
 import { getConfig } from './config';
@@ -48,13 +49,13 @@ app.get('/robots.txt', (req, res) => {
 
 app.get('*', (req, res) => {
     match({ routes: LobsterRoutes, location: req.url }, (error, redirectLocation, renderProps) => {
-        if (error) res.status(500).send(error.message);
-        else if (redirectLocation) res.redirect(302, redirectLocation.pathname + redirectLocation.search);
+        if (error) res.status(INTERNAL_SERVER_ERROR).send(error.message);
+        else if (redirectLocation) res.redirect(MOVED_TEMPORARILY, redirectLocation.pathname + redirectLocation.search);
         else if (renderProps) {
             const content = renderToString(<RouterContext {...renderProps} />);
             res.render(join(__dirname, 'index.ejs'), { content });
         }
-        else res.status(404).send('Not Found');
+        else res.status(NOT_FOUND).send('Not Found');
     });
 });
 

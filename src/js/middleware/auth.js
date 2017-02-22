@@ -1,3 +1,4 @@
+import { BAD_REQUEST, UNAUTHORIZED, FORBIDDEN, NOT_FOUND, INTERNAL_SERVER_ERROR, SERVICE_UNAVAILABLE, CONFLICT } from 'http-status-codes';
 import DatabaseRepo from '../DatabaseRepo';
 import { dbClient } from "../DocDBUtils";
 import { getConfig } from '../../config';
@@ -16,15 +17,15 @@ export function authenticate (userGroup) {
             if (!req.body) req.body = {};
             req.body.userGroup = userGroup;
         }
-        if (!req.body.userGroup) res.status(400).send('User group not specified');
-        else if (req.cookies.authHash) res.status(409).send('Coookie not secured');
-        else if (!req.signedCookies.authHash) res.status(401).send('Not logged in');
-        else if (!userDB.initialized) res.status(500).send('User database not initialized');
+        if (!req.body.userGroup) res.status(BAD_REQUEST).send('User group not specified');
+        else if (req.cookies.authHash) res.status(CONFLICT).send('Coookie not secured');
+        else if (!req.signedCookies.authHash) res.status(UNAUTHORIZED).send('Not logged in');
+        else if (!userDB.initialized) res.status(SERVICE_UNAVAILABLE).send('User database not initialized');
         else userDB.get(req.body.userGroup, (err, result) => {
-            if (err) res.status(500).send(err);
-            else if (!result) res.status(404).send('User group record not found');
+            if (err) res.status(INTERNAL_SERVER_ERROR).send(err);
+            else if (!result) res.status(NOT_FOUND).send('User group record not found');
             else if (result.hashes.includes(req.signedCookies.authHash)) next();
-            else res.status(403).send('Access denied');
+            else res.status(FORBIDDEN).send('Access denied');
         });
     };
 }

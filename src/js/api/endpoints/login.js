@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { sign } from 'cookie-signature';
+import { OK, UNAUTHORIZED, ACCEPTED } from 'http-status-codes';
 import auth from 'basic-auth';
 import crypto from 'crypto';
 import bodyParser from 'body-parser';
@@ -13,7 +14,7 @@ const { SHA_SECRET, COOKIE_SECRET } = getConfig(["SHA_SECRET", "COOKIE_SECRET"])
 router.post('/login', (req, res) => {
     res.clearCookie('authHash');
     const user = auth(req);
-    if (!user) res.sendStatus(401);
+    if (!user) res.sendStatus(UNAUTHORIZED);
     else {
         res.cookie('authHash', `s:${sign(
             crypto
@@ -21,12 +22,12 @@ router.post('/login', (req, res) => {
                 .update(`${user.name}:${user.pass}`)
                 .digest('base64'),
             COOKIE_SECRET)}`);
-        res.status(200).end();
+        res.status(OK).end();
     }
 });
 
 router.post('/perm', bodyParser.json(), authenticate(null), (req, res) => {
-    res.status(202).send('Access granted');
+    res.status(ACCEPTED).send('Access granted');
 });
 
 export default router;

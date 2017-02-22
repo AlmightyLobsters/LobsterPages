@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import fs from 'fs';
 import fileUpload from 'express-fileupload';
+import { BAD_REQUEST, INTERNAL_SERVER_ERROR, CREATED } from 'http-status-codes';
 import { authenticate } from '../../middleware/auth';
 import { getConfig } from '../../../config';
 
@@ -11,7 +12,7 @@ const router = Router();
 router.post('/upload', authenticate('ADMIN'), fileUpload(), (req, res) => {
     const file = req.files.file;
     if(!fs.existsSync(join(PUBLIC_PATH, 'upload'))) fs.mkdirSync(join(PUBLIC_PATH, 'upload'));
-    if(!file) res.status(400).send('File not attached');
+    if(!file) res.status(BAD_REQUEST).send('File not attached');
     else {
         while(fs.existsSync(join(PUBLIC_PATH, 'upload', file.name))) {
             const splitPattern = /(?:(.+?)(\d+)?)\.(\w{2,4})/i;
@@ -19,8 +20,8 @@ router.post('/upload', authenticate('ADMIN'), fileUpload(), (req, res) => {
             file.name = `${name}${Number(index) ? Number(index) + 1 : 1}.${ext}`;
         }
         fs.writeFile(join(PUBLIC_PATH, 'upload', file.name), file.data, err => {
-            if (err) res.status(500).send(err);
-            else res.status(201).location(`/upload/${file.name}`).send(file);
+            if (err) res.status(INTERNAL_SERVER_ERROR).send(err);
+            else res.status(CREATED).location(`/upload/${file.name}`).send(file);
         });
     }
 });
