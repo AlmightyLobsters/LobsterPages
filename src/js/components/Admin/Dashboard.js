@@ -70,7 +70,8 @@ export class Dashboard extends React.Component {
 
     deleteArticle(id) {
         const select = this.state.articles.find(val => val.id===id);
-        if (confirm(`Do you want to delete article: '${select.title}'?`)) // eslint no-alert:0
+        // eslint-disable-next-line no-alert
+        if (confirm(`Do you want to delete article: '${select.title}'?`))
             axios.delete(`/api/articles/${id}`)
                 .then(res => {
                     this.setState((prevState, props) => ({
