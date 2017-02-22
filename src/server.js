@@ -1,34 +1,25 @@
 /* eslint no-console:0 */
 import express from 'express';
-import cookieParser from 'cookie-parser';
 import React from 'react';
 import { match, RouterContext } from 'react-router';
 import { renderToString } from 'react-dom/server';
 import { join } from 'path';
 import { LobsterRoutes } from './js/routes';
 import api from './js/api/api';
+import { getConfig } from './config';
 
-let config = {};
-if (!process.env.DB_HOST || !process.env.DB_MASTER_KEY)
-    try {
-        config = require('../private/config');
-    }
-    catch (e) { console.error('Specify either the connection environment variables or include a config file'); }
-
-
-const isDev = process.env.NODE_ENV !== 'production';
-const publicPath = join(__dirname, '..', 'public');
+const { IS_DEV, PORT, PUBLIC_PATH } = getConfig(["IS_DEV", "PORT", "PUBLIC_PATH"]);
 
 // Assets Setup
 
-if (isDev)
+if (IS_DEV)
     require('../build');
 
 
 // Server Setup
 const app = express();
 
-if(isDev)
+if(IS_DEV)
     app.use(require('express-winston').logger({
         transports: [
             new (require('winston')).transports.Console({
@@ -42,9 +33,7 @@ if(isDev)
 
 
 
-app.use('/', express.static(publicPath)); // do I need to copy this too?
-
-app.use(cookieParser(process.env.COOKIE_SECRET || config.COOKIE_SECRET));
+app.use('/', express.static(PUBLIC_PATH));
 
 app.use('/api', api);
 
@@ -69,7 +58,7 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen(process.env.PORT || 8808, err => {
+app.listen(PORT, err => {
     if (err) console.log(err);
-    console.log(`listening`);
+    console.log(`listening on port ${PORT}`);
 });
