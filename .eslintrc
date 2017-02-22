@@ -105,6 +105,15 @@
 		],
 		"no-lone-blocks": "error",
 		"no-loop-func": "error",
+		"no-magic-numbers": [
+			"warn",
+			{
+				"ignore": [-1, 0, 1],
+				"ignoreArrayIndexes": true,
+				"enforceConst": true,
+				"detectObjects": true
+			}
+		],
 		// Variables
 		// Stylistic
 		"comma-dangle": "warn",
@@ -153,9 +162,9 @@
 		"no-plusplus": 0,
 		"max-len": [
 			"warn",
-			120,
+			180,
 			{
-				"ignorePattern": "(^\\s*<.*?>)"
+				"ignorePattern": "(^\\s*<.*?>)|(^\\s*(return|const|let))"
 			}
 		],
 		"import/no-extraneous-dependencies": [
