@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
+import { ACCEPTED } from 'http-status-codes';
 import { App } from './components/App';
 import { Home } from './components/Home';
 import { About } from './components/About';
@@ -15,12 +16,12 @@ import { NotFound } from './components/NotFound';
 const Authenticate = userGroup => (nextState, replace, callback) => {
     if(process.env.SIDE === 'client') {
         const http = new XMLHttpRequest();
-        http.open('POST', '/perm', true);
+        http.open('POST', '/api/perm', true);
         http.setRequestHeader('Content-Type', 'application/json');
         http.send(JSON.stringify({ userGroup }));
         http.onreadystatechange = () => {
             if (http.readyState === XMLHttpRequest.DONE) {
-                if (http.status === 401 || http.status === 403)
+                if (http.status !== ACCEPTED)
                     replace('/login/' + escape(nextState.location.pathname.replace(/^\//, '')));
                 callback();
             }

@@ -18,7 +18,7 @@ export class Dashboard extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('/articles')
+        axios.get('/api/articles')
             .then(res => {
                 this.setState({
                     err: null,
@@ -41,7 +41,7 @@ export class Dashboard extends React.Component {
         };
         const files = addForm.querySelector('[name="headerImg"]').files;
         const doPost = () => {
-            axios.post('/articles', newArt)
+            axios.post('/api/articles', newArt)
                 .then(resp => this.setState(prevState => ({
                     err: null,
                     articles: [
@@ -55,7 +55,7 @@ export class Dashboard extends React.Component {
         if(files.length === 1) {
             const data = new FormData();
             data.append('file', files[0]);
-            axios.post('/upload', data)
+            axios.post('/api/upload', data)
                 .then(resp => {
                     newArt.imgPath = resp.headers.location;
                     doPost();
@@ -70,8 +70,9 @@ export class Dashboard extends React.Component {
 
     deleteArticle(id) {
         const select = this.state.articles.find(val => val.id===id);
-        if (confirm(`Do you want to delete article: '${select.title}'?`)) // eslint no-alert:0
-            axios.delete(`/articles/${id}`)
+        // eslint-disable-next-line no-alert
+        if (confirm(`Do you want to delete article: '${select.title}'?`))
+            axios.delete(`/api/articles/${id}`)
                 .then(res => {
                     this.setState((prevState, props) => ({
                         err: null,

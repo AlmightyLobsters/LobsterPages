@@ -10,7 +10,7 @@ export class Blog extends React.Component {
         };
     }
     componentDidMount() {
-        axios.get(`/articles/${this.props.params.artId}`)
+        axios.get(`/api/articles/${this.props.params.artId}`)
             .then(resp => this.setState({err: null, article: resp.data}))
             .catch(err => this.setState({err}));
     }
@@ -32,7 +32,8 @@ export class Blog extends React.Component {
                                             <h3>{this.state.article.title}</h3>
                                         </div>
                                         <div className="article_innerWrapper">
-                                            {(typeof(this.state.article.text) === 'string' ? [this.state.article.text] : this.state.article.text).map(par => <p dangerouslySetInnerHTML={{__html: par}}></p>)}
+                                            {(typeof(this.state.article.text) === 'string' ? [this.state.article.text] : this.state.article.text)
+                                                .map(par => <p dangerouslySetInnerHTML={{__html: par}}></p>)}
                                         </div>
                                     </article>
                                 </section>
@@ -41,6 +42,6 @@ export class Blog extends React.Component {
                     )
                     : <p>Not loaded yet</p>)}
             </div>
-        )
+        );
     }
 }

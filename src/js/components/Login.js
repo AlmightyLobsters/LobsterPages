@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { OK } from 'http-status-codes';
 
 export const Login = ({ params: { nextUrl } }) => (
     <div id="login">
@@ -16,8 +17,8 @@ export const Login = ({ params: { nextUrl } }) => (
                 e.preventDefault();
                 const username = document.getElementById('uname').value;
                 const password = document.getElementById('passwd').value;
-                axios.post('/login', null, { auth: { username, password } })
-                    .then(resp =>resp.status === 200 ? window.location.pathname = nextUrl || '/' : window.location.reload(true))
+                axios.post('/api/login', null, { auth: { username, password } })
+                    .then(resp =>resp.status === OK ? window.location.pathname = nextUrl || '/' : window.location.reload(true))
                     .catch(err => window.location.reload(true));
             }}/>
         </form>

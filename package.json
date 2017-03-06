@@ -4,9 +4,9 @@
   "description": "Blog style web page for the team Almighty Lobsters",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon -e js,scss,ejs,json --watch src/ --ignore src/faviconsHeader.ejs server.js",
+    "dev": "nodemon -e js,scss,ejs,json --watch src/ --ignore src/faviconsHeader.ejs index.js",
     "build": "cross-env NODE_ENV=production node ./build.js",
-    "test": "eslint ./src/"
+    "lint": "eslint ./src/"
   },
   "repository": {
     "type": "git",
@@ -61,10 +61,12 @@
     "basic-auth": "^1.1.0",
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
+    "cookie-signature": "^1.0.6",
     "documentdb": "^1.10.1",
     "ejs": "^2.5.5",
     "express": "^4.14.0",
     "express-fileupload": "^0.0.6",
+    "http-status-codes": "^1.1.6",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-router": "^3.0.0"
