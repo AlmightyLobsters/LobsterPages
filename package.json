@@ -2,7 +2,7 @@
   "name": "lobsterpages",
   "version": "1.1.0",
   "description": "Blog style web page for the team Almighty Lobsters",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon -e js,scss,ejs,json --watch src/ --ignore src/faviconsHeader.ejs index.js",
     "build": "cross-env NODE_ENV=production node ./build.js",
