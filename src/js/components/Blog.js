@@ -21,9 +21,9 @@ export class Blog extends React.Component {
                 ? <p>{this.state.err}</p>
                 : (this.state.article
                     ? (
-                        <div className="article_outerWrapper">
+                        <div id="article">
                             {this.state.article.imgPath
-                            && <section className="hero" style={{backgroundImage: `url(${this.state.article.imgPath})`, height: '50vh'}} />
+                            && <section className="hero" style={{background: `url(${this.state.article.imgPath}) fixed center no-repeat`, filter: 'blur(200px)', height: '50vh'}} />
                             }
                             <main>
                                 <section>
