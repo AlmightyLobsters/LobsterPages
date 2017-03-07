@@ -16,7 +16,13 @@ before_deploy:
 - git config user.name "travis"
 - git config user.email "vojtechstepancik@outlook.com"
 deploy:
+- provider: azure_web_apps
   skip_cleanup: true
-  provider: azure_web_apps
   site: uncannylobsters
-  slot: uncannylobsters
+  on: master
+- provider: azure_web_apps
+  skip_cleanup: true
+  site: uncannylobsters
+  slot: uncannylobsters-wip
+  on:
+    all_branches: true
