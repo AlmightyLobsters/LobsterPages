@@ -19,4 +19,4 @@ deploy:
   skip_cleanup: true
   provider: azure_web_apps
   site: uncannylobsters
-  slot: uncannylobsters-wip
+  slot: uncannylobsters
