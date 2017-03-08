@@ -10,7 +10,6 @@ html {
 .hero {
 	width: 100%;
 	height: 100vh;
-	// max-height: 900px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -159,6 +158,11 @@ img {
 }
 
 /* grid */
+.h1-2 {
+	height: 50vh;
+	width: 100%;
+}
+
 [class*='col-'] {
 	width: 100%;
 	padding: 15px;

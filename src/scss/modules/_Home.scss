@@ -1,12 +1,48 @@
 #home {
 	.hero {
-		background:#333;
-		height: 50vh;
+		flex-direction: column;
+		text-align: center;
 	}
 
-	#brief {
-		text-align: center;
-		max-width: 50em;
-		margin: auto;
+	#welcome {
+		background: url('/imgs/lobsterNebula.jpg') center no-repeat #111;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 61.8%;
+		width: 100%;
+	}
+
+
+	#lobsters {
+		background: #fff;
+		height: 38.2%;
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: 43.6%;
+			height: 20px;
+			width: 66.6666%;
+			background: #fff;
+		}
+
+		b {
+			font-weight: 700;
+			color: $lobsterRed;
+		}
+
+		#brief {
+			margin-top: -3em;
+		}
+
+		blockquote {
+			max-width: 50em;
+			margin: 0 auto;
+			padding: 0 1em;
+		}
 	}
 }
