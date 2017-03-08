@@ -15,13 +15,13 @@ export const Home = _ => (
                     <blockquote>Jsme skupina studentů 5. ročníku <a href="http://gjn.cz">Gymnázia Jana Nerudy</a>. Ačkoliv studujeme ve francouzštině a letos nás čeká francouzská maturita, ve zbytcích volného času se věnujeme moderním technologiím a snažíme se zvýšit veřejné povědomí o problematikách s nimi souvisejícími.</blockquote>
                     <hr/>
                 </article>
-                <section id="projects" className="col-1-3">
+                <section id="lastArticle" className="col-1-3">
                     test
+                    {/*some kind of js logic that pulls the last article from the store and puts it here*/}
                 </section>
             </section>
         </section>
-        <div id="lastArticle">
-            {/*some kind of js logic that pulls the last article from the store and puts it here*/}
+        <div id="projects">
         </div>
     </div>
 );
