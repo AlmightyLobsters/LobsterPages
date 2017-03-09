@@ -6,17 +6,14 @@
 
 	#welcome {
 		background: url('/imgs/lobsterNebula.jpg') center #111;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 61.8vh;
+		height: 61.8%;
 		width: 100%;
 	}
 
 
 	#lobsters {
 		background: #fff;
-		height: 38.2vh;
+		height: 38.2%;
 		width: 100%;
 		display: flex;
 		flex-direction: row;
@@ -29,34 +26,63 @@
 			width: 66.6666%;
 			background: #fff;
 		}
+	}
 
-		b {
-			font-weight: 700;
-			color: $lobsterRed;
+	b {
+		font-weight: 700;
+		color: $lobsterRed;
+	}
+
+	#brief {
+		margin-top: -3vh;
+		display: flex;
+		flex-direction: column;
+	}
+
+	#heading {
+		height: 33.3333%;
+	}
+
+	#quote {
+		height: 66.6666%;
+
+		#innerQuote {
+			height: 33.3333%;
 		}
+	}
 
-		#brief {
-			margin-top: -3vh;
-			padding: 0 auto;
+	blockquote {
+		color: #666;
+		font-family: 'Space Mono';
+		max-width: 50em;
+		margin: 0 auto;
+		padding: 0 1em;
+
+		a {
+			color: #000;
+		}
+	}
+
+	#socialNetworks {
+		background: black;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: flex-end;
+		padding: 2.5em;
+		color: white;
+		font-family: 'Novecento Sans Light';
+		font-size: 1.3em;
+
+		div {
 			display: flex;
-			flex-direction: column;
+			flex-direction: row;
+			align-items: center;
+			margin-right: 1.5em;
 		}
 
-		h2 {
-			position: relative;
-
-		}
-
-		.blockquote {
-			display: flex;
-			flex-direction: column;
-			align-self: center;
-		}
-
-		blockquote {
-			max-width: 50em;
-			margin: 0 auto;
-			padding: 0 1em;
+		i {
+			margin-left: .75em;
 		}
 	}
 }

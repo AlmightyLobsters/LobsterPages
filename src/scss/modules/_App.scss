@@ -97,7 +97,6 @@ hr {
 
 blockquote {
 	text-align: center;
-	font-style: italic;
 }
 
 /* content elements */
@@ -199,4 +198,12 @@ img {
 		max-width: 50rem;
 		margin: 0 auto;
 	}
+}
+
+/* helper classes */
+
+.v-center {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
