@@ -22,21 +22,23 @@ export const Home = _ => (
                     </div>
                 </article>
                 <section id="socialNetworks" className="col-1-3">
-                    <div id="facebook">
-                        ALCanSat
-                        <i className="fa fa-3x fa-facebook-square" aria-hidden="true"></i>
-                    </div>
-                    <div id="twitter">
-                        AlmghtLobsters
-                        <i className="fa fa-3x fa-twitter-square" aria-hidden="true"></i>
-                    </div>
-                    <div id="gplus">
-                        Almighty Lobsters
-                        <i className="fa fa-3x fa-google-plus-square" aria-hidden="true"></i>
-                    </div>
-                    <div id="github">
-                        AlmightyLobsters
-                        <i className="fa fa-3x fa-github-square" aria-hidden></i>
+                    <div id="innerSocial">
+                        <a id="facebook" href="https://www.facebook.com/ALCanSat" target="_blank">
+                            <i className="fa fa-3x fa-facebook-square" aria-hidden="true"></i>
+                            ALCanSat
+                        </a>
+                        <a id="twitter" href="https://twitter.com/almghtLobsters" target="_blank">
+                            <i className="fa fa-3x fa-twitter-square" aria-hidden="true"></i>
+                            AlmghtLobsters
+                        </a>
+                        <a id="gplus" href="https://plus.google.com/b/102005371252944081919/102005371252944081919" target="_blank">
+                            <i className="fa fa-3x fa-google-plus-square" aria-hidden="true"></i>
+                            Almighty Lobsters
+                        </a>
+                        <a id="github" href="https://github.com/AlmightyLobsters" target="_blank">
+                            <i className="fa fa-3x fa-github-square" aria-hidden></i>
+                            AlmightyLobsters
+                        </a>
                     </div>
                 </section>
             </section>

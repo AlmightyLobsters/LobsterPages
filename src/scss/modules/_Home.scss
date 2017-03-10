@@ -34,6 +34,8 @@
 	}
 
 	#brief {
+		// box-shadow: 4px 4px #333;
+		z-index: 2;
 		margin-top: -3vh;
 		display: flex;
 		flex-direction: column;
@@ -67,22 +69,39 @@
 		background: black;
 		display: flex;
 		flex-direction: column;
-		justify-content: space-around;
-		align-items: flex-end;
-		padding: 2.5em;
-		color: white;
+		justify-content: center;
 		font-family: 'Novecento Sans Light';
 		font-size: 1.3em;
+		padding-left: 0;
 
-		div {
+		#innerSocial {
+			width: 100%;
+		}
+
+		a {
+			color: white;
+			text-align: right;
 			display: flex;
 			flex-direction: row;
 			align-items: center;
-			margin-right: 1.5em;
+			width: 100%;
+			margin-bottom: 10px;
+
+			&:hover {
+				background: #f0f0f0;
+				color: #cc2c18;
+			}
 		}
 
 		i {
-			margin-left: .75em;
+			padding-left: 1em;
+			margin-right: .75em
 		}
+	}
+
+	#projects {
+		width: 100%;
+		background: #000;
+		height: 30em;
 	}
 }
