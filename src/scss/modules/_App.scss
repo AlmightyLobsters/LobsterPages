@@ -29,19 +29,19 @@ html {
 
 	h1 {
 		font-family: 'Novecento Sans Bold';
-		font-size: 200px;
+		font-size: 150px;
 	}
 
 	h2 {
 		font-family: Novecento;
 		font-style: italic;
-		font-size: 50px;
+		font-size: 45px;
 		font-weight: normal;
 	}
 
 	@media (max-width: 768px) and (min-height: 500px) {
-		h1 { font-size: 26vw }
-		h2 { font-size: 7vw }
+		h1 { font-size: 20vw }
+		h2 { font-size: 5vw }
 	}
 
 	@media (max-height: 500px) {

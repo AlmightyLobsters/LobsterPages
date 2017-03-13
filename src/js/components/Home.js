@@ -4,14 +4,14 @@ export const Home = _ => (
     <div id="home">
         <section className="hero">
             <header>
-                <h1>Vítejte</h1>
+                <h1>Lobsters</h1>
             </header>
         </section>
         <main>
             <section id="lobsters">
                 <article id="brief" className="col-2-3">
                     <div id="heading" className="v-center">
-                        <h2>We are <b>Lobsters</b></h2>
+                        <h2><b>Almighty</b> Lobsters</h2>
                     </div>
                     <div id="quote">
                         <div id="innerQuote">
@@ -25,25 +25,37 @@ export const Home = _ => (
                     <div id="innerSocial">
                         <a id="facebook" href="https://www.facebook.com/ALCanSat" target="_blank">
                             <i className="fa fa-3x fa-facebook-square" aria-hidden="true"></i>
-                            ALCanSat
+                            <span>ALCanSat</span>
                         </a>
                         <a id="twitter" href="https://twitter.com/almghtLobsters" target="_blank">
                             <i className="fa fa-3x fa-twitter-square" aria-hidden="true"></i>
-                            AlmghtLobsters
+                            <span>AlmghtLobsters</span>
                         </a>
                         <a id="gplus" href="https://plus.google.com/b/102005371252944081919/102005371252944081919" target="_blank">
                             <i className="fa fa-3x fa-google-plus-square" aria-hidden="true"></i>
-                            Almighty Lobsters
+                            <span>Almighty Lobsters</span>
                         </a>
                         <a id="github" href="https://github.com/AlmightyLobsters" target="_blank">
                             <i className="fa fa-3x fa-github-square" aria-hidden></i>
-                            AlmightyLobsters
+                            <span>AlmightyLobsters</span>
                         </a>
                     </div>
                 </section>
             </section>
-            <div id="projects">
-            </div>
+            <section id="projects">
+                <div className="project" id="cansat">
+                    CanSat
+                </div>
+                <div className="project" id="polly">
+                    Polly
+                </div>
+                <div className="project" id="cs">
+                    CS
+                </div>
+                <div className="project" id="nfctron">
+                    NFCtron
+                </div>
+            </section>
         </main>
     </div>
 );

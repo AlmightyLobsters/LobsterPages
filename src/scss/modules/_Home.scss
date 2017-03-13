@@ -6,11 +6,115 @@
 		background: url('/imgs/lobsterNebula.jpg') center #111;
 		width: 100%;
 	}
-	@media (min-width: 50em) {
-		#lobsters {
-			background: #fff;
-			min-height: 20em;
+
+	main {
+		background: url('/imgs/grainTexture.jpg') #000;
+	}
+
+	#lobsters {
+		display: flex;
+		min-height: 20em;
+		width: 100%;
+	}
+
+	#brief {
+		background: #fff;
+		flex-direction: column;
+	}
+
+	b {
+		font-weight: 700;
+		color: $lobsterRed;
+	}
+
+	#heading {
+		height: 33.3333%;
+		text-align: center;
+
+		h2 {
+			font-family: 'Novecento';
+			font-size: 50px;
+			font-weight: normal;
+		}
+	}
+
+	#quote {
+		height: 66.6666%;
+
+		#innerQuote {
+			height: 33.3333%;
+		}
+	}
+
+	blockquote {
+		color: #666;
+		font-family: 'Space Mono';
+		max-width: 50em;
+		margin: 0 auto;
+		padding: 0 1em;
+
+		a {
+			color: #000;
+		}
+	}
+
+	#socialNetworks {
+		display: flex;
+		justify-content: center;
+		font-family: 'Novecento Sans Light';
+		margin-top: 1em;
+		
+		#innerSocial {
+			display: flex;
 			width: 100%;
+			text-align: center;
+		}
+
+		a {
+			color: white;
+			width: 100%;
+			margin-bottom: 15px;
+		}
+
+		span {
+			display: none;
+		}
+	}
+
+	@media (max-width: 48em) {
+		#lobsters {
+			flex-direction: column;
+		}
+
+		#socialNetworks {
+			flex-direction: row;
+			font-size: 4vw;
+
+			a {
+				width: 100%;
+				height: 100%;
+				margin: 15px;
+			}
+		}
+	}
+
+	#projects {
+		width: 100%;
+		min-height: 30em;
+	}
+
+	@media (min-width: 48em) and (max-width: 1120px) {
+		#socialNetworks {
+			font-size: 1.5em;
+
+			#innerSocial {
+				flex-direction: column;
+			}
+		}
+	}
+
+	@media (min-width: 1120px) {
+		#lobsters {
 			display: flex;
 			flex-direction: row;
 
@@ -20,77 +124,30 @@
 				top: 59vh;
 				height: 3vh;
 				width: 66.6666%;
-				background: #fff;
 			}
-		}
-
-		b {
-			font-weight: 700;
-			color: $lobsterRed;
 		}
 
 		#brief {
-			// box-shadow: 4px 4px #333;
-			z-index: 2;
 			margin-top: -3vh;
 			display: flex;
-			flex-direction: column;
-		}
-
-		#heading {
-			height: 33.3333%;
-			text-align: center;
-
-			h2 {
-				font-family: 'Novecento';
-				font-size: 50px;
-			}
-		}
-
-		#quote {
-			height: 66.6666%;
-
-			#innerQuote {
-				height: 33.3333%;
-			}
-		}
-
-		blockquote {
-			color: #666;
-			font-family: 'Space Mono';
-			max-width: 50em;
-			margin: 0 auto;
-			padding: 0 1em;
-
-			a {
-				color: #000;
-			}
 		}
 
 		#socialNetworks {
-			background: black;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			font-family: 'Novecento Sans Light';
-			font-size: 1.3em;
 			padding-left: 0;
+			font-size: 1.3em;
 
 			#innerSocial {
-				width: 100%;
+				flex-direction: column;
 			}
 
 			a {
-				color: white;
 				text-align: right;
 				display: flex;
 				flex-direction: row;
 				align-items: center;
-				width: 100%;
-				margin-bottom: 10px;
 
 				&:hover {
-					background: #f0f0f0;
+					background: linear-gradient(to right, white, #eee);
 					color: #cc2c18;
 				}
 			}
@@ -99,12 +156,10 @@
 				padding-left: 1em;
 				margin-right: .75em
 			}
-		}
 
-		#projects {
-			width: 100%;
-			background: #000;
-			height: 30em;
+			span {
+				display: block;
+			}
 		}
 	}
 }
