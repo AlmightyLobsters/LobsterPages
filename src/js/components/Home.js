@@ -3,14 +3,14 @@ import React from 'react';
 export const Home = _ => (
     <div id="home">
         <section className="hero">
-            <section id="welcome" className="v-center">
-                <header>
-                    <h1>Vítejte</h1>
-                </header>
-            </section>
+            <header>
+                <h1>Vítejte</h1>
+            </header>
+        </section>
+        <main>
             <section id="lobsters">
                 <article id="brief" className="col-2-3">
-                    <div id="heading">
+                    <div id="heading" className="v-center">
                         <h2>We are <b>Lobsters</b></h2>
                     </div>
                     <div id="quote">
@@ -42,8 +42,8 @@ export const Home = _ => (
                     </div>
                 </section>
             </section>
-        </section>
-        <div id="projects">
-        </div>
+            <div id="projects">
+            </div>
+        </main>
     </div>
 );
