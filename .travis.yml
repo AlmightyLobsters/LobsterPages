@@ -4,14 +4,14 @@ script: yarn build
 before_deploy:
 - rm -rf node_modules
 - rm -rf .git
-- rm .eslintrc
-- rm .gitignore
-- rm .travis.yml
-- rm build.js
-- rm LICENSE.md
-- rm README.md
-- rm webpack.config.js
-- rm yarn.lock
+- rm -f .eslintrc
+- rm -f .gitignore
+- rm -f .travis.yml
+- rm -f build.js
+- rm -f LICENSE.md
+- rm -f README.md
+- rm -f webpack.config.js
+- rm -f yarn.lock
 - git init
 - git config user.name "travis"
 - git config user.email "vojtechstepancik@outlook.com"
