@@ -81,6 +81,22 @@
 		}
 	}
 
+	#projects {
+		width: 100%;
+		min-height: 30em;
+		padding: 1em;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		div.project {
+			padding: 1em;
+			background: white;
+			width: 45%;
+		}
+	}
+
 	@media (max-width: 48em) {
 		#lobsters {
 			flex-direction: column;
@@ -96,11 +112,6 @@
 				margin: 15px;
 			}
 		}
-	}
-
-	#projects {
-		width: 100%;
-		min-height: 30em;
 	}
 
 	@media (min-width: 48em) and (max-width: 1120px) {

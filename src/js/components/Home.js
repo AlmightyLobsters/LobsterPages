@@ -44,16 +44,16 @@ export const Home = _ => (
             </section>
             <section id="projects">
                 <div className="project" id="cansat">
-                    CanSat
+                    <img src="/imgs/CanSat.jpg"></img>
                 </div>
                 <div className="project" id="polly">
-                    Polly
+                    <img src="/imgs/Polly.jpg"></img>
                 </div>
                 <div className="project" id="cs">
-                    CS
+                    <img src="/imgs/CS.jpg"></img>
                 </div>
                 <div className="project" id="nfctron">
-                    NFCtron
+                    <img src="/imgs/NFCtron.jpg"></img>
                 </div>
             </section>
         </main>
