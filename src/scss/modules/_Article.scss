@@ -1,5 +1,11 @@
 #article {
-   .hero {
-       background-size: cover;
+   main {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+
+       article {
+           background: rgba(256, 256, 256, .5);
+       }
    }
 }
