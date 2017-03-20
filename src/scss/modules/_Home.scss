@@ -63,7 +63,7 @@
 		justify-content: center;
 		font-family: 'Novecento Sans Light';
 		margin-top: 1em;
-		
+
 		#innerSocial {
 			display: flex;
 			width: 100%;
@@ -80,6 +80,34 @@
 			display: none;
 		}
 	}
+
+	#projects {
+		width: 100%;
+		min-height: 30em;
+		padding: 1em;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		div.project {
+			margin: 1em auto;
+			padding: 1em;
+			background: white;
+			width: 70%;
+			max-width: 35em;
+
+			img {
+				width: 38%;
+			}
+		}
+	}
+
+	@media (min-width: 48em) {
+		#brief {
+			margin-top: -3vh;
+		};
+	};
 
 	@media (max-width: 48em) {
 		#lobsters {
@@ -98,11 +126,6 @@
 		}
 	}
 
-	#projects {
-		width: 100%;
-		min-height: 30em;
-	}
-
 	@media (min-width: 48em) and (max-width: 1120px) {
 		#socialNetworks {
 			font-size: 1.5em;
@@ -117,18 +140,9 @@
 		#lobsters {
 			display: flex;
 			flex-direction: row;
-
-			&::before {
-				content: "";
-				position: absolute;
-				top: 59vh;
-				height: 3vh;
-				width: 66.6666%;
-			}
 		}
 
 		#brief {
-			margin-top: -3vh;
 			display: flex;
 		}
 
@@ -147,7 +161,7 @@
 				align-items: center;
 
 				&:hover {
-					background: linear-gradient(to right, white, #eee);
+					background: linear-gradient(to right, white, #ddd);
 					color: #cc2c18;
 				}
 			}
@@ -161,5 +175,14 @@
 				display: block;
 			}
 		}
+
+		.project {
+			width: 33em;
+
+			img {
+				width: 10em;
+			}
+		}
 	}
+
 }

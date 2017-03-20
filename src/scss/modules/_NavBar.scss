@@ -2,7 +2,7 @@ $navHeight: 50px;
 $navTextSize: 17px;
 
 nav#navbar {
-	background: rgba(256, 256, 256, .90);
+	background: rgba(246, 246, 246, .92);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -10,7 +10,7 @@ nav#navbar {
 	min-width: 210px;
 	height: $navHeight;
 	-webkit-backdrop-filter: blur(10px);
-	z-index: 1;
+	z-index: 99;
 
 	ul {
 		list-style: none;
