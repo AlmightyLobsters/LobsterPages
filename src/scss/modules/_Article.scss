@@ -1,11 +1,20 @@
 #article {
+   .hero {
+       height: 25vh;
+   }
    main {
        display: flex;
        flex-direction: column;
        justify-content: center;
 
+       h3 {
+           font-family: 'Novecento Sans Light';
+           font-size: 2em;
+       }
+
        article {
            background: rgba(256, 256, 256, .5);
+           padding: 0 2em;
        }
    }
 }
