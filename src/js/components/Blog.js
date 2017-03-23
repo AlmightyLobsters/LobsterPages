@@ -22,9 +22,7 @@ export class Blog extends React.Component {
                 : (this.state.article
                     ? (
                         <div id="article">
-                            {this.state.article.imgPath
-                            && <section className="hero" style={{background: `url(${this.state.article.imgPath}) no-repeat`, filter: 'blur(200px)', height: '25vh'}} />
-                            }
+                            <section className="hero" style={this.state.article.imgPath && {background: `url(${this.state.article.imgPath})  no-repeat`, filter: 'blur(200px)'}} />
                             <main>
                                 <section>
                                     <article>
