@@ -83,31 +83,56 @@
 
 	#projects {
 		width: 100%;
-		min-height: 30em;
-		padding: 1em;
 		display: flex;
 		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: space-between;
+		padding: 2em 0;
+	}
 
-		div.project {
-			margin: 1em auto;
-			padding: 1em;
-			background: white;
-			width: 70%;
-			max-width: 35em;
+	.links {
+		h1 {
+			color: #B388FF;
+			font-weight: 700;
+		}
 
-			img {
-				width: 38%;
-			}
+		div {
+			margin: 0 auto;
+			padding: 1.5em 4.8em;
+			border: 2px #673AB7 solid;
 		}
 	}
 
 	@media (min-width: 48em) {
 		#brief {
 			margin-top: -3vh;
-		};
-	};
+		}
+
+		#projects {
+			.project#cansat {
+				background: url('/imgs/splash.png') #FFF59D;
+				display: flex;
+				padding: 0;
+				flex-direction: row;
+
+				.imgWrapper {
+					background: #FFEB3B;
+					padding: 1em;
+					max-width: 22em;
+				}
+
+				.noteWrapper {
+					border-left: 1.5em #fff176 solid;
+					padding: 0 .5em;
+					text-align: center;
+					font-family: 'Space Mono';
+					width: 100%;
+
+					article {
+						margin: -2em auto 0;
+					}
+				}
+			}
+		}
+	}
 
 	@media (max-width: 48em) {
 		#lobsters {
@@ -173,14 +198,6 @@
 
 			span {
 				display: block;
-			}
-		}
-
-		.project {
-			width: 33em;
-
-			img {
-				width: 10em;
 			}
 		}
 	}

@@ -43,17 +43,22 @@ export const Home = _ => (
                 </section>
             </section>
             <section id="projects">
-                <div className="project" id="cansat">
-                    <img src="/imgs/CanSat.jpg"></img>
+                <div className="links col-1-3 v-center">
+                    <div>
+                        <a href="/about"><h1>O nás</h1></a>
+                        <a href="/blog"><h1>Blog</h1></a>
+                    </div>
                 </div>
-                <div className="project" id="polly">
-                    <img src="/imgs/Polly.jpg"></img>
-                </div>
-                <div className="project" id="cs">
-                    <img src="/imgs/CS.jpg"></img>
-                </div>
-                <div className="project" id="nfctron">
-                    <img src="/imgs/NFCtron.jpg"></img>
+                <div className="project col-2-3" id="cansat">
+                    <div className="imgWrapper">
+                        <img src="/imgs/CanSat.jpg"></img>
+                    </div>
+                    <div className="noteWrapper v-center">
+                        <article>
+                            <h1>CanSat</h1>
+                            <p>Almighty Lobsters se účastní soutěže CanSat 2017 s podporou SiliconHill a Microsoftu.</p>
+                        </article>
+                    </div>
                 </div>
             </section>
         </main>
