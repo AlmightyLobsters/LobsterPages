@@ -22,9 +22,7 @@ export class Blog extends React.Component {
                 : (this.state.article
                     ? (
                         <div id="article">
-                            {this.state.article.imgPath
-                            && <section className="hero" style={{background: `url(${this.state.article.imgPath}) no-repeat`, filter: 'blur(200px)', height: '25vh'}} />
-                            }
+                            <section className="hero" style={{ background: this.state.article.imgPath ? `url(${this.state.article.imgPath}) no-repeat` : '#e57373', filter: 'blur(200px)' }} />
                             <main>
                                 <section>
                                     <article>
@@ -34,6 +32,7 @@ export class Blog extends React.Component {
                                         <div className="article_innerWrapper">
                                             {(typeof(this.state.article.text) === 'string' ? [this.state.article.text] : this.state.article.text)
                                                 .map(par => <p dangerouslySetInnerHTML={{__html: par}}></p>)}
+                                            {this.state.article.imgPath && <img src={this.state.article.imgPath}></img>}
                                         </div>
                                     </article>
                                 </section>

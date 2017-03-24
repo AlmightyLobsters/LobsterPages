@@ -31,9 +31,9 @@ export const Home = _ => (
                             <i className="fa fa-3x fa-twitter-square" aria-hidden="true"></i>
                             <span>AlmghtLobsters</span>
                         </a>
-                        <a id="gplus" href="https://plus.google.com/b/102005371252944081919/102005371252944081919" target="_blank">
-                            <i className="fa fa-3x fa-google-plus-square" aria-hidden="true"></i>
-                            <span>Almighty Lobsters</span>
+                        <a id="instagram" href="https://www.instagram.com/almightylobsters/" target="_blank">
+                            <i className="fa fa-3x fa-instagram" aria-hidden="true"></i>
+                            <span>almightylobsters</span>
                         </a>
                         <a id="github" href="https://github.com/AlmightyLobsters" target="_blank">
                             <i className="fa fa-3x fa-github-square" aria-hidden></i>
