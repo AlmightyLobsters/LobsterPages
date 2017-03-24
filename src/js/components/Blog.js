@@ -29,11 +29,9 @@ export class Blog extends React.Component {
                                         <div className="title">
                                             <h3>{this.state.article.title}</h3>
                                         </div>
-                                        <div className="article_innerWrapper">
-                                            {(typeof(this.state.article.text) === 'string' ? [this.state.article.text] : this.state.article.text)
-                                                .map(par => <p dangerouslySetInnerHTML={{__html: par}}></p>)}
-                                            {this.state.article.imgPath && <img src={this.state.article.imgPath}></img>}
-                                        </div>
+                                        {(typeof(this.state.article.text) === 'string' ? [this.state.article.text] : this.state.article.text)
+                                            .map(par => <p dangerouslySetInnerHTML={{__html: par}}></p>)}
+                                        {this.state.article.imgPath && <img src={this.state.article.imgPath}></img>}
                                     </article>
                                 </section>
                             </main>
