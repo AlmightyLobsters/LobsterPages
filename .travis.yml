@@ -4,14 +4,14 @@ script: yarn build
 before_deploy:
 - rm -rf node_modules
 - rm -rf .git
-- rm .eslintrc
-- rm .gitignore
-- rm .travis.yml
-- rm build.js
-- rm LICENSE.md
-- rm README.md
-- rm webpack.config.js
-- rm yarn.lock
+- rm -f .eslintrc
+- rm -f .gitignore
+- rm -f .travis.yml
+- rm -f build.js
+- rm -f LICENSE.md
+- rm -f README.md
+- rm -f webpack.config.js
+- rm -f yarn.lock
 - git init
 - git config user.name "travis"
 - git config user.email "vojtechstepancik@outlook.com"
@@ -26,3 +26,13 @@ deploy:
   slot: uncannylobsters-wip
   on:
     all_branches: true
+notifications:
+  email: false
+  slack:
+    on_failure: change
+    on_success: never
+    template:
+    - "http://www.youbrokethebuild.com/"
+    - "Build <%{build_url}|#%{build_number}> of %{repository_slug}@%{branch} failed! %{author} broke the build! Shame! Shame!"
+    rooms:
+      secure: IwIoTYdm7r+eqhd2QfnQrMkBpXdgpp0ifloX9c0YBUV58rD9OcecNzZo6+oiBrChSs1utIzAwA75HBaTuztPUZZpqW2P/1+Uaighmc2mR9K9hItTjV/ndxEqTzMTZG6QT2Rkqa6FLcAlQm+m2pY5CgdiBPBVWcLD/zyhh5aOSzxDD3Fs/43GeUucDexwPLZ1+bXBD3x7xWx1qzNOCNKWrOnCqc3S5aaDGQC7RBDbvf9Yc/aiNYmC1xpnwH64EnrpwE5KLI46nlyRN+YaDdqsElKB/CoJgTERL+XddDKtNxcvjbyeQo1tsq8DYjFw6LWNL2LYNm5cbH7xy5SnCYI7S97JbptFqQaFR0sLz45KKutu93J9Tz5APsH7KpmOy9lijWkSdlRsBlgGlvEaBoJETJTbELR6xnEhdWAryR3hK9E3jJD2xEhVUC9uIORcfOc2DrbChCvZ6LTYyRJ/5dd5ki/l52QFTStMOWMbVIKwZFSpxRsPuBq2zizBXhL0+GCzSPBDN6bzboQXpPktq19tLLAZpF5KKdmxr6eIE4N5eH3j+dYgthjqphhflT8al1o1C92fk4s89W3X0ySLd4PTlqJBYNE2TXu2jmYxbTuuPJh24vvALKuoRe1IPNeeGGgfclW0LYLC+YqHavekR4E7mEzu55KgzhHd9feAMiuI/Mo=
