@@ -1,12 +1,231 @@
 #home {
 	.hero {
-		background:#333;
-		height: 50vh;
+		flex-direction: column;
+		text-align: center;
+		height: 61.8vh;
+		background: url('/imgs/lobsterNebula.jpg') center #111;
+		width: 100%;
+	}
+
+	main {
+		background: url('/imgs/grainTexture.jpg') #000;
+	}
+
+	#lobsters {
+		display: flex;
+		min-height: 20em;
+		width: 100%;
 	}
 
 	#brief {
-		text-align: center;
-		max-width: 50em;
-		margin: auto;
+		background: #fff;
+		flex-direction: column;
 	}
+
+	b {
+		font-weight: 700;
+		color: $lobsterRed;
+	}
+
+	#heading {
+		height: 33.3333%;
+		text-align: center;
+
+		h2 {
+			font-family: 'Novecento';
+			font-size: 50px;
+			font-weight: normal;
+		}
+	}
+
+	#quote {
+		height: 66.6666%;
+
+		#innerQuote {
+			height: 33.3333%;
+		}
+	}
+
+	blockquote {
+		color: #666;
+		font-family: 'Space Mono';
+		max-width: 50em;
+		margin: 0 auto;
+		padding: 0 1em;
+
+		a {
+			color: #000;
+		}
+	}
+
+	#socialNetworks {
+		display: flex;
+		justify-content: center;
+		font-family: 'Novecento Sans Light';
+		margin-top: 1em;
+
+		#innerSocial {
+			display: flex;
+			width: 100%;
+			text-align: center;
+		}
+
+		a {
+			color: white;
+			width: 100%;
+			margin-bottom: 15px;
+		}
+
+		span {
+			display: none;
+		}
+
+		#facebook {
+			&:hover {
+				background: linear-gradient(to right, white, #c9d2e4);
+				color: #3b5998;
+			}
+		}
+
+		#twitter {
+			&:hover {
+				background: linear-gradient(to right, white, #d2f4ff);
+				color: #33ccff;
+			}
+		}
+
+		#instagram {
+			&:hover {
+				background: linear-gradient(to right, white, #f3d7ea);
+				color: #bd2d8e;
+			}
+		}
+
+		#github {
+			&:hover {
+				background: linear-gradient(to right, white, #ccc);
+				color: #000;
+			}
+		}
+	}
+
+	#projects {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		padding: 2em 0;
+		filter: blur(10px);
+	}
+
+	.links {
+		h1 {
+			color: #B388FF;
+			font-weight: 700;
+		}
+
+		div {
+			margin: 0 auto;
+			padding: 1.5em 4.8em;
+			border: 2px #673AB7 solid;
+		}
+	}
+
+	@media (min-width: 48em) {
+		#brief {
+			margin-top: -3vh;
+		}
+
+		#projects {
+			.project#cansat {
+				background: url('/imgs/splash.png') #FFF59D;
+				display: flex;
+				padding: 0;
+				flex-direction: row;
+
+				.imgWrapper {
+					background: #FFEB3B;
+					padding: 1em;
+					max-width: 22em;
+				}
+
+				.noteWrapper {
+					border-left: 1.5em #fff176 solid;
+					padding: 0 .5em;
+					text-align: center;
+					font-family: 'Space Mono';
+					width: 100%;
+
+					article {
+						margin: -2em auto 0;
+					}
+				}
+			}
+		}
+	}
+
+	@media (max-width: 48em) {
+		#lobsters {
+			flex-direction: column;
+		}
+
+		#socialNetworks {
+			flex-direction: row;
+			font-size: 4vw;
+
+			a {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 1em;
+				border-radius: 10px;
+			}
+		}
+	}
+
+	@media (min-width: 48em) and (max-width: 1120px) {
+		#socialNetworks {
+			font-size: 1.5em;
+
+			#innerSocial {
+				flex-direction: column;
+			}
+		}
+	}
+
+	@media (min-width: 1120px) {
+		#lobsters {
+			display: flex;
+			flex-direction: row;
+		}
+
+		#brief {
+			display: flex;
+		}
+
+		#socialNetworks {
+			padding-left: 0;
+			font-size: 1.3em;
+
+			#innerSocial {
+				flex-direction: column;
+			}
+
+			a {
+				text-align: right;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+			}
+
+			i {
+				padding-left: 1em;
+				margin-right: .75em
+			}
+
+			span {
+				display: block;
+			}
+		}
+	}
+
 }

@@ -1,5 +1,22 @@
 #article {
    .hero {
-       background-size: cover;
+       height: 20vh;
+   }
+   main {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+
+       h3 {
+           font-family: 'Novecento Sans Light';
+           font-size: 2em;
+       }
+
+       article {
+           background: rgba(256, 256, 256, .5);
+           padding: 2em;
+           margin: 0 auto;
+           max-width: 48em;
+       }
    }
 }

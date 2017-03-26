@@ -9,27 +9,25 @@
 <a href="https://github.com/AlmightyLobsters"><img src="https://cdn.rawgit.com/AlmightyLobsters/LobsterPages/6ed8e2cb/src/assets/imgs/logoRed.svg" alt="Almighty Lobsters Logo" width="80" height="80" align="right"></a>
 
 Project of a webpage covering the exploits and advances of the team the **Almighty Lobsters** through the [CanSat competition](http://www.esero.scientica.cz/cansat).
-This being the front-end part of the project (as of *now*).
 
 ## Technologies used
 
 * [React.js](https://facebook.github.io/react/)
 * [React-router](https://github.com/ReactTraining/react-router)
-* [Webpack](https://webpack.github.io/)
+* [Express](https://expressjs.com)
 * [Babel](https://github.com/babel/babel)
 * [Sass](http://sass-lang.com/)
 * [ESLint](http://eslint.org/)
 
 ## How to run
 
-`git clone https://github.com/AlmightyLobsters/LobsterPages.git` to clone repository <br>
-`yarn` / `npm install` to install packages <br>
-`yarn start` / `npm start` to spin up the hot-reloading webpack-dev-server <br>
-`yarn run build` / `npm run build` to build the project and get a static web page <br>
+You want to get your hands on those new nifty features that are in making? Sure, no problem.<br>
+Simply find on what branch they may be (eg.: design) and follow these instructions:
+1. `git clone https://github.com/AlmightyLobsters/LobsterPages.git -b [the name of the brach you have chosen]` to clone repository <br>
+2. `cd LobsterPages` <br>
+3. `yarn` / `npm install` to install packages <br>
+4. `yarn dev` / `npm dev` to spin up the hot-reloading express server <br>
+5. Done, you are all set
 
-## TODOs
-
-* [x] stack implemented
-* [x] the whole thing designed
-* [ ] back-end done
-* [x] site published
+## TODO
+To look at what awaits us, look at the GitHub Issues.

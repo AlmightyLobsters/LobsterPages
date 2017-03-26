@@ -1,3 +1,7 @@
+// Colours
+
+$lobsterRed: #cc2c18;
+
 // Fonts
 
 $font_folder: '../../public/fonts/';
@@ -20,6 +24,11 @@ $nove_bold_name: 'Novecentosanswide-Bold';
     src: url($font_folder+'woff2/'+$nove_bold_name+'.woff2') format('woff2'), url($font_folder+'woff/'+$nove_bold_name+'.woff') format('woff'), url($font_folder+'otf/'+$nove_bold_name+'.otf') format('opentype');
 }
 
+@font-face {
+    font-family: 'Space Mono';
+    src: url($font_folder+'otf/Space Mono regular.ttf') format('opentype');
+}
+
 // User styles
 
 @import './modules/About';
@@ -39,3 +48,19 @@ $nove_bold_name: 'Novecentosanswide-Bold';
 @import './modules/Admin/Admin';
 @import './modules/Admin/AdminNavBar';
 @import './modules/Admin/Dashboard';
+
+// Font Awesome
+
+@import './fontAwesome/variables';
+@import './fontAwesome/mixins';
+@import './fontAwesome/path';
+@import './fontAwesome/core';
+@import './fontAwesome/larger';
+@import './fontAwesome/fixed-width';
+@import './fontAwesome/list';
+@import './fontAwesome/bordered-pulled';
+@import './fontAwesome/animated';
+@import './fontAwesome/rotated-flipped';
+@import './fontAwesome/stacked';
+@import './fontAwesome/icons';
+@import './fontAwesome/screen-reader';

@@ -6,7 +6,7 @@ $article_accent_colour: #2c18cc;
         background-size: cover;
 
         b {
-            border-bottom: 6px #2c18cc solid;    
+            border-bottom: 6px #2c18cc solid;
         }
 
         h1 {
@@ -19,6 +19,8 @@ $article_accent_colour: #2c18cc;
     }
 
     main {
+        padding-top: 2em;
+        padding-bottom: 2em;
         background: url('/imgs/articles_blured.jpg') center no-repeat fixed;
         background-size: cover;
     }
