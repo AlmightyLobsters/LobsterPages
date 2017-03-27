@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import fs from 'fs';
 import fileUpload from 'express-fileupload';
+import { join } from 'path';
 import { BAD_REQUEST, INTERNAL_SERVER_ERROR, CREATED } from 'http-status-codes';
 import { authenticate } from '../../middleware/auth';
 import { getConfig } from '../../../config';
