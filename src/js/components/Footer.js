@@ -6,7 +6,7 @@ export const Footer = _ => (
             <section id="socialNetworks" className="col-1-4">
                 <h6>Humři na sociálních sítích</h6>
                 <ul>
-                    <li><a href="https://www.facebook.com/ALCanSat" target="_blank">Facebook</a></li>
+                    <li><a href="https://www.facebook.com/AlmightyLobsters" target="_blank">Facebook</a></li>
                     <li><a href="https://twitter.com/almghtLobsters" target="_blank">Twitter</a></li>
                     <li><a href="https://www.youtube.com/channel/UCox2-N19JXhrZlNf8cEM2Zw" target="_blank">YouTube</a></li>
                     <li><a href="https://plus.google.com/b/102005371252944081919/102005371252944081919" target="_blank">GooglePlus</a></li>

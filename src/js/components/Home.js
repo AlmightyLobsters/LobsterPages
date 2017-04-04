@@ -23,9 +23,9 @@ export const Home = _ => (
                 </article>
                 <section id="socialNetworks" className="col-1-3">
                     <div id="innerSocial">
-                        <a id="facebook" href="https://www.facebook.com/ALCanSat" target="_blank">
+                        <a id="facebook" href="https://www.facebook.com/AlmightyLobsters" target="_blank">
                             <i className="fa fa-3x fa-facebook-square" aria-hidden="true"></i>
-                            <span>ALCanSat</span>
+                            <span>AlmightyLobsters</span>
                         </a>
                         <a id="twitter" href="https://twitter.com/almghtLobsters" target="_blank">
                             <i className="fa fa-3x fa-twitter-square" aria-hidden="true"></i>
