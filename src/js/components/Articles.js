@@ -11,7 +11,7 @@ export class Articles extends React.Component {
         };
     }
 
-    componentWillMount() {
+    componentDidMount() {
         axios.get('/api/articles')
             .then(res => { this.setState({ articles: res.data || [] }); })
             .catch(err => { this.setState({ err, articles: []}); });
