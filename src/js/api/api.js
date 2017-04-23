@@ -8,6 +8,7 @@ import articles from './endpoints/articles';
 import hooks from './endpoints/hooks';
 import login from './endpoints/login';
 import upload from './endpoints/upload';
+import data from './endpoints/data';
 
 const router = Router();
 
@@ -17,5 +18,6 @@ router.use(articles);
 router.use(hooks);
 router.use(login);
 router.use(upload);
+router.use(data);
 
 export default router;

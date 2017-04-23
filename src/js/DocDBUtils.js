@@ -1,9 +1,13 @@
-import { DocumentClient } from 'documentdb';
+import { DocumentClient, DocumentBase } from 'documentdb';
 
 import { getConfig } from '../config';
 
-const { DB_HOST, DB_MASTER_KEY } = getConfig(["DB_HOST", "DB_MASTER_KEY"]);
-export const dbClient = new DocumentClient(DB_HOST, { masterKey: DB_MASTER_KEY });
+const { DB_HOST, DB_MASTER_KEY, IS_DEV } = getConfig(["DB_HOST", "DB_MASTER_KEY", "IS_DEV"]);
+
+const connectionPolicy = new DocumentBase.ConnectionPolicy();
+connectionPolicy.DisableSSLVerification = IS_DEV;
+
+export const dbClient = new DocumentClient(DB_HOST, { masterKey: DB_MASTER_KEY }, connectionPolicy);
 
 export const getOrCreateDatabase = (client, id, cb) => {
     var query = {

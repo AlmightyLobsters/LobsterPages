@@ -1,0 +1,32 @@
+#dataExplorer {
+    margin-top: $navHeight;
+
+    #charts {
+        height: 100%;
+        width: 100%;
+
+        div.c3 {
+            min-height: 480px;
+            height: 50%;
+            display: inline-block;
+
+            &.col-1-1 {
+                width: 100%;
+            }
+
+            &.col-1-2 {
+                width: 50%;
+            }
+
+        }
+
+        @media (max-width: 720px)
+        {
+            div.c3 {
+                height: 33%;
+                display: inline-block;
+                width: 100% !important;
+            }
+        }
+    }
+}

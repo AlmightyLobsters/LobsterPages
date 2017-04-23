@@ -76,7 +76,7 @@ export default class DatabaseRepo {
             if (err) cb(err);
             else if (!doc) cb({message: 'Document not found'});
             else {
-                for (prop in item)
+                for (let prop in item)
                     if (item.hasOwnProperty(prop))
                         doc[prop] = item[prop];
                 this.client.replaceDocument(doc._self, doc, (err, replaced) => {

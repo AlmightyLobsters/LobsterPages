@@ -5,11 +5,11 @@ import { match, RouterContext } from 'react-router';
 import { createServer as createHTTPServer } from 'http';
 import { renderToString } from 'react-dom/server';
 import { join } from 'path';
-import socketIO from 'socket.io';
 import { INTERNAL_SERVER_ERROR, MOVED_TEMPORARILY, NOT_FOUND } from 'http-status-codes';
 import { LobsterRoutes } from './js/routes';
 import api from './js/api/api';
 import { getConfig } from './config';
+import Socket from './js/socket';
 
 const { IS_DEV, PORT, PUBLIC_PATH } = getConfig(["IS_DEV", "PORT", "PUBLIC_PATH"]);
 
@@ -63,6 +63,8 @@ app.get('*', (req, res) => {
 
 
 const server = createHTTPServer(app);
-const io = socketIO(server); io.on('connection', () => {
-
-}); server.listen(PORT);
+Socket.Init(server);
+Socket.Instance.of('/listener').on('connect', socket => {
+    console.log('Connected listener socket');
+});
+server.listen(PORT);

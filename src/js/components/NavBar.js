@@ -14,6 +14,9 @@ export const NavBar = _ => (
             <li>
                 <Link to="/blog"><span id="blue">Blog</span></Link>
             </li>
+            <li>
+                <Link to="/data"><span id="green">Data</span></Link>
+            </li>
         </ul>
     </nav>
 );
